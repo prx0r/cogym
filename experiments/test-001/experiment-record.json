@@ -13,11 +13,11 @@
  "model_config": {
   "model_id": "ox-alpha-free"
  },
- "started_at": "2026-08-23T05:58:01.747443+00:00",
+ "started_at": "2026-08-23T08:39:58.452459+00:00",
  "status": "running",
  "runs": [
   {
-   "timestamp": "2026-08-23T05:58:01.747727+00:00",
+   "timestamp": "2026-08-23T08:39:58.452652+00:00",
    "treatment": "A",
    "subject": "s1",
    "world_family": "regime_flip",
@@ -32,7 +32,7 @@
    "tokens_approx": 0
   },
   {
-   "timestamp": "2026-08-23T05:58:01.748433+00:00",
+   "timestamp": "2026-08-23T08:39:58.453388+00:00",
    "treatment": "A",
    "subject": "s2",
    "world_family": "regime_flip",
@@ -47,7 +47,7 @@
    "tokens_approx": 0
   },
   {
-   "timestamp": "2026-08-23T05:58:01.748812+00:00",
+   "timestamp": "2026-08-23T08:39:58.453742+00:00",
    "treatment": "A",
    "subject": "s3",
    "world_family": "regime_flip",
