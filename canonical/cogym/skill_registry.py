@@ -109,9 +109,12 @@ class SkillRegistry:
 
     def evaluate(self, skill_id:str, incumbent_id:str|None,
                  world_hash:str, cand_scores:list[float], inc_scores:list[float],
+                 evidence_layer:str="dev", domain:str="general",
                  regression_probes:dict|None=None) -> SkillEvaluation:
         ev=SkillEvaluation(skill_id, incumbent_id, world_hash,
-                           cand_scores, inc_scores, regression_probes)
+                           cand_scores, inc_scores,
+                           evidence_layer=evidence_layer, domain=domain,
+                           regression_probes=regression_probes)
         skill=self.skills[skill_id]
         skill.evaluations.append({"receipt_hash":ev.receipt_hash,
                                   "evidence_layer":ev.evidence_layer,

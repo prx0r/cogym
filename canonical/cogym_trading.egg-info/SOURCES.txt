@@ -1,11 +1,12 @@
 README.md
 pyproject.toml
 cogym/__init__.py
-cogym/benchmark_compat.py
 cogym/canonical.py
 cogym/cli.py
-cogym/memory_compat.py
-cogym/utils_compat.py
+cogym/experiment_log.py
+cogym/hardworlds.py
+cogym/sealed_eval.py
+cogym/skill_registry.py
 cogym/agents/__init__.py
 cogym/agents/decision.py
 cogym/agents/model.py
@@ -24,13 +25,6 @@ cogym/dojo/chain.py
 cogym/dojo/curriculum.py
 cogym/dojo/master.py
 cogym/dojo/population.py
-cogym/evaluation/campaign.py
-cogym/evaluation/compat.py
-cogym/evaluation/hardworlds.py
-cogym/evaluation/pool.py
-cogym/evaluation/sealed.py
-cogym/evaluation/skill_registry.py
-cogym/evaluation/suite_compat.py
 cogym/experiments/__init__.py
 cogym/experiments/composition.py
 cogym/experiments/contagion.py
@@ -39,7 +33,6 @@ cogym/experiments/dose.py
 cogym/experiments/factory.py
 cogym/experiments/persistence.py
 cogym/experiments/runner.py
-cogym/experiments/runner_compat.py
 cogym/experiments/scoring.py
 cogym/experiments/social.py
 cogym/experiments/team.py
@@ -74,6 +67,7 @@ tests/test_composition.py
 tests/test_dose.py
 tests/test_graph.py
 tests/test_master.py
+tests/test_metascience.py
 tests/test_more_experiments.py
 tests/test_no_theatre.py
 tests/test_pack.py

@@ -269,6 +269,7 @@ def run_campaign(cfg_path: str, model_factory, root: str = ".") -> dict:
             suite = BenchmarkSuite(batch["worlds"], batch["seeds"])
             
             best_g, best_r = sscored[0]
+            delta_rec = {"verdict": "BASELINE", "genome_id": best_g.genome_id}
             
             if champion is None:
                 # First generation: candidate IS baseline, no comparison needed
@@ -298,18 +299,6 @@ def run_campaign(cfg_path: str, model_factory, root: str = ".") -> dict:
                     delta_rec["verdict"]="REJECT"
                 
                 batch["burned"] = True
-
-        # Record reasoning-pattern data for HydraDB projection later
-        for g, r in scored:
-            for part in ev.dev_suite().evaluate(g, model_factory)[1]:
-                wn = part.metadata.get("world_name", "unknown")
-                pid = pattern_db.record_pattern(f"genome_{g.genome_id[:12]}", 
-                    f"reasoning={g.reasoning_policy} mem={g.memory_policy} depth={g.memory_depth}",
-                    discovered_from=cfg.get("proposal",{}).get("method","random"))
-                pattern_db.record_result(pid, wn, 0, cfg.get("proposal",{}).get("method","random"),
-                    r.mean_reward if hasattr(r,'mean_reward') else 0,
-                    r.calibration_error if hasattr(r,'calibration_error') else 0,
-                    r.adaptation_latency if hasattr(r,'adaptation_latency') else 0)
 
         reg.log_generation({"event":"secret_acceptance",**delta_rec})
         batch["burned"] = True

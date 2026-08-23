@@ -26,7 +26,7 @@ class OpenAICompatible:
     Provider-specific retries/routing deliberately stay outside the experiment core.
     Request seed is recorded by callers; providers may ignore unsupported seed fields.
     """
-    def __init__(self, model_id: str, base_url: str, api_key: str, timeout: int = 180):
+    def __init__(self, model_id: str, base_url: str, api_key: str, timeout: int = 300):
         self.model_id = model_id
         self.base_url = base_url.rstrip("/")
         self.api_key = api_key
@@ -46,12 +46,22 @@ class OpenAICompatible:
             headers={"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json",
                  "User-Agent": "CogymLab/1.0", "Accept": "application/json"},
         )
-        try:
-            with urllib.request.urlopen(req, timeout=self.timeout) as response:
-                data = json.load(response)
-        except urllib.error.HTTPError as exc:
-            body = exc.read().decode("utf-8", errors="replace")[-2000:]
-            raise RuntimeError(f"model HTTP {exc.code}: {body}") from exc
+        for attempt in range(3):
+            try:
+                with urllib.request.urlopen(req, timeout=self.timeout) as response:
+                    data = json.load(response)
+                break
+            except urllib.error.HTTPError as exc:
+                if exc.code in (429, 503) and attempt < 2:
+                    import time
+                    wait = 30 * (attempt + 1)
+                    print(f"[model] HTTP {exc.code}, retrying in {wait}s...")
+                    time.sleep(wait)
+                    continue
+                body = exc.read().decode("utf-8", errors="replace")[-2000:]
+                raise RuntimeError(f"model HTTP {exc.code}: {body}") from exc
+            except urllib.error.URLError as exc:
+                raise RuntimeError(f"model URL error: {exc}") from exc
         return data["choices"][0]["message"]["content"]
 
 

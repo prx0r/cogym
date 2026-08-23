@@ -105,3 +105,22 @@ If you get HTTP 403 error code 1010, check this header exists.
 6. `cogym/state/signature.py` — BehaviorSignature: how we measure cognition
 7. `cogym/hardworlds.py` — worlds designed to expose reasoning failures
 8. `AGENTS.md` — this file
+
+## Autonomous Experiment Mode
+When running experiments, DO NOT sleep/wait in your shell. Instead:
+1. Launch experiments with `setsid nohup ... &` so they survive shell timeouts
+2. Check status every 30-60s with quick commands (tail logs, check PIDs)
+3. Between checks, work on other useful tasks (docs, tests, other projects)
+4. When an experiment completes, immediately: grade results → peer review → commit → launch next
+5. Use the watchdog pattern:
+   - tail log files for progress
+   - ps aux | grep to check processes alive
+   - if process died, read error from log and fix before relaunching
+6. Never block waiting — always be doing something productive between checks
+
+## Watchdog Commands (run these every 30s)
+```bash
+tail -5 /root/cogym/logs/auto-loop.log    # experiment loop status
+ps aux | grep -c "[r]un\|[p]ython"        # active processes
+free -m | awk 'NR==2{print $7"MB free"}'  # RAM check
+```

@@ -1,0 +1,65 @@
+{
+ "experiment_id": "test-001",
+ "hypothesis": "hypothesis",
+ "independent_variables": {
+  "treatment": "A"
+ },
+ "dependent_variables": [
+  "accuracy"
+ ],
+ "control_variables": {
+  "model": "ox-alpha-free"
+ },
+ "model_config": {
+  "model_id": "ox-alpha-free"
+ },
+ "started_at": "2026-08-23T05:58:01.747443+00:00",
+ "status": "running",
+ "runs": [
+  {
+   "timestamp": "2026-08-23T05:58:01.747727+00:00",
+   "treatment": "A",
+   "subject": "s1",
+   "world_family": "regime_flip",
+   "world_seed": 42,
+   "prompt_hash": "d5c35dc42880af8ea51f2aed62e8aa32127127a3354052e17726ff172b2e38a5",
+   "raw_output": "output",
+   "output_hash": "4bbb1f9446ff0829909d2fa9e71d95f6c7df7e30ac16ddf96e9a6b429d6b3ebf",
+   "parsed_response": null,
+   "outcome": "CORRECT",
+   "confidence": 0.8,
+   "duration_seconds": 1.0,
+   "tokens_approx": 0
+  },
+  {
+   "timestamp": "2026-08-23T05:58:01.748433+00:00",
+   "treatment": "A",
+   "subject": "s2",
+   "world_family": "regime_flip",
+   "world_seed": 43,
+   "prompt_hash": "d5c35dc42880af8ea51f2aed62e8aa32127127a3354052e17726ff172b2e38a5",
+   "raw_output": "",
+   "output_hash": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+   "parsed_response": null,
+   "outcome": "MALFORMED",
+   "confidence": null,
+   "duration_seconds": 0.5,
+   "tokens_approx": 0
+  },
+  {
+   "timestamp": "2026-08-23T05:58:01.748812+00:00",
+   "treatment": "A",
+   "subject": "s3",
+   "world_family": "regime_flip",
+   "world_seed": 44,
+   "prompt_hash": "d5c35dc42880af8ea51f2aed62e8aa32127127a3354052e17726ff172b2e38a5",
+   "raw_output": "out",
+   "output_hash": "1f3055ba62bd8a1dfab19f5f663c71d9e04039894a2ac28ec61da7d0fd27791f",
+   "parsed_response": null,
+   "outcome": "INFRA_FAILURE",
+   "confidence": null,
+   "duration_seconds": 0.1,
+   "tokens_approx": 0
+  }
+ ]
+}

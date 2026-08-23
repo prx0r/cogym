@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/root/cogym/canonical/experiments/run-real-transfer.py", line 8, in <module>
+    from cogym.agents.model import OpenAICompatible
+  File "/root/cogym/canonical/cogym/agents/model.py", line 62
+    except urllib.error.URLError as exc:
+    ^^^^^^
+SyntaxError: invalid syntax

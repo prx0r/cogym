@@ -49,8 +49,12 @@ class PatternStore:
         return pid
 
     def record_result(self, pattern_id: str, world_family: str, world_seed: int,
-                      treatment: str, mean_reward: float, calibration_error: float,
-                      adaptation_latency: float):
+                      treatment: str, mean_reward: float,
+                      control_mean_reward: float | None = None,
+                      calibration_error: float = 0.0,
+                      adaptation_latency: float = 0.0):
+        """improved = better than matched control on same world, not just > 0."""
+        improved = (mean_reward > (control_mean_reward if control_mean_reward is not None else 0))
         self.conn.execute(
             "INSERT INTO pattern_world_results VALUES (NULL,?,?,?,?,?,?,?,?,?)",
             (pattern_id, world_family, world_seed, treatment, mean_reward,
