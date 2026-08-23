@@ -1,0 +1,26 @@
+=== subject stx002-C treatment=pack rc=0 dur=19s
+--- TASK ---
+Act now: ~69% accuracy, no cost.
+Gather 4 probes first: ~85% accuracy but 96 credits in fees.
+Reward per correct decision: 100 credits. Gather or act?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (600 chars) ---
+--- OUTPUT ---
+```json
+{"choice":"A","confidence":0.82}
+```
+
+**Expected value analysis:**
+
+- **Act now (A):** 0.69 × 100 = **+69 credits**
+- **Gather probes (B):** 0.85 × 100 − 96 = **−11 credits**
+
+The 16-point accuracy gain costs 96 credits but only recovers 16 credits of marginal reward. Information-gathering only pays when the cost per unit of accuracy improvement is below the decision's reward delta — here it's 96/16 = 6 credits per percentage point, far exceeding the 1 credit per point breakeven.
+
+**Bias check (per PACK protocol):**
+- *Position bias* — N/A (binary choice, no ordering effect)
+- *Sycophancy* — risk is I might overvalue the "gather more info" framing as the "thoughtful" choice; the math says otherwise
+- *Self-preference* — ignoring style; just raw EV
+
+**Caveat at 0.82 not higher:** If this decision is *repeatable* (you'll face similar choices again), gathering probes has strategic value beyond this one payoff — the probes themselves become reusable instruments. The 0.18 uncertainty gap accounts for that unknown.

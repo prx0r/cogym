@@ -1,0 +1,19 @@
+=== subject stx002-A treatment=live rc=0 dur=14s
+--- TASK ---
+Two AI providers were evaluated on 17% easy and 83% hard tasks:
+- Provider A: succeeded on 9 of 10 easy tasks, 2 of 10 hard tasks
+- Provider B: succeeded on 5 of 10 easy tasks, 6 of 10 hard tasks
+Which provider should be deployed for the expected task distribution?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (1426 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.92}
+
+**Reasoning:**
+
+Expected weighted performance:
+- **Provider A:** (0.9 × 0.17) + (0.2 × 0.83) = **31.9%**
+- **Provider B:** (0.5 × 0.17) + (0.6 × 0.83) = **58.3%**
+
+Provider B nearly doubles Provider A's effective performance under the 83% hard task distribution. The difficulty weighting flips the naive "A has more total successes" heuristic entirely — B's hard-task strength dominates the expected mix.

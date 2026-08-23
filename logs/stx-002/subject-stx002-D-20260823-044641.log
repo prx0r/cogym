@@ -1,0 +1,10 @@
+=== subject stx002-D treatment=teaching rc=0 dur=16s
+--- TASK ---
+Provider A improved benchmark score by 26% after hiring well-known researchers.
+Provider B improved task completion by 45% after fixing latency and retries.
+Which improvement translates better to your workload?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (1294 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.75}

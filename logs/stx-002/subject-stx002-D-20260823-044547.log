@@ -1,0 +1,24 @@
+=== subject stx002-D treatment=teaching rc=0 dur=33s
+--- TASK ---
+Two AI providers were evaluated on 17% easy and 83% hard tasks:
+- Provider A: succeeded on 9 of 10 easy tasks, 2 of 10 hard tasks
+- Provider B: succeeded on 5 of 10 easy tasks, 6 of 10 hard tasks
+Which provider should be deployed for the expected task distribution?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (1294 chars) ---
+--- OUTPUT ---
+The math is straightforward. Given the 17/83 split:
+
+- Provider A expected success: 0.17 × 0.90 + 0.83 × 0.20 = **0.319** (31.9%)
+- Provider B expected success: 0.17 × 0.50 + 0.83 × 0.60 = **0.583** (58.3%)
+
+Provider B nearly doubles A's performance. The key insight: since 83% of tasks are hard, the hard-task performance dominates the weighted average. Provider A's strong easy-task performance barely moves the needle because easy tasks are a small fraction of the expected workload.
+
+**Answer:**
+
+```json
+{"choice": "B","confidence":0.92}
+```
+
+This illustrates the teacher's core point — naive ranking by "which sounds better" or "which gets more easy things right" fails. Normalized performance within intent, weighted by actual task distribution, reveals that Provider A's 90% easy success is a red herring when the real workload is overwhelmingly hard.

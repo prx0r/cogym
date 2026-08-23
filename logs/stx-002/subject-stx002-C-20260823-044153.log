@@ -1,0 +1,27 @@
+=== subject stx002-C treatment=pack rc=0 dur=18s
+--- TASK ---
+Provider A improved benchmark score by 26% after hiring well-known researchers.
+Provider B improved task completion by 45% after fixing latency and retries.
+Which improvement translates better to your workload?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (600 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.78}
+
+Rationale (per the stated principles):
+
+- Intent-normalized performance: Task completion (45%) measures whether work actually
+  gets done. Benchmark scores (26%) measure proxy accuracy, not real-world delivery.
+
+- Difficulty weighting: Task completion improvements correlate more strongly with
+  complex, multi-step agentic workloads. Benchmark gains often reflect easier,
+  well-trodden test items.
+
+- Availability is separate: B's latency/retry fixes directly address the
+  "timeouts/refusals are availability data" principle — critical for tool-calling
+  agents where a retry loop can cascade into failures.
+
+- Confidence note: 0.78 rather than higher because "my workload" wasn't fully
+  specified, and benchmark gains can sometimes indicate better reasoning on novel
+  tasks where completion metrics alone miss nuance.

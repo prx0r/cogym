@@ -1,0 +1,10 @@
+=== subject stx002-B treatment=checkpoint rc=0 dur=16s
+--- TASK ---
+Era 1 (200 eps): Rule A 76% / Rule B 24%.
+Era 2 (last 50 eps): Rule A 42% / Rule B 58%.
+Which rule now?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (1015 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.71}

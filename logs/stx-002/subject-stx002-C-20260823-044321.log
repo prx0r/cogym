@@ -1,0 +1,14 @@
+=== subject stx002-C treatment=pack rc=0 dur=16s
+--- TASK ---
+Recent sample: 6/7 positive outcomes.
+Population historical rate: 15% positive.
+Is the true positive rate closer to 15% or to the recent sample rate?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (600 chars) ---
+--- OUTPUT ---
+```json
+{"choice":"A","confidence":0.65}
+```
+
+Reasoning: With 7 observations and a strong historical base rate of 15%, Bayesian shrinkage pulls the posterior substantially toward the prior. A weakly informative Beta prior centered at 15% yields a posterior mean around 33-40%, which is closer to 15% than to 85.7%. The small sample (n=7) is not enough to overcome the population prior with high confidence, but it does shift meaningfully from 15%. Confidence is moderate because: (a) n=7 is genuinely informative, (b) the prior strength assumption matters, and (c) the sample proportion is so extreme (6/7) that it can't be fully discounted.

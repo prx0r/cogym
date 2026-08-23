@@ -1,0 +1,17 @@
+=== subject stx002-A treatment=live rc=0 dur=12s
+--- TASK ---
+Two AI providers were evaluated on 23% easy and 77% hard tasks:
+- Provider A: succeeded on 9 of 10 easy tasks, 2 of 10 hard tasks
+- Provider B: succeeded on 3 of 10 easy tasks, 7 of 10 hard tasks
+Which provider should be deployed for the expected task distribution?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (1426 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.94}
+
+Reasoning: Expected success rate weighted by task distribution:
+- Provider A: (0.23 × 0.9) + (0.77 × 0.2) = 0.207 + 0.154 = 36.1%
+- Provider B: (0.23 × 0.3) + (0.77 × 0.7) = 0.069 + 0.539 = 58.6%
+
+Provider B wins by ~22.5 percentage points. The 77% hard-task skew inverts the raw counts — A's easy-task dominance is diluted by the minority task share, while B's hard-task edge dominates the expected mix.

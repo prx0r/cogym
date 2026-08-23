@@ -1,0 +1,16 @@
+=== subject stx002-A treatment=live rc=0 dur=17s
+--- TASK ---
+Act now: ~60% accuracy, no cost.
+Gather 3 probes first: ~76% accuracy but 63 credits in fees.
+Reward per correct decision: 100 credits. Gather or act?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (1426 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.72}
+
+Expected value check:
+- Act now: 0.60 × 100 = 60 credits
+- Gather probes: 0.76 × 100 - 63 = 13 credits
+
+The 16% accuracy gain costs 63 credits, but only generates 16 additional expected credits (from 60 to 76). Net loss of 47 credits from gathering. The information value doesn't cover the probe cost at this scale.

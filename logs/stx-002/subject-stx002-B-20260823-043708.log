@@ -1,0 +1,20 @@
+=== subject stx002-B treatment=checkpoint rc=0 dur=14s
+--- TASK ---
+Two AI providers were evaluated on 17% easy and 83% hard tasks:
+- Provider A: succeeded on 9 of 10 easy tasks, 2 of 10 hard tasks
+- Provider B: succeeded on 5 of 10 easy tasks, 6 of 10 hard tasks
+Which provider should be deployed for the expected task distribution?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (1015 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.92}
+
+**Calculation:**
+
+Provider A: (0.17 × 0.90) + (0.83 × 0.20) = 0.319
+Provider B: (0.17 × 0.70) + (0.83 × 0.60) = 0.617
+
+Provider B wins by ~2x. The 83% hard-task weight dominates, and B's hard-task advantage (0.60 vs 0.20) outweighs A's easy-task edge (0.90 vs 0.70).
+
+**Key insight from your scoring framework:** This is the "difficulty-weighted correctness" principle in action. Provider A looks better on easy tasks but collapses where it matters most. Provider B generalizes better across difficulty tiers.

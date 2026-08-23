@@ -1,0 +1,16 @@
+=== subject stx002-A treatment=live rc=0 dur=20s
+--- TASK ---
+Recent sample: 6/7 positive outcomes.
+Population historical rate: 15% positive.
+Is the true positive rate closer to 15% or to the recent sample rate?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (1426 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.72}
+
+The recent sample (6/7 ≈ 85.7%) is very unlikely under the 15% hypothesis — probability of 6+ successes out of 7 when p=0.15 is only ~0.12%. This is well below standard significance thresholds (0.05 or 0.01), meaning the data contradicts the 15% base rate.
+
+However, I'm not at 85% confidence because n=7 is small and the question's framing ("closer to") leaves room for uncertainty about whether the environment has genuinely shifted or this is extreme noise.
+
+The Bayesian math: with a 15% prior and observing 6/7, the posterior mean is pulled toward the sample rate but tempered by the small sample. Given the very low p-value, the evidence favors B more strongly than the small n alone would suggest.

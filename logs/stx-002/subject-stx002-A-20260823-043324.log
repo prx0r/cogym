@@ -1,0 +1,35 @@
+=== subject stx002-A treatment=live rc=0 dur=22s
+--- TASK ---
+Era 1 (200 eps): Rule A 76% / Rule B 24%.
+Era 2 (last 50 eps): Rule A 42% / Rule B 58%.
+Which rule now?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (1426 chars) ---
+--- OUTPUT ---
+This is a classic non-stationary bandit problem. Let me think through the evidence:
+
+**The data:**
+- Era 1 (200 eps): A 76% / B 24% — strong historical signal for A
+- Era 2 (50 eps): A 42% / B 58% — recent signal flips to B
+
+**The analysis:**
+
+This looks like a distribution shift / regime change. The 34-percentage-point swing in 50 episodes is too large to attribute to noise alone (the standard error of that swing is roughly ±9% at 95% CI).
+
+If I naively combine both eras (250 total): A gets (152+21)/250 = 70%, B gets 30%. But Era 2's 50 episodes suggest the current regime is different.
+
+**Key decision: Do I weight recency?**
+
+The prompt asks "Which rule NOW?" — implying the current environment. The last 50 episodes are the best available evidence about the present. Erasing them in favor of 200 older episodes would be a form of anchoring to stale data.
+
+Rule B wins in the current regime with a meaningful margin.
+
+**Confidence:**
+- 50 episodes is modest sample size
+- The shift is dramatic and consistent (not a blip)
+- I'd put ~72% confidence that B remains the better rule going forward
+
+```json
+{"choice":"B","confidence":0.72}
+```

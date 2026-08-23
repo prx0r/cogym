@@ -1,0 +1,75 @@
+
+[live] (1/7)
+  w1 [difficulty_w] ✓ chose=B oracle=B
+  w2 [base_rate_sh] ✓ chose=A oracle=A
+  w3 [confounded_c] ✓ chose=B oracle=B
+  w4 [regime_flip] ✓ chose=B oracle=B
+  w5 [costly_evide] ✓ chose=A oracle=A
+  w6 [difficulty_w] ✓ chose=B oracle=B
+  w7 [base_rate_sh] ✗ chose=B oracle=A
+  w8 [confounded_c] ✓ chose=B oracle=B
+  w9 [regime_flip] ✓ chose=B oracle=B
+  w10 [costly_evide] ✓ chose=A oracle=A
+  w11 [difficulty_w] ✓ chose=B oracle=B
+  w12 [base_rate_sh] ✗ chose=B oracle=A
+  w13 [confounded_c] ✗ chose=A oracle=B
+  w14 [regime_flip] ✓ chose=B oracle=B
+  w15 [costly_evide] ✗ chose=B oracle=A
+  accuracy: 73.3%
+
+[checkpoint] (2/7)
+  w1 [difficulty_w] ✓ chose=B oracle=B
+  w2 [base_rate_sh] ✓ chose=A oracle=A
+  w3 [confounded_c] ✓ chose=B oracle=B
+  w4 [regime_flip] ✓ chose=B oracle=B
+  w5 [costly_evide] ✓ chose=A oracle=A
+  w6 [difficulty_w] ✓ chose=B oracle=B
+  w7 [base_rate_sh] ✓ chose=A oracle=A
+  w8 [confounded_c] ✓ chose=B oracle=B
+  w9 [regime_flip] ✓ chose=B oracle=B
+  w10 [costly_evide] ✓ chose=A oracle=A
+  w11 [difficulty_w] ✓ chose=B oracle=B
+  w12 [base_rate_sh] ✓ chose=A oracle=A
+  w13 [confounded_c] ✓ chose=B oracle=B
+  w14 [regime_flip] ✓ chose=B oracle=B
+  w15 [costly_evide] ✓ chose=A oracle=A
+  accuracy: 100.0%
+
+[pack] (3/7)
+  w1 [difficulty_w] ✓ chose=B oracle=B
+  w2 [base_rate_sh] ✓ chose=A oracle=A
+  w3 [confounded_c] ✓ chose=B oracle=B
+  w4 [regime_flip] ✓ chose=B oracle=B
+  w5 [costly_evide] ✓ chose=A oracle=A
+  w6 [difficulty_w] ✓ chose=B oracle=B
+  w7 [base_rate_sh] ✓ chose=A oracle=A
+  w8 [confounded_c] ✓ chose=B oracle=B
+  w9 [regime_flip] ✓ chose=B oracle=B
+  w10 [costly_evide] ✓ chose=A oracle=A
+  w11 [difficulty_w] ✓ chose=B oracle=B
+  w12 [base_rate_sh] ✓ chose=A oracle=A
+  w13 [confounded_c] ✓ chose=B oracle=B
+  w14 [regime_flip] ✓ chose=B oracle=B
+  w15 [costly_evide] ✓ chose=A oracle=A
+  accuracy: 100.0%
+
+[teaching] (4/7)
+  w1 [difficulty_w] ✓ chose=B oracle=B
+  w2 [base_rate_sh] ✗ chose=B oracle=A
+  w3 [confounded_c] ✓ chose=B oracle=B
+  w4 [regime_flip] ✓ chose=B oracle=B
+  w5 [costly_evide] ✓ chose=A oracle=A
+  w6 [difficulty_w] ✓ chose=B oracle=B
+  w7 [base_rate_sh] ✓ chose=A oracle=A
+  w8 [confounded_c] ✓ chose=B oracle=B
+  w9 [regime_flip] ✓ chose=B oracle=B
+  w10 [costly_evide] ✓ chose=A oracle=A
+  w11 [difficulty_w] ✓ chose=B oracle=B
+  w12 [base_rate_sh] ✗ chose=B oracle=A
+  w13 [confounded_c] ✓ chose=B oracle=B
+  w14 [regime_flip] ✓ chose=B oracle=B
+  w15 [costly_evide] ✓ chose=A oracle=A
+  accuracy: 86.7%
+
+[primer] (5/7)
+  w1 [difficulty_w] ✓ chose=B oracle=B

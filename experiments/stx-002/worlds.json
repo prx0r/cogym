@@ -1,0 +1,263 @@
+[
+ {
+  "family": "difficulty_weighted_rank",
+  "seed": 900000,
+  "prompt": "Two AI providers were evaluated on 17% easy and 83% hard tasks:\n- Provider A: succeeded on 9 of 10 easy tasks, 2 of 10 hard tasks\n- Provider B: succeeded on 5 of 10 easy tasks, 6 of 10 hard tasks\nWhich provider should be deployed for the expected task distribution?",
+  "oracle": "B",
+  "naive": "A",
+  "options": [
+   {
+    "name": "A",
+    "easy": 9,
+    "hard": 2
+   },
+   {
+    "name": "B",
+    "easy": 5,
+    "hard": 6
+   }
+  ]
+ },
+ {
+  "family": "base_rate_shift",
+  "seed": 907919,
+  "prompt": "Recent sample: 5/5 positive outcomes.\nPopulation historical rate: 20% positive.\nIs the true positive rate closer to 20% or to the recent sample rate?",
+  "oracle": "A",
+  "naive": "B",
+  "options": [
+   {
+    "name": "A",
+    "policy": "trust_base_rate"
+   },
+   {
+    "name": "B",
+    "policy": "extrapolate_recent"
+   }
+  ]
+ },
+ {
+  "family": "confounded_choice",
+  "seed": 915838,
+  "prompt": "Provider A improved benchmark score by 26% after hiring well-known researchers.\nProvider B improved task completion by 45% after fixing latency and retries.\nWhich improvement translates better to your workload?",
+  "oracle": "B",
+  "naive": "A",
+  "options": [
+   {
+    "name": "A",
+    "correlated": 26
+   },
+   {
+    "name": "B",
+    "causal": 45
+   }
+  ]
+ },
+ {
+  "family": "regime_flip",
+  "seed": 923757,
+  "prompt": "Era 1 (200 eps): Rule A 76% / Rule B 24%.\nEra 2 (last 50 eps): Rule A 42% / Rule B 58%.\nWhich rule now?",
+  "oracle": "B",
+  "naive": "A",
+  "options": [
+   {
+    "name": "A",
+    "era1": 76
+   },
+   {
+    "name": "B",
+    "era2": 58
+   }
+  ]
+ },
+ {
+  "family": "costly_evidence",
+  "seed": 931676,
+  "prompt": "Act now: ~69% accuracy, no cost.\nGather 5 probes first: ~75% accuracy but 175 credits in fees.\nReward per correct decision: 100 credits. Gather or act?",
+  "oracle": "A",
+  "naive": "B",
+  "options": [
+   {
+    "name": "A",
+    "act": "now"
+   },
+   {
+    "name": "B",
+    "act": "gather"
+   }
+  ]
+ },
+ {
+  "family": "difficulty_weighted_rank",
+  "seed": 939595,
+  "prompt": "Two AI providers were evaluated on 41% easy and 59% hard tasks:\n- Provider A: succeeded on 10 of 10 easy tasks, 0 of 10 hard tasks\n- Provider B: succeeded on 3 of 10 easy tasks, 5 of 10 hard tasks\nWhich provider should be deployed for the expected task distribution?",
+  "oracle": "B",
+  "naive": "A",
+  "options": [
+   {
+    "name": "A",
+    "easy": 10,
+    "hard": 0
+   },
+   {
+    "name": "B",
+    "easy": 3,
+    "hard": 5
+   }
+  ]
+ },
+ {
+  "family": "base_rate_shift",
+  "seed": 947514,
+  "prompt": "Recent sample: 6/7 positive outcomes.\nPopulation historical rate: 15% positive.\nIs the true positive rate closer to 15% or to the recent sample rate?",
+  "oracle": "A",
+  "naive": "B",
+  "options": [
+   {
+    "name": "A",
+    "policy": "trust_base_rate"
+   },
+   {
+    "name": "B",
+    "policy": "extrapolate_recent"
+   }
+  ]
+ },
+ {
+  "family": "confounded_choice",
+  "seed": 955433,
+  "prompt": "Provider A improved benchmark score by 22% after hiring well-known researchers.\nProvider B improved task completion by 68% after fixing latency and retries.\nWhich improvement translates better to your workload?",
+  "oracle": "B",
+  "naive": "A",
+  "options": [
+   {
+    "name": "A",
+    "correlated": 22
+   },
+   {
+    "name": "B",
+    "causal": 68
+   }
+  ]
+ },
+ {
+  "family": "regime_flip",
+  "seed": 963352,
+  "prompt": "Era 1 (200 eps): Rule A 66% / Rule B 34%.\nEra 2 (last 50 eps): Rule A 39% / Rule B 61%.\nWhich rule now?",
+  "oracle": "B",
+  "naive": "A",
+  "options": [
+   {
+    "name": "A",
+    "era1": 66
+   },
+   {
+    "name": "B",
+    "era2": 61
+   }
+  ]
+ },
+ {
+  "family": "costly_evidence",
+  "seed": 971271,
+  "prompt": "Act now: ~69% accuracy, no cost.\nGather 4 probes first: ~85% accuracy but 96 credits in fees.\nReward per correct decision: 100 credits. Gather or act?",
+  "oracle": "A",
+  "naive": "B",
+  "options": [
+   {
+    "name": "A",
+    "act": "now"
+   },
+   {
+    "name": "B",
+    "act": "gather"
+   }
+  ]
+ },
+ {
+  "family": "difficulty_weighted_rank",
+  "seed": 979190,
+  "prompt": "Two AI providers were evaluated on 23% easy and 77% hard tasks:\n- Provider A: succeeded on 9 of 10 easy tasks, 2 of 10 hard tasks\n- Provider B: succeeded on 3 of 10 easy tasks, 7 of 10 hard tasks\nWhich provider should be deployed for the expected task distribution?",
+  "oracle": "B",
+  "naive": "A",
+  "options": [
+   {
+    "name": "A",
+    "easy": 9,
+    "hard": 2
+   },
+   {
+    "name": "B",
+    "easy": 3,
+    "hard": 7
+   }
+  ]
+ },
+ {
+  "family": "base_rate_shift",
+  "seed": 987109,
+  "prompt": "Recent sample: 8/8 positive outcomes.\nPopulation historical rate: 15% positive.\nIs the true positive rate closer to 15% or to the recent sample rate?",
+  "oracle": "A",
+  "naive": "B",
+  "options": [
+   {
+    "name": "A",
+    "policy": "trust_base_rate"
+   },
+   {
+    "name": "B",
+    "policy": "extrapolate_recent"
+   }
+  ]
+ },
+ {
+  "family": "confounded_choice",
+  "seed": 995028,
+  "prompt": "Provider A improved benchmark score by 20% after hiring well-known researchers.\nProvider B improved task completion by 70% after fixing latency and retries.\nWhich improvement translates better to your workload?",
+  "oracle": "B",
+  "naive": "A",
+  "options": [
+   {
+    "name": "A",
+    "correlated": 20
+   },
+   {
+    "name": "B",
+    "causal": 70
+   }
+  ]
+ },
+ {
+  "family": "regime_flip",
+  "seed": 1002947,
+  "prompt": "Era 1 (200 eps): Rule A 76% / Rule B 24%.\nEra 2 (last 50 eps): Rule A 37% / Rule B 63%.\nWhich rule now?",
+  "oracle": "B",
+  "naive": "A",
+  "options": [
+   {
+    "name": "A",
+    "era1": 76
+   },
+   {
+    "name": "B",
+    "era2": 63
+   }
+  ]
+ },
+ {
+  "family": "costly_evidence",
+  "seed": 1010866,
+  "prompt": "Act now: ~60% accuracy, no cost.\nGather 3 probes first: ~76% accuracy but 63 credits in fees.\nReward per correct decision: 100 credits. Gather or act?",
+  "oracle": "A",
+  "naive": "B",
+  "options": [
+   {
+    "name": "A",
+    "act": "now"
+   },
+   {
+    "name": "B",
+    "act": "gather"
+   }
+  ]
+ }
+]

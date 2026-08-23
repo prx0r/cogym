@@ -1,0 +1,10 @@
+=== subject stx002-A treatment=live rc=0 dur=15s
+--- TASK ---
+Act now: ~69% accuracy, no cost.
+Gather 5 probes first: ~75% accuracy but 175 credits in fees.
+Reward per correct decision: 100 credits. Gather or act?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (1426 chars) ---
+--- OUTPUT ---
+{"choice":"A","confidence":0.91}

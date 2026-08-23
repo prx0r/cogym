@@ -1,0 +1,1 @@
+/root/cogym/experiments/stx-001/materials/C_pack.md

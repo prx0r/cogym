@@ -199,11 +199,15 @@ class ProposalEngine:
                 hermes_kids = apply_mutations(parents, props)
                 for k in hermes_kids:
                     out.append((k, "hermes"))
-                n -= len(out)
-                parents_for_random = [p for p in parents]  # P0-5: random fills from same parents
+                n_remaining = max(0, n - len(out))
             except Exception as e:
                 import logging; logging.warning("hermes proposals failed: %s", e)
-                n = cfg_n
+                n_remaining = n
+            # fill remainder with random mutations
+            for i in range(max(0, n_remaining)):
+                p = parents[i % len(parents)]
+                out.append((self.mutator.mutate(p), "random_fallback"))
+            return out
         for i in range(max(0,n)):
             p = parents[i % len(parents)]
             out.append((self.mutator.mutate(p), "random"))

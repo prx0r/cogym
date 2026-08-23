@@ -1,0 +1,21 @@
+=== subject stx002-B treatment=checkpoint rc=0 dur=21s
+--- TASK ---
+Act now: ~60% accuracy, no cost.
+Gather 3 probes first: ~76% accuracy but 63 credits in fees.
+Reward per correct decision: 100 credits. Gather or act?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (1015 chars) ---
+--- OUTPUT ---
+```json
+{"choice":"A","confidence":0.82}
+```
+
+**Rationale:**
+
+- **Act now (A):** EV = 0.60 × 100 = **60 credits**
+- **Gather probes (B):** EV = (0.76 × 100) − 63 = **13 credits**
+
+The 16% accuracy improvement yields only +16 expected credits, but the probes cost 63. Net of probe cost, gathering leaves you 47 credits worse off than acting immediately.
+
+**Caveat:** If this is one decision among many in a session, and the probes inform *all* subsequent decisions, B's value compounds — but at the stated numbers and no evidence of multiple future rounds, A dominates.

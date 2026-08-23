@@ -1,0 +1,16 @@
+=== subject stx002-D treatment=teaching rc=0 dur=19s
+--- TASK ---
+Provider A improved benchmark score by 22% after hiring well-known researchers.
+Provider B improved task completion by 68% after fixing latency and retries.
+Which improvement translates better to your workload?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (1294 chars) ---
+--- OUTPUT ---
+```json
+{"choice":"B","confidence":0.7}
+```
+
+Reasoning: Provider B's 68% improvement in task completion directly measures whether work gets delivered — the transcript explicitly separates availability (timeouts, refusals) from quality and flags it as its own metric. Task completion improvement at that magnitude means significantly more of your workload actually finishes. Provider A's 22% benchmark gain is a quality signal, but benchmark gains often don't scale linearly to real tasks. For most practical workloads, reliability wins over marginal quality.
+
+The transcript also warns against mixing availability into quality scoring — so B's gain is availability, A's is quality. If forced to pick one, availability at 68% beats quality at 22% for productivity.

@@ -1,0 +1,21 @@
+=== subject stx002-D treatment=teaching rc=0 dur=23s
+--- TASK ---
+Act now: ~60% accuracy, no cost.
+Gather 3 probes first: ~76% accuracy but 63 credits in fees.
+Reward per correct decision: 100 credits. Gather or act?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (1294 chars) ---
+--- OUTPUT ---
+{"choice":"A","confidence":0.82}
+
+**Rationale**: 
+- Act now: 0.60 × 100 = 60 credits (no cost)
+- Gather first: 0.76 × 100 = 76 credits - 63 cost = 13 credits
+
+The probe cost (63) exceeds the accuracy improvement value (16 extra correct decisions × 100 = 1600... wait, let me recalculate).
+
+Actually: With probes you get 76% × 100 = 76 EV, minus 63 cost = +13 net.
+Without probes: 60% × 100 = 60 EV, no cost = +60 net.
+
+Option A wins by 47 credits. The 16% accuracy gain doesn't justify the 63-credit probe cost for a single decision. Gather probes only if you have multiple future decisions to amortize the cost.
