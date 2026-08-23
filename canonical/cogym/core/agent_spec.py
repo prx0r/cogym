@@ -6,7 +6,13 @@ modules while staying inside typed fields so evolution remains reproducible.
 from __future__ import annotations
 from dataclasses import asdict, dataclass, field, replace
 from typing import Any
-from ..utils import sha256_id
+import hashlib, json as _json
+def _sha256_id(obj, prefix=""):
+    payload = _json.dumps(obj, sort_keys=True, default=str).encode()
+    return prefix + hashlib.sha256(payload).hexdigest()
+
+def sha256_id(obj, prefix=""):
+    return _sha256_id(obj, prefix)
 
 @dataclass(frozen=True)
 class AgentSpec:

@@ -43,7 +43,8 @@ class OpenAICompatible:
         req = urllib.request.Request(
             self.base_url + "/chat/completions",
             data=json.dumps(payload).encode("utf-8"),
-            headers={"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"},
+            headers={"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json",
+                 "User-Agent": "CogymLab/1.0", "Accept": "application/json"},
         )
         try:
             with urllib.request.urlopen(req, timeout=self.timeout) as response:
