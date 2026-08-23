@@ -1,4 +1,37 @@
-# Cogym Handover — 2026-08-23, 17:00 UTC
+# Cogym Handover — 2026-08-23, latest update
+
+## NOW RUNNING (autonomous pipeline)
+| PID | What | Log | Output |
+|-----|------|-----|--------|
+| run_ec1.py | COLLUDE E-C1 team production function (64 calls) | logs/ec1.log | experiments/collude/outputs/ec1-results.json |
+| chain_ec2.sh | auto-launches E-C2 when ec1-results.json lands | logs/ec2.log | experiments/collude/outputs/ec2-results.json |
+| e02/e03 persistence+dose | still retrying ox-alpha 503s, will self-resume on quota | logs/e02-full.log, e03-full.log | |
+
+COLLUDE ladder: docs/collusionthesis.md · experiments/collude/README.md
+Frozen episode bank: 8 Alpaca decisions, hash a621a0e19fa81566.
+E-C3 (god variants G1/G2/G3/G6 vs MAJ/CW bars) scaffolded in run_ec3.py, NOT launched.
+
+
+## CURRENT EXPERIMENT STATUS
+| Experiment | Model | Status | Key Finding |
+|-----------|-------|--------|-------------|
+| E01 baseline | muse-spark | ✅ COMPLETE | regime_flip hardest (log=-1.206), smooth easiest (-1.012) |
+| STX-002 transfer | ox-alpha-free | ✅ COMPLETE | checkpoint/pack=100%, live=73%, control=87% on hard worlds |
+| E04 social | ox-alpha-free | ✅ COMPLETE | peers rarely change decisions (0-22%), confidence reveal > full artifact for revision rate |
+| E02 persistence | ox-alpha-free | 🔄 Running (503 retries) | reset vs persistent vs outcomes |
+| E03 dose-response | ox-alpha-free | 🔄 Running (503 retries) | pathway depth 0-5 |
+
+## KEY FINDINGS
+1. Checkpoint/Pack = 100% accuracy on hard worlds — structured transfer works best
+2. Live pathway UNDERPERFORMS control (73% vs 87%) — overthinking hurts single-shot probes
+3. Social reveal: confidence-level causes more revision than full artifact (22% vs 11%)
+4. Difficulty scaling confirmed: smooth(-1.012) < shock(-1.045) < regime_flip(-1.206)
+5. Base-rate shift is the discriminating family — only checkpoint/pack pass consistently
+
+## KNOWN NON-FINDINGS (do not interpret as real)
+- "Live underperforms" may be format confound (live material=222w vs summary=15w)
+- n=1 per treatment per world — no variance measured
+- Control at 87% ceiling means limited room for improvement measurement
 
 ## What cogym IS now
 A deterministic reasoning laboratory using simulated trading as the experimental organism.
