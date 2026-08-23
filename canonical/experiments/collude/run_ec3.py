@@ -38,16 +38,12 @@ GOD_BASE = ("You are the portfolio supervisor. Three analysts worked this proble
 
 
 def main():
+    import sys as _s; print("MAIN ENTERED", flush=True)
     model = OpenAICompatible(model_id=C.MODEL_ID, base_url=C.BASE_URL,
                              api_key=os.environ["OPENCODE_GO_API_KEY"], timeout=300)
     eps, bank_hash = C.build_episode_bank(SYMBOLS, START, END, HORIZON, INDICES)
     trials_path = os.path.join(OUT_DIR, "ec3-trials.jsonl")
     conds = ["MAJ", "CW", "G1", "G2", "G3", "G6"]
-# trials-file reconstruction keys episodes by bare date; map episode->date
-EPISODE_DATE = {}
-
-def key_date(key: str) -> str:
-    return key.split("@")[1]
     agg = {c: {} for c in conds}
 
     def log(t):

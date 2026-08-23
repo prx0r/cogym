@@ -25,3 +25,17 @@
 
 ## Variables
 One variable per experiment per AGENTS.md. Episode bank frozen a621a0e19fa81566. Fresh session/call, Wilson CI, n≥30 for CONFIRMED.
+
+## Frontier Methods (arxiv sweep 2026-08-23) — mapped to our harnesses
+| Paper | Method | Our implementation |
+|-------|--------|-------------------|
+| 2603.06801 AceMAD (Martingale Curse) | peer-prediction: agents predict peers' beliefs; truth-holders anticipate crowd error; proper scoring rules weight aggregation | E-C4e peer_prediction: each agent predicts other's stance+confidence BEFORE reveal; disagreement-weighted vote |
+| 2606.00820 Stance Decomposition | separate spontaneous instability vs conformity vs persuasion via self-reflection CONTROL arm | E-C4 adds solo_revote control: same agent re-answers with NO peer info; flips = instability baseline |
+| 2509.21054 Persuasion Duality | sharing thinking content boosts persuasion AND resistance | amend mode already shares reasoning; add hidden-reasoning arm (stance-only reveal) to isolate |
+| 2602.16639 AREG | persuasion vs resistance weakly coupled (ρ=0.33); verification-seeking beats refusal on defense | E-C5 adversarial peer: measure both how often attacker flips defender AND defender's resistance tactics |
+| 2512.06573 Belief-box | belief statements + open-mindedness levels control persuadability | E-C4f belief_box: agents carry explicit belief ledger w/ strengths across rounds |
+| EquiMem 2605.09278 | zero-trust memory game, equilibrium-based trust weighting | defer to Hydra memory phase |
+
+## Design rule adopted
+Every multi-round mode MUST have a self-reflection control (same rounds, no peer input)
+so conformity ≠ instability. (2606.00820 shows ~40% of apparent influence is noise.)
