@@ -36,82 +36,121 @@ def ask(model, ep, system, temperature, seed, extra=""):
     return C.call_subject(model, ep, system, temperature, seed, extra_context=extra)
 
 
+def load_aggregated_from_trials(eps):
+    """Rebuild aggregated decisions + round stances from an existing trials JSONL
+    (avoids re-paying inference when only summary math crashed)."""
+    import json as _json
+    trials_path = os.path.join(OUT_DIR, "ec2-trials.jsonl")
+    recs = [ _json.loads(l) for l in open(trials_path) if l.strip() ]
+    aggregated = {}
+    rounds = {"indep3": [], "chat3": [], "seq3": [], "debate3": []}
+    by_ep_cond = {}
+    for r in recs:
+        key = r["episode"]  # already composite symbol@date
+        if r["stance"] not in ("UP", "DOWN"):
+            continue
+        by_ep_cond.setdefault(key, {}).setdefault(r["condition"], []).append(r)
+    for ep in eps:
+        key = f"{ep.symbol}@{ep.as_of}"
+        conds = by_ep_cond.get(key, {})
+        agg = {}
+        for cond in ["indep3", "chat3", "seq3"]:
+            sts = [t["stance"] for t in conds.get(cond, [])]
+            if len(sts) >= 3:
+                agg[cond] = C.majority(sts)
+                rounds[cond].append(sts[:3])
+        dv = conds.get("debate3", [])
+        if dv:
+            agg["debate3"] = dv[-1]["stance"]
+            rounds["debate3"].append([dv[-1]["stance"]])
+        aggregated[key] = agg
+    return aggregated, rounds
+
+
 def main():
-    model = OpenAICompatible(model_id=C.MODEL_ID, base_url=C.BASE_URL,
-                             api_key=os.environ["OPENCODE_GO_API_KEY"], timeout=300)
+    score_only = os.environ.get("EC2_SCORE_ONLY") == "1"
+    model = None
     eps, bank_hash = C.build_episode_bank(SYMBOLS, START, END, HORIZON, INDICES)
     print(f"bank {len(eps)} eps hash={bank_hash[:16]} (must equal ec1)", flush=True)
+    if score_only:
+        aggregated, round_stances = load_aggregated_from_trials(eps)
+    else:
+        model = OpenAICompatible(model_id=C.MODEL_ID, base_url=C.BASE_URL,
+                                 api_key=os.environ["OPENCODE_GO_API_KEY"], timeout=300)
+        round_stances = {}
     trials_path = os.path.join(OUT_DIR, "ec2-trials.jsonl")
     results = {"bank_hash": bank_hash, "conditions": {}}
-    round_stances = {}
 
     def log(t, extra=None):
-        rec = vars(t) | {"symbol": t.episode.symbol}
+        rec = vars(t).copy()
+        rec["episode"] = f"{t.episode.symbol}@{t.episode.as_of}"
+        rec["symbol"] = t.episode.symbol
         if extra:
             rec |= extra
         with open(trials_path, "a") as fh:
             fh.write(json.dumps(rec) + "\n")
 
-    aggregated = {}
-    for ei, ep in enumerate(eps):
-        key = f"{ep.symbol}@{ep.as_of}"
-        print(f"[{ei+1}/{len(eps)}] {key} realized={ep.realized:+.2%}", flush=True)
-        aggregated[key] = {}
+    if not score_only:
+      aggregated = {}
+      for ei, ep in enumerate(eps):
+         key = f"{ep.symbol}@{ep.as_of}"
+         print(f"[{ei+1}/{len(eps)}] {key} realized={ep.realized:+.2%}", flush=True)
+         aggregated[key] = {}
 
-        # indep3
-        r1 = []
-        for r, s in zip(ROLES, SEEDS):
-            t = ask(model, ep, C.ROLE_PROMPTS[r], 0.7, s)
-            t.condition = "indep3"; t.role = r
-            log(t); r1.append(t)
-        aggregated[key]["indep3"] = C.majority([t.stance or "" for t in r1])
-        round_stances.setdefault("indep3", []).append([t.stance for t in r1])
+         # indep3
+         r1 = []
+         for r, s in zip(ROLES, SEEDS):
+             t = ask(model, ep, C.ROLE_PROMPTS[r], 0.7, s)
+             t.condition = "indep3"; t.role = r
+             log(t); r1.append(t)
+         aggregated[key]["indep3"] = C.majority([t.stance or "" for t in r1])
+         round_stances.setdefault("indep3", []).append([t.stance for t in r1])
 
-        # chat3: reveal round-1 stances, allow one revision
-        reveal = "\n".join(f"- {r} said {t.stance} (conf {t.confidence})"
-                          for r, t in zip(ROLES, r1))
-        r2 = []
-        for r, s in zip(ROLES, SEEDS):
-            msg = ("Your teammates' initial views:\n" + reveal +
-                   "\nRevise or keep your view. Respond in the same JSON format.")
-            t = ask(model, ep, C.ROLE_PROMPTS[r], 0.7, s + 100, extra=msg)
-            t.condition = "chat3"; t.role = f"{r}-rev"
-            log(t); r2.append(t)
-        aggregated[key]["chat3"] = C.majority([t.stance or "" for t in r2])
-        round_stances.setdefault("chat3", []).append([t.stance for t in r2])
+         # chat3: reveal round-1 stances, allow one revision
+         reveal = "\n".join(f"- {r} said {t.stance} (conf {t.confidence})"
+                           for r, t in zip(ROLES, r1))
+         r2 = []
+         for r, s in zip(ROLES, SEEDS):
+             msg = ("Your teammates' initial views:\n" + reveal +
+                    "\nRevise or keep your view. Respond in the same JSON format.")
+             t = ask(model, ep, C.ROLE_PROMPTS[r], 0.7, s + 100, extra=msg)
+             t.condition = "chat3"; t.role = f"{r}-rev"
+             log(t); r2.append(t)
+         aggregated[key]["chat3"] = C.majority([t.stance or "" for t in r2])
+         round_stances.setdefault("chat3", []).append([t.stance for t in r2])
 
-        # seq3: sequential influence chain
-        chain_ctx = ""
-        seq = []
-        for i, (r, s) in enumerate(zip(ROLES, SEEDS)):
-            extra = f"Earlier teammates' views:\n{chain_ctx}" if chain_ctx else ""
-            t = ask(model, ep, C.ROLE_PROMPTS[r], 0.7, s, extra=extra)
-            t.condition = "seq3"; t.role = f"pos{i}"
-            log(t); seq.append(t)
-            chain_ctx += f"- {r}: {t.stance}\n"
-        aggregated[key]["seq3"] = C.majority([t.stance or "" for t in seq])
-        round_stances.setdefault("seq3", []).append([t.stance for t in seq])
+         # seq3: sequential influence chain
+         chain_ctx = ""
+         seq = []
+         for i, (r, s) in enumerate(zip(ROLES, SEEDS)):
+             extra = f"Earlier teammates' views:\n{chain_ctx}" if chain_ctx else ""
+             t = ask(model, ep, C.ROLE_PROMPTS[r], 0.7, s, extra=extra)
+             t.condition = "seq3"; t.role = f"pos{i}"
+             log(t); seq.append(t)
+             chain_ctx += f"- {r}: {t.stance}\n"
+         aggregated[key]["seq3"] = C.majority([t.stance or "" for t in seq])
+         round_stances.setdefault("seq3", []).append([t.stance for t in seq])
 
-        # debate3: bull case → bear rebuttal → quant judge
-        bull_case = ask(model, ep, C.ROLE_PROMPTS["bull"], 0.7, 11,
-                        extra="Argue your strongest bullish case in <=40 words.")
-        bull_case.condition = "debate3"; bull_case.role = "bull-case"; log(bull_case)
-        rebut = ask(model, ep, C.ROLE_PROMPTS["bear"], 0.7, 22,
-                    extra=f"Bull case:\n{bull_case.raw[-400:]}\nRebut in <=40 words, then give your JSON.")
-        rebut.condition = "debate3"; rebut.role = "bear-rebuttal"; log(rebut)
-        verdict = ask(model, ep,
-                      "You are an impartial judge. Weigh both cases, discount rhetoric. "
-                      + C.DECISION_FORMAT, 0.0, 33,
-                      extra=f"BULL:\n{bull_case.raw[-400:]}\n\nBEAR:\n{rebut.raw[-400:]}")
-        verdict.condition = "debate3"; verdict.role = "judge"; log(verdict)
-        aggregated[key]["debate3"] = C.parse_stance(verdict)
-        round_stances.setdefault("debate3", []).append([verdict.stance])
+         # debate3: bull case → bear rebuttal → quant judge
+         bull_case = ask(model, ep, C.ROLE_PROMPTS["bull"], 0.7, 11,
+                         extra="Argue your strongest bullish case in <=40 words.")
+         bull_case.condition = "debate3"; bull_case.role = "bull-case"; log(bull_case)
+         rebut = ask(model, ep, C.ROLE_PROMPTS["bear"], 0.7, 22,
+                     extra=f"Bull case:\n{bull_case.raw[-400:]}\nRebut in <=40 words, then give your JSON.")
+         rebut.condition = "debate3"; rebut.role = "bear-rebuttal"; log(rebut)
+         verdict = ask(model, ep,
+                       "You are an impartial judge. Weigh both cases, discount rhetoric. "
+                       + C.DECISION_FORMAT, 0.0, 33,
+                       extra=f"BULL:\n{bull_case.raw[-400:]}\n\nBEAR:\n{rebut.raw[-400:]}")
+         verdict.condition = "debate3"; verdict.role = "judge"; log(verdict)
+         aggregated[key]["debate3"] = C.parse_stance(verdict)
+         round_stances.setdefault("debate3", []).append([verdict.stance])
 
     # score
-    def diversity_metrics(rounds):
+    def diversity_metrics(stances):
         """Pairwise stance agreement H and decision entropy over one round of stances."""
         import math as _m
-        flat = [t.stance for t in rounds if t.stance in ("UP", "DOWN")]
+        flat = [s for s in stances if s in ("UP", "DOWN")]
         pairs, agree = 0, 0
         for i in range(len(flat)):
             for j in range(i + 1, len(flat)):
@@ -130,7 +169,10 @@ def main():
     for cond_i, cond in enumerate(["indep3", "chat3", "seq3", "debate3"]):
         utils, ok, decided = [], 0, 0
         agrees = []
-        for key, d in aggregated.items():
+        for key, adict in aggregated.items():
+            d = adict.get(cond) if isinstance(adict, dict) else adict
+            if d is None:
+                continue
             ep = next(e for e in eps if f"{e.symbol}@{e.as_of}" == key)
             utils.append(C.score(d, ep))
             if d in ("UP", "DOWN"):

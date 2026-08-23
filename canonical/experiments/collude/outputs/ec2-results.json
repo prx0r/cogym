@@ -2,46 +2,46 @@
   "bank_hash": "a621a0e19fa81566c20565da66cb55a139d80464a9dd2d923af3f557c21332e0",
   "conditions": {
     "indep3": {
-      "mean_utility_bps": 0.0,
-      "direction_accuracy": null,
-      "n_decided": 0,
+      "mean_utility_bps": 75.13,
+      "direction_accuracy": 0.5,
+      "n_decided": 8,
       "calls_per_decision": 3,
       "diversity": {
-        "pairwise_agreement": null,
-        "decision_entropy": null
+        "pairwise_agreement": 0.416,
+        "decision_entropy": 0.557
       }
     },
     "chat3": {
-      "mean_utility_bps": 0.0,
-      "direction_accuracy": null,
-      "n_decided": 0,
+      "mean_utility_bps": 23.33,
+      "direction_accuracy": 0.375,
+      "n_decided": 8,
       "calls_per_decision": 6,
       "diversity": {
-        "pairwise_agreement": null,
-        "decision_entropy": null
+        "pairwise_agreement": 0.5,
+        "decision_entropy": 0.478
       }
     },
     "seq3": {
-      "mean_utility_bps": 0.0,
-      "direction_accuracy": null,
-      "n_decided": 0,
+      "mean_utility_bps": 16.83,
+      "direction_accuracy": 0.429,
+      "n_decided": 7,
       "calls_per_decision": 3,
       "diversity": {
-        "pairwise_agreement": null,
-        "decision_entropy": null
+        "pairwise_agreement": 0.524,
+        "decision_entropy": 0.455
       }
     },
     "debate3": {
-      "mean_utility_bps": 0.0,
-      "direction_accuracy": null,
-      "n_decided": 0,
+      "mean_utility_bps": 92.77,
+      "direction_accuracy": 0.5,
+      "n_decided": 8,
       "calls_per_decision": 3,
       "diversity": {
         "pairwise_agreement": null,
-        "decision_entropy": null
+        "decision_entropy": 0.0
       }
     }
   },
-  "V_comm_bps": 0.0,
+  "V_comm_bps": -51.8,
   "claim_status": "PILOT n=8 \u2014 PROVISIONAL at best, no significance claims"
 }
