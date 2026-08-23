@@ -1,2 +1,23 @@
 
 === smooth_trend ===
+  s1: log=-1.015 util=+0.0020 dir=40%
+  s2: log=-1.016 util=+0.0018 dir=47%
+  s3: log=-1.005 util=+0.0025 dir=47%
+  SUMMARY: log=-1.012
+
+=== shock_jumps ===
+  s1: log=-1.037 util=-0.0028 dir=33%
+  s2: log=-1.099 util=-0.0028 dir=27%
+  s3: log=-0.998 util=+0.0018 dir=47%
+  SUMMARY: log=-1.045
+
+=== regime_flip ===
+  s1: log=-1.209 util=-0.0049 dir=0%
+  s2: log=-1.231 util=-0.0094 dir=13%
+  s3: log=-1.178 util=-0.0032 dir=27%
+  SUMMARY: log=-1.206
+
+E01 COMPLETE: 135 LLM calls in 1655s
+  smooth_trend         log=-1.012 util=+0.0021
+  shock_jumps          log=-1.045 util=-0.0013
+  regime_flip          log=-1.206 util=-0.0058

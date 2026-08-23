@@ -1,82 +1,51 @@
-import os
-"""E02: Reset vs Persistent context. Same worlds, only history_mode differs."""
+"""E02: Reset vs Persistent vs Persistent+Outcomes."""
 import os, json, time, sys
-sys.path.insert(0, "/root/cogym/canonical")
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 from cogym.agents.model import OpenAICompatible
 from cogym.experiments.factory import synthetic_trading_world
-from cogym.experiments.runner import run_world, summarize_repeats
+from cogym.experiments.persistence import run_persistence_matrix
+from cogym.state.pathway import ContextPathway, PathwayStep
+
+model = OpenAICompatible(
+    model_id="muse-spark-1.2-contributor",
+    base_url="https://opencode.ai/zen/go/v1",
+    api_key=os.environ["OPENCODE_GO_API_KEY"],
+)
+pathway = ContextPathway(
+    name="falsification_first",
+    steps=(
+        PathwayStep(id="s1", prompt="What does the market believe?", tags=("hypothesis",)),
+        PathwayStep(id="s2", prompt="What would falsify that belief?", tags=("falsifier",)),
+        PathwayStep(id="s3", prompt="Check evidence. Revise if needed.", tags=("revision",)),
+    ),
+    system="You value falsification over confirmation.",
+)
 
 WORLDS = [
     {"level": 1, "name": "reversal"},
-    {"level": 2, "name": "shock_jumps"},
     {"level": 4, "name": "regime_flip"},
 ]
-SAMPLES = 5
-BASE_SEED = 42
-CONDITIONS = ["reset", "persistent"]
+all_results = {}
 
-def main():
-    api_key = os.environ.get("OPENCODE_GO_API_KEY",
-        os.environ["OPENCODE_GO_API_KEY"])
-    model = OpenAICompatible(
-        model_id="ox-alpha-free",
-        base_url="https://opencode.ai/zen/go/v1",
-        api_key=api_key,
-    )
+for w in WORLDS:
+    world = synthetic_trading_world(level=w["level"], seed=42)
+    print(f"\n=== {w['name']} ===", flush=True)
+    
+    matrix = run_persistence_matrix(model=model, world=world, pathway=pathway,
+                                    repeats=3)
+    
+    for label in ["reset", "persistent", "persistent_with_outcomes"]:
+        summary = getattr(matrix, label.replace("_with_outcomes", "_with_outcomes"))
+        all_results[f"{w['name']}_{label}"] = {
+            "mean_log_score": round(summary.mean_log_score, 4),
+            "sd_log_score": round(summary.sd_log_score, 4),
+            "mean_utility": round(summary.mean_utility, 6),
+            "sd_utility": round(summary.sd_utility, 6),
+            "signature": {k: round(v,4) if isinstance(v,float) else v 
+                         for k,v in vars(summary.mean_signature).items()},
+        }
+        print(f"  {label:25s} log={summary.mean_log_score:.3f} util={summary.mean_utility:+.5f}")
 
-    results = {}
-    for winfo in WORLDS:
-        wname = winfo["name"]
-        world = synthetic_trading_world(level=winfo["level"], seed=BASE_SEED)
-        
-        for mode in CONDITIONS:
-            key = f"{wname}_{mode}"
-            print(f"\n{key}")
-            runs = []
-            
-            for sample in range(SAMPLES):
-                result = run_world(
-                    model=model, world=world,
-                    condition=f"{key}_s{sample}",
-                    history_mode=mode,
-                    temperature=0.2,
-                    sample_seed=BASE_SEED + sample * 100,
-                    reveal_outcomes=(mode == "persistent"),  # persistent agents see outcomes
-                )
-                runs.append(result)
-                ml = result.mean_log_score
-                mu = result.mean_paper_utility
-                print(f"  s{sample+1}: log={ml:.3f} util={mu:.4f}")
-            
-            summary = summarize_repeats(runs, key)
-            results[key] = {
-                "mean_log_score": round(summary.mean_log_score, 4),
-                "sd_log_score": round(summary.sd_log_score, 4),
-                "mean_utility": round(summary.mean_paper_utility, 4),
-                "sd_utility": round(summary.sd_utility, 4),
-                "signature": {k: v for k, v in vars(summary.mean_signature).items()},
-            }
-            print(f"  → log={summary.mean_log_score:.3f}±{summary.sd_log_score:.3f}")
-
-    # Compare
-    print(f"\n{'='*50}")
-    print("PERSISTENCE COMPARISON")
-    for winfo in WORLDS:
-        wname = winfo["name"]
-        reset_key = f"{wname}_reset"
-        persist_key = f"{wname}_persistent"
-        r = results.get(reset_key, {})
-        p = results.get(persist_key, {})
-        if r and p:
-            diff = p["mean_utility"] - r["mean_utility"]
-            direction = "BETTER" if diff > 0 else "WORSE" if diff < 0 else "SAME"
-            print(f"  {wname:20s} reset_util={r['mean_utility']:+.4f} "
-                  f"persist_util={p['mean_utility']:+.4f} → {direction}")
-
-    outpath = os.path.join(os.path.dirname(__file__), "outputs", "persistence-results.json")
-    os.makedirs(os.path.dirname(outpath), exist_ok=True)
-    json.dump(results, open(outpath, "w"), indent=1)
-
-if __name__ == "__main__":
-    import time as time_module
-    main()
+outpath = os.path.join(os.path.dirname(__file__), "outputs", "persistence-results.json")
+json.dump(all_results, open(outpath, "w"), indent=1)
+print(f"\nE02 COMPLETE. Results: {outpath}")

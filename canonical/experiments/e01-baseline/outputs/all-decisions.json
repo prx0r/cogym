@@ -1,0 +1,2556 @@
+[
+ {
+  "world": "smooth_trend",
+  "sample": 0,
+  "step_index": 30,
+  "stance": "FLAT",
+  "confidence": 0.42,
+  "expected_return": 0.001,
+  "crux": "Positive direction remains but momentum fading and volatility rising makes 5-step edge too small for",
+  "falsifiers": [
+   "Next 1-2 bars print strong directional follow-through >0.005 with expanding strength",
+   "Volatility contracts and direction re-accelerates positive",
+   "Price breaks to new high with volume_z >1.5 confirming trend resumption"
+  ],
+  "reasoning_summary": "Small positive drift offset by sharp negative momentum change and rising vol; expected 5-step return near zero, highest probability is flat/choppy, so FLAT with low confidence.",
+  "realized_return": 0.006563,
+  "log_score": -1.0788,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 0,
+  "step_index": 40,
+  "stance": "FLAT",
+  "confidence": 0.42,
+  "expected_return": 0.0022,
+  "crux": "Weak positive drift persists but momentum fading sharply at price highs with rising volatility impli",
+  "falsifiers": [
+   "5-step return > +1.5% or < -1.5% would reject muted drift hypothesis",
+   "Re-acceleration of direction/strength >0.2 with falling volatility would reject fading thesis",
+   "Sustained high volume_z >2 with directional follow-through would reject range view"
+  ],
+  "reasoning_summary": "Positive but weakening momentum near highs plus rising vol suggests small positive expected return over 5 steps with high uncertainty; probability mass spread across up/flat/down, insufficient edge fo",
+  "realized_return": 0.018284,
+  "log_score": -1.0217,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 0,
+  "step_index": 50,
+  "stance": "LONG",
+  "confidence": 0.42,
+  "expected_return": 0.0035,
+  "crux": "Uptrend intact at highs but decelerating with rising volatility, giving a small long edge over 5 ste",
+  "falsifiers": [
+   "direction turns negative or strength breaks down and drawdown >0.015 emerges",
+   "5-step realized return < -0.01 or consecutive negative returns with expanding volatility",
+   "Volume dries up or volatility spikes further invalidating trend continuation"
+  ],
+  "reasoning_summary": "Positive but softening trend at highs with supportive volume argues for continuation, but rising vol and momentum fade limit edge to a modest LONG bias with low confidence for 5 steps.",
+  "realized_return": 0.00547,
+  "log_score": -0.734,
+  "direction_correct": true,
+  "paper_utility": 0.00547
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 0,
+  "step_index": 60,
+  "stance": "LONG",
+  "confidence": 0.58,
+  "expected_return": 0.005,
+  "crux": "Positive and strengthening directional momentum with negligible drawdown supports modest upside over",
+  "falsifiers": [
+   "5-step cumulative return < -0.01 or price breaks below recent drawdown tolerance",
+   "Direction/strength reverses to negative or volatility_change spikes sharply",
+   "Volume_z spikes with negative returns indicating distribution"
+  ],
+  "reasoning_summary": "Point-in-time momentum positive and strengthening, price at highs, recent returns skewed positive. Expect small positive drift (~0.5% over 5 steps) with p_up > p_down, but moderate volatility keeps co",
+  "realized_return": 0.009462,
+  "log_score": -0.6539,
+  "direction_correct": true,
+  "paper_utility": 0.009462
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 0,
+  "step_index": 70,
+  "stance": "LONG",
+  "confidence": 0.56,
+  "expected_return": 0.0075,
+  "crux": "Uptrend intact at peak with rising direction/strength and falling volatility favors continuation ove",
+  "falsifiers": [
+   "Price closes >1.5x volatility below recent peak (drawdown >0.002) within 5 bars",
+   "Direction/strength turns negative and volatility expands",
+   "Consecutive negative returns break 12-bar positive skew"
+  ],
+  "reasoning_summary": "Point-in-time uptrend with improving direction and lower volatility points to modest upside over 5 steps; low volume keeps confidence moderate and favors LONG with limited size.",
+  "realized_return": -0.015193,
+  "log_score": -1.772,
+  "direction_correct": false,
+  "paper_utility": -0.015193
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 0,
+  "step_index": 80,
+  "stance": "FLAT",
+  "confidence": 0.42,
+  "expected_return": 0.0005,
+  "crux": "Small positive trend persists (direction 0.082) but momentum faded sharply (direction_change -0.081)",
+  "falsifiers": [
+   "Sustained close >111.5 with rising volume_z >1.0 would invalidate flat/consolidation thesis and confirm trend re-acceleration",
+   "Breakdown with 5-step return <-0.01 and volatility expansion >0.25 would indicate momentum reversal to short"
+  ],
+  "reasoning_summary": "Positive but fading strength and mixed last 12 returns (alternating signs, last bar negative) suggest consolidation; slight up edge does not justify LONG with low confidence, so FLAT with near-zero ex",
+  "realized_return": 0.011483,
+  "log_score": -0.9676,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 0,
+  "step_index": 90,
+  "stance": "LONG",
+  "confidence": 0.52,
+  "expected_return": 0.0038,
+  "crux": "Uptrend intact at 0 drawdown with 11/12 positive returns but momentum decelerating (direction_change",
+  "falsifiers": [
+   "Close >1.5% below peak (e.g., price <112.0) creating drawdown >0.015 invalidates continuation",
+   "direction turns negative or strength breaks below 0 within next 2 bars",
+   "Volatility spike >2x with consecutive negative returns"
+  ],
+  "reasoning_summary": "Point-in-time shows persistent short-term drift with price at highs but quantified momentum weakening and vol ticking up. Base case is small positive drift over 5 steps (~0.38%) with 54% up, 20% down,",
+  "realized_return": 0.009995,
+  "log_score": -0.6162,
+  "direction_correct": true,
+  "paper_utility": 0.009995
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 0,
+  "step_index": 100,
+  "stance": "LONG",
+  "confidence": 0.57,
+  "expected_return": 0.0065,
+  "crux": "Positive trend momentum with rising strength and falling volatility supports continuation over 5 bar",
+  "falsifiers": [
+   "Return over next 5 bars < -1% or consecutive negative returns breaking strength",
+   "Volatility spikes >2x and/or direction turns negative",
+   "Drawdown >1.5% from current price invalidates continuation thesis"
+  ],
+  "reasoning_summary": "Point-in-time data shows accelerating positive direction/strength, contracting volatility, and elevated volume at zero drawdown, favoring modest positive drift over 5 steps with managed downside risk.",
+  "realized_return": 0.00867,
+  "log_score": -0.5447,
+  "direction_correct": true,
+  "paper_utility": 0.00867
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 0,
+  "step_index": 110,
+  "stance": "LONG",
+  "confidence": 0.57,
+  "expected_return": 0.0135,
+  "crux": "Sustained positive direction and strength with accelerating momentum and falling volatility favors c",
+  "falsifiers": [
+   "Price closes below ~118.5 or 5-step return < -1.5% invalidates momentum thesis",
+   "Volatility spikes upward reversing volatility_change and drawdown >1%",
+   "Direction/strength turns negative on next bars"
+  ],
+  "reasoning_summary": "Point-in-time features show moderate uptrend that is strengthening with low drawdown and easing volatility; recent returns consistently positive support LONG with ~1.35% expected 5-step return, with f",
+  "realized_return": 0.017115,
+  "log_score": -0.478,
+  "direction_correct": true,
+  "paper_utility": 0.017115
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 0,
+  "step_index": 120,
+  "stance": "LONG",
+  "confidence": 0.54,
+  "expected_return": 0.0048,
+  "crux": "Positive and increasing directional strength with negligible drawdown supports modest continuation o",
+  "falsifiers": [
+   "Price falls >1% or drawdown deepens beyond -0.01 within horizon",
+   "Direction/strength flips negative on next bars",
+   "Volatility spikes >0.25 with volume surge on down moves"
+  ],
+  "reasoning_summary": "Point-in-time shows intact uptrend with accelerating strength and minimal drawdown. Over 5 steps base case is small positive drift with flat/down as lower probability given low volume.",
+  "realized_return": 0.010074,
+  "log_score": -0.6349,
+  "direction_correct": true,
+  "paper_utility": 0.010074
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 0,
+  "step_index": 130,
+  "stance": "FLAT",
+  "confidence": 0.41,
+  "expected_return": 0.001,
+  "crux": "Positive trend remains but sharp deceleration (-0.147) with rising volatility near highs implies mut",
+  "falsifiers": [
+   "5-step return >+0.8% or close >123.8 would indicate momentum re-acceleration negating FLAT",
+   "Volatility contraction with sustained closes above 123.0 on rising volume",
+   "Drawdown deepening beyond -1% with downside follow-through"
+  ],
+  "reasoning_summary": "Snapshot shows fading positive momentum and rising vol near peak; average drift ~0.08% per bar weighed against deceleration and choppiness yields ~0.10% expected over 5 steps with wide distribution, s",
+  "realized_return": -0.00655,
+  "log_score": -1.273,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 0,
+  "step_index": 140,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": -0.0045,
+  "crux": "Weak negative trend with sharp negative momentum change but very low strength and below-average volu",
+  "falsifiers": [
+   "Price closes >122.5 (+~0.9%) on above-average volume in next 2 bars would negate downside bias",
+   "Direction turns positive >0.02 with strength increasing would flip to LONG",
+   "Volatility spike >0.25 with large down bar would confirm SHORT and invalidate FLAT"
+  ],
+  "reasoning_summary": "Point-in-time shows weak down drift but accelerating negative change offset by low strength, low volume and high volatility; expected 5-step return slightly negative but edge too weak for directional ",
+  "realized_return": 0.010449,
+  "log_score": -1.3093,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 0,
+  "step_index": 150,
+  "stance": "FLAT",
+  "confidence": 0.41,
+  "expected_return": 0.0003,
+  "crux": "Positive but weak trend at zero drawdown with sharp momentum decay (-0.255) favors flat/choppy drift",
+  "falsifiers": [
+   "Price closes >+1.5% over next 2-3 bars on rising volume_z >1.0 would invalidate fade thesis",
+   "Direction/strength turning up with positive change would suggest renewed momentum",
+   "Sustained drawdown >1% would confirm down scenario over flat"
+  ],
+  "reasoning_summary": "Weak positive drift offset by large negative momentum change at highs and choppy recent returns; base case is flat to slightly positive drift with elevated two-sided risk over 5 steps.",
+  "realized_return": 0.007116,
+  "log_score": -1.1087,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 0,
+  "step_index": 160,
+  "stance": "LONG",
+  "confidence": 0.54,
+  "expected_return": 0.0018,
+  "crux": "Weak but improving positive trend (direction 0.068, rising +0.031) near highs (drawdown -0.006) with",
+  "falsifiers": [
+   "5-step cumulative return < -0.5% or close below ~122.9 would invalidate bullish drift",
+   "Volatility expansion > 0.20 with negative direction_change would signal trend failure",
+   "Sustained volume_z > 1.0 on down bars indicating distribution"
+  ],
+  "reasoning_summary": "For 5-step horizon, point-in-time trend is slightly positive and improving while drawdown and volatility contraction favor continuation, but low strength and low volume limit edge, yielding LONG stanc",
+  "realized_return": -0.001889,
+  "log_score": -1.4271,
+  "direction_correct": false,
+  "paper_utility": -0.001889
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 0,
+  "step_index": 170,
+  "stance": "LONG",
+  "confidence": 0.55,
+  "expected_return": 0.007,
+  "crux": "Positive and accelerating momentum at zero drawdown with easing volatility favors continuation over ",
+  "falsifiers": [
+   "drawdown rises >1% or price closes below recent swing low",
+   "direction/strength turns negative on next bar",
+   "volatility_change turns sharply positive with negative returns"
+  ],
+  "reasoning_summary": "Uptrend with accelerating strength, zero drawdown, and stable-to-lower vol plus 4-bar positive streak gives modest 5-step upside bias; low volume keeps confidence moderate.",
+  "realized_return": -0.012979,
+  "log_score": -1.6094,
+  "direction_correct": false,
+  "paper_utility": -0.012979
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 1,
+  "step_index": 30,
+  "stance": "LONG",
+  "confidence": 0.53,
+  "expected_return": 0.0025,
+  "crux": "Positive trend at highs persists but momentum is fading while volatility rises, implying muted upsid",
+  "falsifiers": [
+   "Direction turns negative or price breaks >1% below high in 1-2 bars",
+   "Volatility spikes further >0.20",
+   "Consecutive negative returns with expanding volume"
+  ],
+  "reasoning_summary": "Modest positive drift intact but fading momentum and rising volatility reduce edge for 5-bar horizon; small long bias with high flat/down probability and low confidence.",
+  "realized_return": 0.006563,
+  "log_score": -0.7985,
+  "direction_correct": true,
+  "paper_utility": 0.006563
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 1,
+  "step_index": 40,
+  "stance": "FLAT",
+  "confidence": 0.42,
+  "expected_return": 0.0018,
+  "crux": "Weak positive drift persists but decelerating momentum and rising volatility eliminate clear edge ov",
+  "falsifiers": [
+   "Sustained close above 106.0 (+0.6% in 5 steps) would validate continuation and falsify FLAT",
+   "Drop below 104.5 with expanding volatility would indicate momentum reversal to SHORT",
+   "Volume spike z>2 with directional follow-through would invalidate fading-momentum thesis"
+  ],
+  "reasoning_summary": "Small positive drift offset by negative momentum change and rising vol implies expected return near zero (+0.18% over 5 steps) with low confidence; probability mass near neutral, no clear LONG/SHORT e",
+  "realized_return": 0.018284,
+  "log_score": -0.9676,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 1,
+  "step_index": 50,
+  "stance": "LONG",
+  "confidence": 0.56,
+  "expected_return": 0.0075,
+  "crux": "Persistent positive drift with elevated participation supports modest upside over 5 bars, but decele",
+  "falsifiers": [
+   "Price closes >1.5% below 107.96 within 5 bars invalidates long drift thesis",
+   "Volatility expands >0.25 with negative returns signals regime flip to down",
+   "Direction/strength turns negative on next bar with volume spike suggests reversal"
+  ],
+  "reasoning_summary": "Point-in-time momentum positive but fading; average recent drift and above-average volume support LONG bias for 5-step horizon with modest expected return and elevated volatility risk.",
+  "realized_return": 0.00547,
+  "log_score": -0.6349,
+  "direction_correct": true,
+  "paper_utility": 0.00547
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 1,
+  "step_index": 60,
+  "stance": "LONG",
+  "confidence": 0.54,
+  "expected_return": 0.0042,
+  "crux": "Positive momentum strengthening with negligible drawdown supports continuation over 5 steps, but low",
+  "falsifiers": [
+   "5-step cumulative return < -0.005 or new drawdown < -0.01 would invalidate uptrend thesis",
+   "Direction/strength reversal to <0 on next bar",
+   "Volatility spike >0.25 or volume_z >2 with negative returns"
+  ],
+  "reasoning_summary": "Point-in-time momentum positive and accelerating, drawdown minimal, recent returns skewed positive. Expect modest positive drift over 5 steps with elevated noise, hence LONG with low confidence and ba",
+  "realized_return": 0.009462,
+  "log_score": -0.6539,
+  "direction_correct": true,
+  "paper_utility": 0.009462
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 1,
+  "step_index": 70,
+  "stance": "LONG",
+  "confidence": 0.56,
+  "expected_return": 0.0055,
+  "crux": "Low-volatility uptrend at highs with rising directional strength favors continuation over 5 steps de",
+  "falsifiers": [
+   "5-bar return < -0.8% or close breaks >1% below 111.52 on rising volatility",
+   "direction_change turns negative and volatility_change turns positive with expanding drawdown"
+  ],
+  "reasoning_summary": "Positive and rising direction/strength, zero drawdown, and mostly positive recent returns with falling volatility point to LONG bias for 5 steps; light volume and last-bar deceleration cap confidence ",
+  "realized_return": -0.015193,
+  "log_score": -1.772,
+  "direction_correct": false,
+  "paper_utility": -0.015193
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 1,
+  "step_index": 80,
+  "stance": "FLAT",
+  "confidence": 0.46,
+  "expected_return": 0.0006,
+  "crux": "Positive but sharply decaying direction (+0.082 with -0.081 change) on neutral volume and rising vol",
+  "falsifiers": [
+   "Consistent close above ~111.2 (>2x recent daily vol) with volume_z >1.0 would invalidate flat thesis and suggest LONG continuation",
+   "Breakdown with expanding volatility and 5-step return < -0.01 would confirm SHORT regime and falsify flat expectation",
+   "Sustained direction >0.15 with positive direction_change would re-establish up momentum"
+  ],
+  "reasoning_summary": "Point-in-time signal is weak positive direction fully offset by equal negative momentum change, neutral volume, tiny drawdown and uptick in volatility. Last bar reversal after short winning streak rei",
+  "realized_return": 0.011483,
+  "log_score": -1.0788,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 1,
+  "step_index": 90,
+  "stance": "LONG",
+  "confidence": 0.51,
+  "expected_return": 0.0035,
+  "crux": "Uptrend intact at 0 drawdown but momentum fading (direction_change negative) with rising vol, favori",
+  "falsifiers": [
+   "Next 1-2 returns strongly negative (>1.5*vol) would invalidate continuation thesis",
+   "Direction turning negative or drawdown >0.01 would signal trend break",
+   "Volatility spike >0.25 with volume_z >1.5 would suggest reversal rather than drift"
+  ],
+  "reasoning_summary": "Positive but decelerating momentum with price at highs and low-neutral volume suggests modest drift up over 5 steps, not strong breakout; probabilities weight up > flat > down with small positive expe",
+  "realized_return": 0.009995,
+  "log_score": -0.6539,
+  "direction_correct": true,
+  "paper_utility": 0.009995
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 1,
+  "step_index": 100,
+  "stance": "LONG",
+  "confidence": 0.56,
+  "expected_return": 0.0095,
+  "crux": "Positive and accelerating direction/strength at zero drawdown with falling volatility and above-aver",
+  "falsifiers": [
+   "5-step cumulative return < -0.5% or price closes below ~115.0",
+   "direction/strength turns negative or drawdown expands >1%",
+   "Volatility spikes +50% with negative returns and volume surge indicating reversal"
+  ],
+  "reasoning_summary": "Trend features aligned positive and improving, price at highs, volatility compressing, recent returns predominantly positive; base case modest upward drift over 5 bars with higher p_up vs p_down.",
+  "realized_return": 0.00867,
+  "log_score": -0.5447,
+  "direction_correct": true,
+  "paper_utility": 0.00867
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 1,
+  "step_index": 110,
+  "stance": "LONG",
+  "confidence": 0.58,
+  "expected_return": 0.016,
+  "crux": "Positive momentum persistence vs mean-reversion over 5-step horizon",
+  "falsifiers": [
+   "Price closes below ~119.0 or drawdown >1% within next 2-3 bars would weaken momentum thesis",
+   "Reversal in direction/strength to negative or two consecutive negative returns >0.005 would imply breakdown",
+   "Volatility spike with negative returns would indicate distribution rather than continuation"
+  ],
+  "reasoning_summary": "Point-in-time momentum is positive and strengthening, recent returns uniformly positive at cycle high with easing volatility, favoring long over 5 steps with moderate confidence.",
+  "realized_return": 0.017115,
+  "log_score": -0.478,
+  "direction_correct": true,
+  "paper_utility": 0.017115
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 1,
+  "step_index": 120,
+  "stance": "LONG",
+  "confidence": 0.57,
+  "expected_return": 0.0075,
+  "crux": "Positive and strengthening directional momentum with negligible drawdown supports modest upside over",
+  "falsifiers": [
+   "Price closes >1% below 121.82 within next 2 bars negating momentum",
+   "Volatility spike >0.25 or volume_z dropping further <-1.0 indicating liquidity fade",
+   "Direction/strength reversal to negative on next bar update"
+  ],
+  "reasoning_summary": "Over 5 bars, positive drift, strengthening direction, and minimal drawdown favor LONG with ~0.75% expected return; low volume and uptick in volatility keep probabilities moderate and risk balanced.",
+  "realized_return": 0.010074,
+  "log_score": -0.6162,
+  "direction_correct": true,
+  "paper_utility": 0.010074
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 1,
+  "step_index": 130,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": 0.0015,
+  "crux": "Positive trend intact but momentum fading sharply with rising volatility near highs, edge insufficie",
+  "falsifiers": [
+   "Sustained close above 123.5 with expanding volume would invalidate flat thesis",
+   "Sharp drawdown >1% with volatility spike would confirm down shift",
+   "Consistent positive returns >0.002 per bar over next 2-3 bars would re-establish momentum"
+  ],
+  "reasoning_summary": "Weak but positive drift offset by negative momentum change and rising volatility; 5-step expected return marginally positive but distribution wide, highest probability up yet insufficient edge vs risk",
+  "realized_return": -0.00655,
+  "log_score": -1.3093,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 1,
+  "step_index": 140,
+  "stance": "SHORT",
+  "confidence": 0.53,
+  "expected_return": -0.0048,
+  "crux": "Weak negative trend accelerating lower with no volume support for reversal, favoring small downside ",
+  "falsifiers": [
+   "5-bar return > +1.0% would invalidate bear drift thesis",
+   "Direction turning positive and strength increasing on rising volume would signal reversal",
+   "Consecutive closes >122.5 (~+0.9%) would negate drawdown continuation"
+  ],
+  "reasoning_summary": "Negative but weak trend is accelerating lower on low volume; average return negative and last prints negative favor continued modest downside over 5 bars with limited confidence due to low strength an",
+  "realized_return": 0.010449,
+  "log_score": -1.6607,
+  "direction_correct": false,
+  "paper_utility": -0.010449
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 1,
+  "step_index": 150,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": 0.0006,
+  "crux": "Positive trend intact at highs but momentum fading sharply with rising volatility favors no directio",
+  "falsifiers": [
+   "5-step return > +1.0% or new high with expanding direction would invalidate fade thesis",
+   "5-step return < -1.0% with volatility spike and direction turning negative would favor SHORT",
+   "Sustained directional run with volume_z >1.5 would contradict flat expectation"
+  ],
+  "reasoning_summary": "Short-horizon edge is weak: positive level offset by sharp deceleration at all-time high and high noise. Expected drift near zero over 5 steps, best classified as flat with slight upside bias but high",
+  "realized_return": 0.007116,
+  "log_score": -1.0788,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 1,
+  "step_index": 160,
+  "stance": "LONG",
+  "confidence": 0.38,
+  "expected_return": 0.0011,
+  "crux": "Weak uptrend reasserting after shallow pullback with easing volatility favors modest upside over 5 b",
+  "falsifiers": [
+   "5-bar close return < -0.01 or new drawdown < -0.02 would invalidate shallow-pullback thesis",
+   "Volatility spike reversal (volatility_change turning positive >0.02) would increase downside probability",
+   "Consecutive negative returns with expanding volume (volume_z >1) would signal distribution"
+  ],
+  "reasoning_summary": "Small positive direction with improving momentum and easing vol plus shallow drawdown and latest bar bounce suggests slight upside edge over 5 steps, but high vol and low volume keep edge modest and c",
+  "realized_return": -0.001889,
+  "log_score": -1.3863,
+  "direction_correct": false,
+  "paper_utility": -0.001889
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 1,
+  "step_index": 170,
+  "stance": "LONG",
+  "confidence": 0.56,
+  "expected_return": 0.0038,
+  "crux": "Positive and accelerating direction/strength with falling volatility, no drawdown, and recent positi",
+  "falsifiers": [
+   "Close below 123.8 or 5-bar return < -0.008 ( >1 risk unit down) would invalidate momentum thesis",
+   "Volatility spikes and direction_change turns negative (<-0.05) indicating momentum failure",
+   "Drawdown >1% developing with volume_z spike >2 would signal reversal/distribution"
+  ],
+  "reasoning_summary": "Short-horizon momentum is positive and strengthening with declining volatility and no drawdown. Recent returns corroborate drift. Edge is small given weak signal level, so long with modest expected re",
+  "realized_return": -0.012979,
+  "log_score": -1.6094,
+  "direction_correct": false,
+  "paper_utility": -0.012979
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 2,
+  "step_index": 30,
+  "stance": "LONG",
+  "confidence": 0.52,
+  "expected_return": 0.0016,
+  "crux": "Positive trend intact but momentum fading and volatility rising supports modest long bias with low e",
+  "falsifiers": [
+   "Next 1-2 returns < -0.003 would negate momentum and invalidate long",
+   "Volatility expansion above 0.20 with negative direction would flip to short",
+   "5-step cumulative return < -0.01 would falsify positive expected return"
+  ],
+  "reasoning_summary": "Short horizon favors drift continuation due to positive direction, but decelerating strength and rising volatility limit conviction to weak long; flat/down probabilities remain elevated.",
+  "realized_return": 0.006563,
+  "log_score": -0.734,
+  "direction_correct": true,
+  "paper_utility": 0.006563
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 2,
+  "step_index": 40,
+  "stance": "FLAT",
+  "confidence": 0.44,
+  "expected_return": 0.0012,
+  "crux": "Weak positive trend is decelerating sharply with rising volatility and choppy recent returns, favori",
+  "falsifiers": [
+   "Sustained close above 106 with volume_z >1.0 would invalidate flat thesis and support LONG",
+   "Consecutive closes with returns <-0.003 and expanding volatility would confirm downside break",
+   "Direction turning positive again with volatility falling would restore trend continuation"
+  ],
+  "reasoning_summary": "Small positive drift averages ~0.10% per bar but direction has dropped sharply while volatility ticks up and recent returns whipsaw, so flat/sideways is most likely over 5 steps with slight upside ske",
+  "realized_return": 0.018284,
+  "log_score": -1.0788,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 2,
+  "step_index": 50,
+  "stance": "LONG",
+  "confidence": 0.56,
+  "expected_return": 0.008,
+  "crux": "Up-trend intact (direction 0.17, drawdown 0.0, volume supportive) but decelerating (-0.03 change) wi",
+  "falsifiers": [
+   "Next 1-2 bar returns < -0.005 or close below 107 with expanding volatility would invalidate continuation",
+   "Direction turning negative or drawdown >0.02 would signal trend break",
+   "Volume_z dropping <-0.5 while price stalls would reduce upside probability"
+  ],
+  "reasoning_summary": "Short-horizon drift remains upward given positive direction, zero drawdown, and majority positive recent returns with volume support, but deceleration and slightly higher volatility cap expected retur",
+  "realized_return": 0.00547,
+  "log_score": -0.5978,
+  "direction_correct": true,
+  "paper_utility": 0.00547
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 2,
+  "step_index": 60,
+  "stance": "LONG",
+  "confidence": 0.56,
+  "expected_return": 0.0042,
+  "crux": "Positive and accelerating direction/strength with price at highs and minimal drawdown favors continu",
+  "falsifiers": [
+   "5-step realized return < -0.8% or 2 consecutive daily returns < -0.3%",
+   "Next bar direction/strength turns negative or drawdown widens beyond -0.01",
+   "Volatility spike >0.25 or volume_z >2.0 coinciding with down move"
+  ],
+  "reasoning_summary": "Momentum positive and accelerating with minimal drawdown and positive average recent returns tilts 5-bar odds upward; stable volatility and neutral volume limit confidence to moderate LONG with small ",
+  "realized_return": 0.009462,
+  "log_score": -0.6162,
+  "direction_correct": true,
+  "paper_utility": 0.009462
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 2,
+  "step_index": 70,
+  "stance": "LONG",
+  "confidence": 0.57,
+  "expected_return": 0.0085,
+  "crux": "Uptrend with rising direction/strength, zero drawdown, and falling volatility favors continuation ov",
+  "falsifiers": [
+   "Consecutive negative returns >0.3% breaking strength direction",
+   "Drawdown expanding >1% from highs",
+   "Volatility expanding with negative direction_change"
+  ],
+  "reasoning_summary": "Point-in-time shows strengthening up drift, ATH with no drawdown, and contracting vol; over 5 bars drift expected to dominate, warranting LONG bias with modest edge and controlled risk.",
+  "realized_return": -0.015193,
+  "log_score": -1.8971,
+  "direction_correct": false,
+  "paper_utility": -0.015193
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 2,
+  "step_index": 80,
+  "stance": "FLAT",
+  "confidence": 0.42,
+  "expected_return": 0.0007,
+  "crux": "Positive but sharply decelerating momentum near highs on low volume with rising volatility implies d",
+  "falsifiers": [
+   "Sustained close above 112 on rising volume_z >1 would invalidate flat thesis and confirm continuation",
+   "5-step return >+2% or <-2% beyond 1-sigma implied move (~2.6%) would show drift/volatility misestimated",
+   "Direction turning positive again with direction_change >+0.05 would signal momentum re-acceleration"
+  ],
+  "reasoning_summary": "Small positive drift is fading fast, price is extended near peak on weak volume and upticking vol; last bar breaks short up streak, leaving 5-step expected return near zero with ~2.6% noise, favoring ",
+  "realized_return": 0.011483,
+  "log_score": -1.1087,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 2,
+  "step_index": 90,
+  "stance": "LONG",
+  "confidence": 0.53,
+  "expected_return": 0.0035,
+  "crux": "Uptrend intact but decelerating at peak (drawdown 0.0) with rising volatility and neutral volume imp",
+  "falsifiers": [
+   "5-step return < -0.01 (strong reversal) invalidates bullish drift thesis",
+   "Direction turns negative or drawdown >0.015 with expanding volatility signals regime shift",
+   "Consecutive negative returns with volume_z >1.0 shows distribution instead of continuation"
+  ],
+  "reasoning_summary": "Positive direction and strong recent returns support small positive drift over 5 steps, but negative direction_change, zero drawdown, rising volatility and flat volume warrant low conviction LONG, nea",
+  "realized_return": 0.009995,
+  "log_score": -0.734,
+  "direction_correct": true,
+  "paper_utility": 0.009995
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 2,
+  "step_index": 100,
+  "stance": "LONG",
+  "confidence": 0.55,
+  "expected_return": 0.01,
+  "crux": "Positive and accelerating trend with zero drawdown and supportive volume points to continuation over",
+  "falsifiers": [
+   "Price closes >1.5% below 115.87 or drawdown expands >0.02 within horizon",
+   "direction/strength reverses negative and direction_change turns <-0.15",
+   "Volatility spikes and volume_z drops <-0.5 indicating loss of participation"
+  ],
+  "reasoning_summary": "Point-in-time features show strengthening uptrend, zero drawdown, and confirming volume with falling volatility; 5-step base case is modest continuation, favoring LONG with contained expected return a",
+  "realized_return": 0.00867,
+  "log_score": -0.5447,
+  "direction_correct": true,
+  "paper_utility": 0.00867
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 2,
+  "step_index": 110,
+  "stance": "LONG",
+  "confidence": 0.57,
+  "expected_return": 0.012,
+  "crux": "Strong persistent positive momentum with accelerating direction/strength and low drawdown favors con",
+  "falsifiers": [
+   "{'falsifier': 'Price closes down >1% in next 1-2 bars or direction turns negative would invalidate momentum thesis'}",
+   "{'falsifier': 'Volatility spikes >2x and volume_z >2 would signal exhaustion/reversal'}",
+   "{'falsifier': '5-step return < -0.8% would be outside expected drift and favor SHORT/FLAT update'}"
+  ],
+  "reasoning_summary": "Point-in-time momentum positive and strengthening, volatility stable-declining, price at highs with consistent positive recent returns skews 5-step distribution up; flat/down remain material due to ov",
+  "realized_return": 0.017115,
+  "log_score": -0.5108,
+  "direction_correct": true,
+  "paper_utility": 0.017115
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 2,
+  "step_index": 120,
+  "stance": "LONG",
+  "confidence": 0.53,
+  "expected_return": 0.007,
+  "crux": "Positive accelerating momentum near highs favors continuation over 5 bars, but low volume and rising",
+  "falsifiers": [
+   "Close below ~120.5 (~1% drawdown expansion) negates near-highs thesis",
+   "Two or more of next 3 returns negative with expanding volatility",
+   "Direction/strength turn negative on next bar"
+  ],
+  "reasoning_summary": "5-step horizon tilts bullish due to positive and increasing direction/strength and mean recent return ~0.002, with tight drawdown. Low volume and uptick in volatility cap confidence; expect ~0.7% drif",
+  "realized_return": 0.010074,
+  "log_score": -0.6162,
+  "direction_correct": true,
+  "paper_utility": 0.010074
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 2,
+  "step_index": 130,
+  "stance": "FLAT",
+  "confidence": 0.48,
+  "expected_return": 0.0009,
+  "crux": "Positive trend remains but momentum fading and volatility rising offsets last-bar bounce, favoring n",
+  "falsifiers": [
+   "Direction accelerates and holds >0.3 with volatility contraction over next 2 bars",
+   "Price posts 2+ consecutive returns >+0.003 on expanding volume_z >1.0",
+   "Drawdown deepens beyond -0.01 invalidating mean-reversion bounce thesis"
+  ],
+  "reasoning_summary": "Small positive drift offset by negative momentum change and rising vol; last bar bounce after sharp drop suggests chop, not breakout; expected 5-step return near zero with elevated variance, so FLAT i",
+  "realized_return": -0.00655,
+  "log_score": -1.273,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 2,
+  "step_index": 140,
+  "stance": "FLAT",
+  "confidence": 0.44,
+  "expected_return": -0.0018,
+  "crux": "Weak negative direction with very low trend strength and low volume, recent returns mixed/small, fav",
+  "falsifiers": [
+   "Next 1-2 returns > +0.004 with rising volume_z > +0.5 would invalidate downside lean",
+   "Direction turning positive and strength rising above 0.10 would indicate new uptrend",
+   "Volatility expansion > 50% with directional follow-through would negate flat/consolidation call"
+  ],
+  "reasoning_summary": "At as_of 2025-01-01T02:20:00Z price 121.39 shows marginal negative drift but strength near zero and mixed recent returns imply flat consolidation most likely; slight down probability edge drives small",
+  "realized_return": 0.010449,
+  "log_score": -1.1712,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 2,
+  "step_index": 150,
+  "stance": "FLAT",
+  "confidence": 0.42,
+  "expected_return": 0.0012,
+  "crux": "Weak positive trend (0.018) with sharp momentum decay (-0.255) and elevated volatility at price peak",
+  "falsifiers": [
+   "5-bar return > +1.5% or < -1.5% would invalidate flat/weak-positive expectation",
+   "Direction/strength turning positive with direction_change >0.1 would invalidate decay thesis",
+   "Volatility spike >30% or drawdown >2% would signal regime break"
+  ],
+  "reasoning_summary": "Point-in-time signals show peak price with weak and fading trend, choppy recent returns and slightly rising volatility/volumes; expected 5-step drift near zero with high noise, so FLAT is highest prob",
+  "realized_return": 0.007116,
+  "log_score": -1.1087,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 2,
+  "step_index": 160,
+  "stance": "LONG",
+  "confidence": 0.37,
+  "expected_return": 0.0012,
+  "crux": "Weak but improving positive drift (direction 0.068, rising) with shallow drawdown and falling vol su",
+  "falsifiers": [
+   "Next 1-2 returns < -0.005 with expanding volatility would negate improving drift thesis",
+   "Volume spike with negative direction_change would signal momentum failure",
+   "Drawdown deepening beyond -0.02 would indicate regime shift from grind to correction"
+  ],
+  "reasoning_summary": "Point-in-time shows marginally positive drift improving, low drawdown and easing vol favor slight upside over 5 bars, but small effect size and weak volume limit expected return to ~0.12% with high no",
+  "realized_return": -0.001889,
+  "log_score": -1.4697,
+  "direction_correct": false,
+  "paper_utility": -0.001889
+ },
+ {
+  "world": "smooth_trend",
+  "sample": 2,
+  "step_index": 170,
+  "stance": "LONG",
+  "confidence": 0.56,
+  "expected_return": 0.0052,
+  "crux": "Positive and accelerating directional strength at zero drawdown with easing volatility favors modest",
+  "falsifiers": [
+   "5-step cumulative return < -1% or close below 123.6 reverses up thesis",
+   "Volatility spike >0.20 with negative direction_change",
+   "Consecutive negative returns with volume_z >1.5 indicating distribution"
+  ],
+  "reasoning_summary": "Point-in-time features show uptrend accelerating at highs with falling vol and recent positive returns clustering; modest positive drift expected over 5 steps with contained risk, so LONG with ~54% up",
+  "realized_return": -0.012979,
+  "log_score": -1.6094,
+  "direction_correct": false,
+  "paper_utility": -0.012979
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 0,
+  "step_index": 30,
+  "stance": "FLAT",
+  "confidence": 0.48,
+  "expected_return": 0.0004,
+  "crux": "Weak residual uptrend with sharp momentum decay and rising volatility/elevated volume favors 5-step ",
+  "falsifiers": [
+   "Close >1% above 101.10 within 5 bars or 3+ consecutive positive returns >0.002 would invalidate decay/chop thesis",
+   "Volatility contraction + direction re-acceleration (direction_change turning positive) would support renewed LONG"
+  ],
+  "reasoning_summary": "Small positive direction offset by large negative momentum change, rising vol and elevated volume near highs implies low edge for trend continuation; base case is flat/chop with slight upward residual",
+  "realized_return": 0.001362,
+  "log_score": -1.0788,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 0,
+  "step_index": 40,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": -0.0015,
+  "crux": "Weak negative drift with sharply deteriorating momentum is offset by negligible signal strength and ",
+  "falsifiers": [
+   "Sustained positive returns > +2*volatility over next 2-3 bars would invalidate weak-negative bias",
+   "Direction turning positive and strength_change reversing to >+0.1 would negate deterioration thesis",
+   "Volatility collapsing and volume_z spiking >2.0 with directional follow-through would support breakout not flat"
+  ],
+  "reasoning_summary": "Small negative drift with strong negative change suggests downside tilt, but absolute strength near zero and rising volatility leave expected 5-step return slightly negative with low confidence, favor",
+  "realized_return": 0.00912,
+  "log_score": -1.204,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 0,
+  "step_index": 50,
+  "stance": "LONG",
+  "confidence": 0.54,
+  "expected_return": 0.0035,
+  "crux": "Weak but persistent uptrend with fading momentum and rising volatility favors small positive drift o",
+  "falsifiers": [
+   "5-bar cumulative return < -0.008 would contradict LONG drift thesis",
+   "Volatility spike >0.20 or drawdown >0.02 would indicate trend break",
+   "Direction turning negative (<-0.02) on next bar would invalidate momentum"
+  ],
+  "reasoning_summary": "Point-in-time shows small positive drift with no drawdown, fading momentum, and rising vol. Over 5 steps slight upward expectation remains but edge is small, warranting LONG with low confidence and mo",
+  "realized_return": 0.000637,
+  "log_score": -1.1087,
+  "direction_correct": false,
+  "paper_utility": 0.000637
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 0,
+  "step_index": 60,
+  "stance": "LONG",
+  "confidence": 0.52,
+  "expected_return": 0.0012,
+  "crux": "Mild accelerating uptrend with negligible drawdown favors small continuation over 5 steps, but low s",
+  "falsifiers": [
+   "Close after 5 steps >0.8% below current price (101.86) or drawdown deepens beyond -0.015",
+   "direction/strength flip negative on next bar or consecutive negative returns >1 sigma"
+  ],
+  "reasoning_summary": "Point-in-time momentum is slightly positive and accelerating with low drawdown and stable volatility, supporting a small positive drift over 5 bars. Edge is weak (synthetic, low strength) so LONG with",
+  "realized_return": 0.003284,
+  "log_score": -0.6349,
+  "direction_correct": true,
+  "paper_utility": 0.003284
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 0,
+  "step_index": 70,
+  "stance": "FLAT",
+  "confidence": 0.42,
+  "expected_return": 0.0008,
+  "crux": "Positive direction (0.028) is decelerating sharply (-0.024 change) with elevated volume and rising v",
+  "falsifiers": [
+   "5-step return > +1.5% or direction re-accelerating above 0.04 would invalidate flat thesis to long",
+   "Consecutive closes below ~101.7 with expanding volume/volatility would favor short"
+  ],
+  "reasoning_summary": "Weak up-trend losing momentum, rising vol, and a sharp down bar offset the positive drift over 5 steps; expected return near zero with wide distribution, so FLAT with slight upside bias and low confid",
+  "realized_return": -0.016346,
+  "log_score": -1.204,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 0,
+  "step_index": 80,
+  "stance": "FLAT",
+  "confidence": 0.36,
+  "expected_return": -0.012,
+  "crux": "Capitulation -10.8% bar on max volatility (1.0) and volume (1.0) with -18% drawdown creates high-var",
+  "falsifiers": [
+   "Price recovers >+4% within next 1-2 bars on declining volatility would falsify continuation bias",
+   "Continuation close below ~84.5 (-3.5% further) on sustained high volume would falsify bounce thesis and support SHORT",
+   "Volatility_mean-reversion (volatility <0.6) with sideways price would favor FLAT outcome"
+  ],
+  "reasoning_summary": "Negative direction and large drawdown give modest downside edge over 5 steps, but max volatility/volume after -10.8% outlier widens distribution and raises bounce risk, so expected return slightly neg",
+  "realized_return": 0.00261,
+  "log_score": -1.1394,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 0,
+  "step_index": 90,
+  "stance": "SHORT",
+  "confidence": 0.38,
+  "expected_return": -0.026,
+  "crux": "Weak but accelerating negative momentum with elevated and sharply rising volatility favors modest do",
+  "falsifiers": [
+   "Close rebounds >+1.5% within 1-2 steps on expanding volume",
+   "Volatility_change reverses sharply lower while direction turns positive",
+   "New 5-step high breaks drawdown recovery invalidating downside bias"
+  ],
+  "reasoning_summary": "Short bias due to negative and worsening direction with negative recent returns, tempered by low strength and high/expanding volatility that elevates flat risk; expected return modestly negative with ",
+  "realized_return": 0.046804,
+  "log_score": -1.5141,
+  "direction_correct": false,
+  "paper_utility": -0.046804
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 0,
+  "step_index": 100,
+  "stance": "FLAT",
+  "confidence": 0.36,
+  "expected_return": -0.0018,
+  "crux": "Weak negative drift with rising strength and high/increasing volatility provides no reliable directi",
+  "falsifiers": [
+   "Sustained close above 90.5 (+2.2% in <5 bars) on elevated volume would invalidate FLAT/bear tilt",
+   "Volatility expansion with consecutive returns >1.5% in same direction would signal trend re-emergence",
+   "Direction turning positive >0.05 would flip drift assumption"
+  ],
+  "reasoning_summary": "Point-in-time features show marginally negative drift but very low trend strength offset by recent positive returns and high/rising volatility. No volume-supported trend for 5-step horizon; expected r",
+  "realized_return": 0.000412,
+  "log_score": -0.9676,
+  "direction_correct": true,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 0,
+  "step_index": 110,
+  "stance": "FLAT",
+  "confidence": 0.46,
+  "expected_return": 0.0045,
+  "crux": "Weak bullish drift with fading strength and high-but-falling volatility after a -0.7% pullback favor",
+  "falsifiers": [
+   "5-bar return >+1.5% or close above 92.0 would invalidate flat/ fade thesis and confirm renewed uptrend",
+   "5-bar return <-1.5% or breakdown with expanding volatility and negative direction would confirm short thesis",
+   "Sustained volume expansion with volatility spike would invalidate low-participation consolidation view"
+  ],
+  "reasoning_summary": "Small positive drift offset by fading strength and last-bar pullback, with falling but still high volatility and below-average volume, implies expected 5-bar return near +0.4% with wide dispersion; ed",
+  "realized_return": 0.008101,
+  "log_score": -0.8916,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 0,
+  "step_index": 120,
+  "stance": "LONG",
+  "confidence": 0.38,
+  "expected_return": 0.0028,
+  "crux": "Positive direction/momentum with sharp volatility compression favors small upward drift over 5 steps",
+  "falsifiers": [
+   "5-step cumulative return < -0.8% or new drawdown < -0.015 would invalidate bullish drift thesis",
+   "Volatility expansion > 1.0 with volume_z >1.0 and negative returns would signal downside regime shift"
+  ],
+  "reasoning_summary": "Modest positive direction gaining strength into sharply lower volatility suggests low-risk upward drift next 5 bars, but near-zero volume and alternating recent returns keep flat/down probabilities ma",
+  "realized_return": 0.002459,
+  "log_score": -0.8675,
+  "direction_correct": true,
+  "paper_utility": 0.002459
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 0,
+  "step_index": 130,
+  "stance": "LONG",
+  "confidence": 0.56,
+  "expected_return": 0.0062,
+  "crux": "Positive and accelerating momentum with sharp volatility compression and zero drawdown favors 5-step",
+  "falsifiers": [
+   "5-step cumulative return < -0.8% would invalidate continuation thesis",
+   "Volatility expansion reversal >0.5 with negative direction_change would signal failed compression",
+   "Price breaking below recent swing with drawdown >1.5% would negate zero-drawdown uptrend"
+  ],
+  "reasoning_summary": "Point-in-time shows rising positive direction/strength, sharp vol compression, zero drawdown, and positively skewed recent returns ending in strong +0.71% bar. Over 5 steps, continuation more likely t",
+  "realized_return": 0.005839,
+  "log_score": -0.5978,
+  "direction_correct": true,
+  "paper_utility": 0.005839
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 0,
+  "step_index": 140,
+  "stance": "LONG",
+  "confidence": 0.48,
+  "expected_return": 0.0019,
+  "crux": "Positive trend persists but is decelerating with elevated volume and a sharp -1.06% reversal after a",
+  "falsifiers": [
+   "Next 1-2 returns strongly negative and expanding volatility would negate long edge and imply momentum reversal",
+   "Volatility expansion + direction turning negative would falsify consolidation thesis",
+   "Sustained volume spike with follow-through down >1.5% over next 2 bars would indicate distribution"
+  ],
+  "reasoning_summary": "Point-in-time shows weak but still positive drift with fading momentum and contracting vol; choppy last bars and volume elevation cap conviction, yielding small positive expected return over 5 steps w",
+  "realized_return": -0.011253,
+  "log_score": -1.3093,
+  "direction_correct": false,
+  "paper_utility": -0.011253
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 0,
+  "step_index": 150,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": 0.0018,
+  "crux": "Weak positive direction (0.0125) fading (-0.028 change) after -2.9% drawdown, high but easing volati",
+  "falsifiers": [
+   "Price closes >1.5*volatility above/below entry (~ +/-1% in 5 bars) invalidates flat thesis",
+   "New 5-bar drawdown exceeding -3% with rising volume would confirm downside momentum",
+   "Sustained direction strengthening >0.02 with positive direction_change would support trend continuation"
+  ],
+  "reasoning_summary": "Small positive direction offset by negative momentum change and high volatility; recent drawdown and low volume hint at stabilization not strong trend, expected 5-step return near zero with elevated r",
+  "realized_return": -0.00375,
+  "log_score": -1.204,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 0,
+  "step_index": 160,
+  "stance": "FLAT",
+  "confidence": 0.36,
+  "expected_return": -0.0018,
+  "crux": "Weak bearish direction (-0.045) with sharply deteriorating momentum but very low trend strength (0.0",
+  "falsifiers": [
+   "5-bar realized return > +1% with expanding volume (volume_z >1.0) would invalidate flat/chop thesis",
+   "Sustained directional strength >0.15 with direction < -0.10 would confirm bear trend and favor SHORT",
+   "Volatility contraction >30% with consistent positive returns would invalidate rising-noise assumption"
+  ],
+  "reasoning_summary": "Negative but weak trend and fading momentum give slight downside tilt, but low strength and low volume against high rising volatility imply low signal-to-noise over 5 bars. Expected return near zero s",
+  "realized_return": 0.006676,
+  "log_score": -1.273,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 0,
+  "step_index": 170,
+  "stance": "LONG",
+  "confidence": 0.57,
+  "expected_return": 0.0075,
+  "crux": "Positive and accelerating directional strength with high volume at zero drawdown favors continuation",
+  "falsifiers": [
+   "Price closes >1% below 94.83 or drawdown spikes >0.015 in next 1-2 bars",
+   "direction_change turns negative and strength drops below 0.05",
+   "Volume fades while volatility jumps >0.35 indicating reversal/exhaustion"
+  ],
+  "reasoning_summary": "Momentum is positive, accelerating, volume-supported, at highs with falling volatility and 5 consecutive gains; base case is modest continuation over 5 steps with managed risk from synthetic uncertain",
+  "realized_return": 0.00424,
+  "log_score": -0.5621,
+  "direction_correct": true,
+  "paper_utility": 0.00424
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 1,
+  "step_index": 30,
+  "stance": "FLAT",
+  "confidence": 0.41,
+  "expected_return": 0.0004,
+  "crux": "Weak positive trend is decelerating sharply while volatility rises, favoring consolidation over dire",
+  "falsifiers": [
+   "Close >1% above 101.1 on expanding strength would invalidate fade thesis",
+   "Volatility contraction with direction re-accelerating >0.1 would favor LONG",
+   "Break below 5-bar low with negative direction would flip to SHORT"
+  ],
+  "reasoning_summary": "Positive bias remains but sharp loss of momentum and rising vol over 5-step horizon makes expected return near zero with high noise, so FLAT is risk-adjusted stance.",
+  "realized_return": 0.001362,
+  "log_score": -1.1087,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 1,
+  "step_index": 40,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": -0.0006,
+  "crux": "Near-zero trend strength (0.0038) with negative drift and rising volatility makes directional edge n",
+  "falsifiers": [
+   "5-bar realized return > +0.008 or < -0.008 would contradict flat/noise thesis",
+   "strength rising above 0.02 with direction stabilizing positive would support LONG",
+   "volatility spike >0.15 with volume_z >1.5 would signal tradable breakout invalidating flat"
+  ],
+  "reasoning_summary": "No usable edge: drift slightly negative but strength ~0 implies noise dominates; momentum fading and vol rising. Over 5 bars expected move ~0 with high variance, so FLAT minimizes adverse selection.",
+  "realized_return": 0.00912,
+  "log_score": -1.204,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 1,
+  "step_index": 50,
+  "stance": "LONG",
+  "confidence": 0.44,
+  "expected_return": 0.0028,
+  "crux": "Weak but intact positive drift with fading momentum and rising volatility limits 5-step edge to smal",
+  "falsifiers": [
+   "{'id': 'trend_reversal', 'condition': 'direction turns negative or drawdown >1% over next 1-2 bars invalidates long edge'}",
+   "{'id': 'vol_spike', 'condition': 'volatility_change accelerates further (>0.05) or volume_z flips negative, suggesting reversal/exhaustion'}",
+   "{'id': 'return_reversal', 'condition': 'Consecutive negative returns < -0.002 invalidate positive drift assumption'}"
+  ],
+  "reasoning_summary": "Positive but weak drift (0.07) with ~0.00075 avg recent return supports small long edge over 5 steps; fading momentum and rising vol (0.118 +0.024) raise uncertainty and downside, warranting low confi",
+  "realized_return": 0.000637,
+  "log_score": -1.0788,
+  "direction_correct": false,
+  "paper_utility": 0.000637
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 1,
+  "step_index": 60,
+  "stance": "LONG",
+  "confidence": 0.38,
+  "expected_return": 0.0014,
+  "crux": "Weak but strengthening upward drift near highs with modest volume support gives small upward edge ov",
+  "falsifiers": [
+   "Realized 5-step return < -0.008 or close below 101.0 breaks up-bias thesis",
+   "Volatility expansion >0.15 or volume_z reversal to negative would indicate regime shift",
+   "Consecutive negative returns with increasing magnitude would negate momentum build"
+  ],
+  "reasoning_summary": "Positive but small drift with accelerating momentum and price near highs supports modest LONG bias for 5 steps; low signal-to-noise and mild volume keep expected return small and confidence low.",
+  "realized_return": 0.003284,
+  "log_score": -0.844,
+  "direction_correct": true,
+  "paper_utility": 0.003284
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 1,
+  "step_index": 70,
+  "stance": "FLAT",
+  "confidence": 0.42,
+  "expected_return": -0.0003,
+  "crux": "Positive trend intact but sharply decelerating (direction 0.028, change -0.024) with elevated volume",
+  "falsifiers": [
+   "5-step cumulative return >+1.5% or <-1.5% (>~0.85 sigma) invalidates flat/consolidation thesis",
+   "Volatility_change >0.03 with volume_z >2.0 and follow-through negative returns would confirm breakdown, not flat",
+   "Direction rebounding above 0.05 with positive strength_change would re-establish LONG thesis"
+  ],
+  "reasoning_summary": "Horizon 5: faded positive drift, recent pullback on elevated but not extreme volume, and stable volatility favor flat range-bound expectation with symmetric up/down probabilities and near-zero expecte",
+  "realized_return": -0.016346,
+  "log_score": -1.1394,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 1,
+  "step_index": 80,
+  "stance": "FLAT",
+  "confidence": 0.32,
+  "expected_return": -0.006,
+  "crux": "Max volatility/volume with -10.8% capitulation bar inside -18% drawdown pits short-term momentum aga",
+  "falsifiers": [
+   "Price closes >3% above 87.67 within next 2 bars would falsify downside momentum thesis",
+   "Volatility collapsing <0.5 and volume_z reverting <0 while price stabilizes would falsify high-risk chop thesis",
+   "Consecutive new lows extending drawdown beyond -25% would falsify mean-reversion bounce thesis"
+  ],
+  "reasoning_summary": "Point-in-time shows weak trend but extreme short-term stress; high volatility/volume widens distribution, making flat most defensible despite modest downside skew in probabilities and slightly negativ",
+  "realized_return": 0.00261,
+  "log_score": -1.1394,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 1,
+  "step_index": 90,
+  "stance": "SHORT",
+  "confidence": 0.52,
+  "expected_return": -0.018,
+  "crux": "Accelerating negative direction with -22% drawdown and elevated rising volatility favors continued d",
+  "falsifiers": [
+   "5-step cumulative return > +2% or price reclaim >85.5 would invalidate SHORT bias",
+   "Volatility contraction and direction turning positive (>0.05) would signal trend break",
+   "Sustained positive returns with volume_z >1.5 would indicate reversal"
+  ],
+  "reasoning_summary": "Negative direction accelerating into deep drawdown with 75% of recent bars negative; flat volume gives no contrarian support. High rising volatility limits confidence and raises risk, but base case re",
+  "realized_return": 0.046804,
+  "log_score": -1.7148,
+  "direction_correct": false,
+  "paper_utility": -0.046804
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 1,
+  "step_index": 100,
+  "stance": "SHORT",
+  "confidence": 0.41,
+  "expected_return": -0.0065,
+  "crux": "Weak but strengthening bearish momentum with expanding high volatility and deep -12% drawdown favors",
+  "falsifiers": [
+   "5-step cumulative return > +1.5% or price reclaim of drawdown would invalidate bearish thesis",
+   "Direction turning positive with strength increasing upward on lower volatility",
+   "Sustained low-volatility consolidation with flat returns exceeding +/-0.8% thresholds"
+  ],
+  "reasoning_summary": "Short-biased outlook due to negative direction that is strengthening alongside high/expanding volatility; deep drawdown and low volume prevent high conviction, leaving material probability for flat/up",
+  "realized_return": 0.000412,
+  "log_score": -1.4271,
+  "direction_correct": false,
+  "paper_utility": -0.000412
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 1,
+  "step_index": 110,
+  "stance": "FLAT",
+  "confidence": 0.36,
+  "expected_return": 0.0006,
+  "crux": "Positive direction (+0.021) with improving direction_change (+0.09) is offset by weakening strength ",
+  "falsifiers": [
+   "Price closes >1% above 90.50 with volume_z >1.0 would invalidate flat/consolidation thesis",
+   "Volatility expansion with volatility_change turning positive and consecutive positive returns would signal trend resumption",
+   "Drawdown deepening beyond -2% with strength turning further negative would favor SHORT"
+  ],
+  "reasoning_summary": "Mixed signals: direction up but strength fading, last bar reversal after strong run, and falling volatility suggest 5-step drift near flat with slight upward bias, insufficient edge for directional st",
+  "realized_return": 0.008101,
+  "log_score": -1.1087,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 1,
+  "step_index": 120,
+  "stance": "LONG",
+  "confidence": 0.47,
+  "expected_return": 0.0018,
+  "crux": "Weak positive drift with improving momentum and sharply falling volatility supports small upside bia",
+  "falsifiers": [
+   "5-step return < -0.8% or close below 90.2 would invalidate upside bias",
+   "Volatility re-expansion > +0.5 with negative direction_change would flip to FLAT/SHORT",
+   "Consecutive negative returns with expanding volume would negate momentum thesis"
+  ],
+  "reasoning_summary": "Point-in-time features show small positive direction and momentum improvement amid sharply lower volatility and contained drawdown. Over 5 bars, base rate is near-flat with slight positive drift, so a",
+  "realized_return": 0.002459,
+  "log_score": -0.9676,
+  "direction_correct": true,
+  "paper_utility": 0.002459
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 1,
+  "step_index": 130,
+  "stance": "LONG",
+  "confidence": 0.55,
+  "expected_return": 0.006,
+  "crux": "Positive and accelerating direction/strength at zero drawdown with sharp volatility compression and ",
+  "falsifiers": [
+   "5-bar return <= -0.8% or close breaks below ~91.2 invalidates continuation thesis",
+   "Volatility expands sharply upward or volume reverses with negative returns showing failed breakout",
+   "Drawdown >1% from 92.12 within horizon contradicting zero-drawdown strength"
+  ],
+  "reasoning_summary": "At zero drawdown, direction and strength are positive and rising while volatility has collapsed and volume is firm; recent returns show consistent gains into the snapshot, supporting a modestly bullis",
+  "realized_return": 0.005839,
+  "log_score": -0.6162,
+  "direction_correct": true,
+  "paper_utility": 0.005839
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 1,
+  "step_index": 140,
+  "stance": "LONG",
+  "confidence": 0.51,
+  "expected_return": 0.003,
+  "crux": "Positive but decelerating drift with falling volatility offers marginal upside over 5 steps, tempere",
+  "falsifiers": [
+   "Direction turns negative on next bar or strength breaks below 0",
+   "Two consecutive closes below -1% or drawdown deepens beyond -0.03",
+   "Volatility expansion with volatility_change turning positive >0.05"
+  ],
+  "reasoning_summary": "Slight bullish drift supports LONG over 5 bars but fading momentum and last-bar drop lower conviction; falling vol favors flat-to-up, volume suggests consolidation, so marginal upside with low confide",
+  "realized_return": -0.011253,
+  "log_score": -1.3093,
+  "direction_correct": false,
+  "paper_utility": -0.011253
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 1,
+  "step_index": 150,
+  "stance": "FLAT",
+  "confidence": 0.51,
+  "expected_return": -0.0045,
+  "crux": "Small positive direction (+0.0125) is decaying (-0.028 change) and conflicts with persistent negativ",
+  "falsifiers": [
+   "5-bar cumulative return > +1.0% with volume_z turning positive would invalidate weak-bear thesis",
+   "Direction/strength turning up with positive change and >0.02 would signal momentum re-acceleration",
+   "Sustained fall > -2% on expanding volume would confirm stronger down trend vs flat/noise call"
+  ],
+  "reasoning_summary": "Weak net bearish drift from recent negative returns and fading positive momentum, but high volatility and low volume make 5-step signal noisy; expected return slightly negative, highest probability on",
+  "realized_return": -0.00375,
+  "log_score": -0.9676,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 1,
+  "step_index": 160,
+  "stance": "FLAT",
+  "confidence": 0.42,
+  "expected_return": -0.0025,
+  "crux": "Weak negative drift with low strength and low volume but rising volatility points to choppy range-bo",
+  "falsifiers": [
+   "Volume_z spikes positive >1.0 with price closing down >1% would confirm breakdown and invalidate flat thesis",
+   "5-step realized volatility contracting sharply and direction strengthening below -0.15 would signal trending short regime",
+   "Consecutive closes making new lows expanding drawdown beyond -0.05 would show trend emergence"
+  ],
+  "reasoning_summary": "Near-zero mean recent returns and low strength outweigh slightly negative direction; low volume and rising vol imply high noise and low trend conviction over 5 steps, so flat is modal with slight down",
+  "realized_return": 0.006676,
+  "log_score": -1.2379,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 1,
+  "step_index": 170,
+  "stance": "LONG",
+  "confidence": 0.57,
+  "expected_return": 0.0065,
+  "crux": "Accelerating positive momentum with elevated volume and zero drawdown favors modest upside continuat",
+  "falsifiers": [
+   "Next 1-2 bars print negative returns > -0.005 breaking 4-bar win streak would invalidate acceleration thesis",
+   "Direction feature reverses below 0.0 or volume dries up on up moves",
+   "Realized 5-step return < -0.012 would exceed risk estimate and negate LONG stance"
+  ],
+  "reasoning_summary": "Point-in-time shows accelerating uptrend with volume confirmation and no drawdown; base case is continuation over 5 steps with ~0.65% expected return, overweight p_up 0.54 vs p_down 0.20, maintaining ",
+  "realized_return": 0.00424,
+  "log_score": -0.6162,
+  "direction_correct": true,
+  "paper_utility": 0.00424
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 2,
+  "step_index": 30,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": 0.00035,
+  "crux": "Weak positive direction is fading sharply with rising volatility, favoring consolidation over direct",
+  "falsifiers": [
+   "Consecutive closes >0.5*volatility above 101.10 on rising volume would invalidate flat thesis",
+   "Direction turning strongly positive with volatility_change reversing negative would favor long",
+   "Break >1% drawdown expansion with negative volume spike would favor short"
+  ],
+  "reasoning_summary": "Small positive drift is offset by negative momentum change and higher volatility; 5-step expectation is near-zero with wide distribution, so FLAT has highest probability but edge is low.",
+  "realized_return": 0.001362,
+  "log_score": -1.1394,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 2,
+  "step_index": 40,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": -0.001,
+  "crux": "Weak negative drift with sharply deteriorating momentum and rising volatility provides no reliable e",
+  "falsifiers": [
+   "Sustained closes >101.6 (~+0.6% with rising volume_z >1.0) would invalidate flat/bearish tilt",
+   "Direction and strength turning positive with volatility contracting would signal upside continuation",
+   "2+ consecutive 5-step returns >+1% would indicate model underestimates upside"
+  ],
+  "reasoning_summary": "Small negative direction and fading strength suggest slight downside bias, but magnitude is tiny vs 10.6% volatility and rising vol-of-vol; volume flat and choppy recent returns imply noise dominates ",
+  "realized_return": 0.00912,
+  "log_score": -1.2379,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 2,
+  "step_index": 50,
+  "stance": "LONG",
+  "confidence": 0.38,
+  "expected_return": 0.0035,
+  "crux": "Weak positive drift persists but momentum is fading and volatility is rising, giving a slight upward",
+  "falsifiers": [
+   "5-step return < -0.008 or price breaks below ~101.0 would negate drift thesis",
+   "direction/strength turning negative or volatility spike >0.18 would favor FLAT/SHORT",
+   "Consecutive negative returns (<-0.002) with volume_z expanding >1.0 would indicate reversal"
+  ],
+  "reasoning_summary": "Point-in-time packet shows small positive drift with fading momentum and rising vol at highs; modest upside probability over 5 bars but low confidence, so LONG with small expected return and controlle",
+  "realized_return": 0.000637,
+  "log_score": -1.1712,
+  "direction_correct": false,
+  "paper_utility": 0.000637
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 2,
+  "step_index": 60,
+  "stance": "LONG",
+  "confidence": 0.52,
+  "expected_return": 0.0028,
+  "crux": "Weak but improving positive momentum outweighs recent choppy returns over 5-step horizon",
+  "falsifiers": [
+   "Next 1-2 returns < -0.005 or drawdown deepens beyond -0.015",
+   "Direction/strength rolls over to negative on next bar",
+   "Volatility spikes >0.15 with volume_z >2 indicating distribution"
+  ],
+  "reasoning_summary": "Point-in-time shows modest uptrend with positive acceleration and stable volatility; 5-step expectation slightly positive with wide uncertainty due to mixed recent returns, favoring LONG with low conf",
+  "realized_return": 0.003284,
+  "log_score": -0.6733,
+  "direction_correct": true,
+  "paper_utility": 0.003284
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 2,
+  "step_index": 70,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": -0.0008,
+  "crux": "Weak positive trend is decelerating sharply with elevated volume on latest -0.63% down bar, creating",
+  "falsifiers": [
+   "Close > 103.5 (~+1% in 5 steps) would invalidate fading momentum thesis",
+   "Consecutive positive returns >0.4% with volume_z <0 would signal trend re-acceleration",
+   "Volatility contraction <0.08 with renewed direction >0.05 would favor LONG"
+  ],
+  "reasoning_summary": "Small positive drift offset by negative momentum change and high-volume down bar suggests near-term downside tilt but high noise and 1.3% risk make edge insufficient for directional stance; FLAT is ri",
+  "realized_return": -0.016346,
+  "log_score": -1.0498,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 2,
+  "step_index": 80,
+  "stance": "LONG",
+  "confidence": 0.36,
+  "expected_return": 0.012,
+  "crux": "Oversold capitulation on peak volatility/volume with weak trend strength favors short-horizon mean-r",
+  "falsifiers": [
+   "Next 1-2 bars close below 86 with expanding volume/volatility would invalidate bounce thesis",
+   "Volatility remains at 1.0 and direction strengthens below -0.15 would confirm momentum continuation"
+  ],
+  "reasoning_summary": "Weak trend plus extreme single-bar selloff on max vol/volume suggests contrarian bounce is modestly more likely than further 5-step drift down, with high dispersion so expected return small and confid",
+  "realized_return": 0.00261,
+  "log_score": -0.8675,
+  "direction_correct": true,
+  "paper_utility": 0.00261
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 2,
+  "step_index": 90,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": -0.009,
+  "crux": "Weak bearish drift persists but maxed volatility (1.0) with sharp vol expansion and deep drawdown ma",
+  "falsifiers": [
+   "5-step return > +3% or close above ~86.5 would invalidate weak-bear thesis and suggest mean-reversion",
+   "Volatility compression >40% and strength rising above 0.3 would restore trending edge for short",
+   "Direction turning positive with direction_change >+0.15 would signal momentum reversal"
+  ],
+  "reasoning_summary": "For 5 steps, negative momentum suggests slight downside tilt but weak strength, neutral volume, and max/expanding volatility imply high noise and oversold bounce risk; calibrated p_down modestly above",
+  "realized_return": 0.046804,
+  "log_score": -1.4271,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 2,
+  "step_index": 100,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": -0.0018,
+  "crux": "Weak negative direction (-0.055) with low strength (0.055) and rising volatility provides no high-co",
+  "falsifiers": [
+   "Sustained directional follow-through with expanding volume (volume_z >1.5) and strengthening direction would invalidate flat thesis",
+   "Volatility compression with consecutive signed returns >1% would support trending regime",
+   "Sharp reversal closing >2% above current price would negate weak bear tilt"
+  ],
+  "reasoning_summary": "Weak bear signal offset by low strength and rising volatility. Over 5 bars expected return near zero with slight negative tilt. Flat is highest probability but up/down roughly balanced, confidence low",
+  "realized_return": 0.000412,
+  "log_score": -1.0217,
+  "direction_correct": true,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 2,
+  "step_index": 110,
+  "stance": "LONG",
+  "confidence": 0.54,
+  "expected_return": 0.0075,
+  "crux": "Positive direction with accelerating change dominates small low-volume pullback; 5-step bias remains",
+  "falsifiers": [
+   "Next 1-2 bars close below -1% extending drawdown beyond -0.015",
+   "Volume_z turns positive on down moves confirming distribution",
+   "Direction flips negative or strength continues to decay"
+  ],
+  "reasoning_summary": "Uptrend over 12 bars +2.5% with accelerating direction outweighs single low-volume down bar; small drawdown and declining volatility support modest 5-step long expectancy with limited confidence due t",
+  "realized_return": 0.008101,
+  "log_score": -0.6733,
+  "direction_correct": true,
+  "paper_utility": 0.008101
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 2,
+  "step_index": 120,
+  "stance": "LONG",
+  "confidence": 0.41,
+  "expected_return": 0.0016,
+  "crux": "Weak positive direction with rising momentum and sharp volatility compression suggests slight upside",
+  "falsifiers": [
+   "5-step return < -0.8% would invalidate weak long bias",
+   "Volatility expansion downward with volume spike",
+   "Direction reverses to negative on next 1-2 bars"
+  ],
+  "reasoning_summary": "5-step horizon shows marginal positive expectancy from improving direction and small historical mean, but low strength and compressed volatility keep conviction low; FLAT is defensible but slight LONG",
+  "realized_return": 0.002459,
+  "log_score": -0.9676,
+  "direction_correct": true,
+  "paper_utility": 0.002459
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 2,
+  "step_index": 130,
+  "stance": "LONG",
+  "confidence": 0.56,
+  "expected_return": 0.0055,
+  "crux": "Momentum accelerating with volatility compression and no drawdown favors modest upside continuation ",
+  "falsifiers": [
+   "Next 1-2 bars print < -0.004 (negating recent +0.007 impulse) or close below 91.5",
+   "Volatility_change reverses sharply positive or volume_z spikes >2 indicating exhaustion",
+   "Drawdown >0.5% emerges breaking zero-drawdown uptrend"
+  ],
+  "reasoning_summary": "Positive and rising direction/strength, zero drawdown, and 4-bar winning streak into low-volatility compression suggests continuation bias; edge is modest due to low absolute direction (0.09) so proba",
+  "realized_return": 0.005839,
+  "log_score": -0.6162,
+  "direction_correct": true,
+  "paper_utility": 0.005839
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 2,
+  "step_index": 140,
+  "stance": "FLAT",
+  "confidence": 0.45,
+  "expected_return": 0.0012,
+  "crux": "Weak positive trend is decelerating into high but falling volatility with elevated volume and a rece",
+  "falsifiers": [
+   "Consecutive 5-step return >+1.5% or close above ~94.5 would re-establish accelerating uptrend",
+   "Volatility expansion upward or direction_change turning positive would invalidate mean-reversion/flat thesis",
+   "Sustained drawdown >2% with volume_z >1.5 would shift edge to SHORT"
+  ],
+  "reasoning_summary": "Small positive direction offset by negative momentum change and high volatility plus a sharp last-bar drop suggests expected 5-step return near zero with wide variance; risk/reward insufficient for di",
+  "realized_return": -0.011253,
+  "log_score": -1.204,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 2,
+  "step_index": 150,
+  "stance": "FLAT",
+  "confidence": 0.42,
+  "expected_return": -0.0015,
+  "crux": "Weak positive direction (+0.0125) is fading (-0.028 change) with low volume and consistent small neg",
+  "falsifiers": [
+   "5-step return > +1.5% on rising volume_z > +0.5 would invalidate flat/bear lean",
+   "Sustained volatility expansion >0.35 with consecutive positive returns would signal momentum reversal"
+  ],
+  "reasoning_summary": "Short-term drift negative but long-term direction still faintly positive and fading with low volume suggests no strong edge; base case is flat/choppy with modest downside probability over next 5 bars,",
+  "realized_return": -0.00375,
+  "log_score": -1.1394,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 2,
+  "step_index": 160,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": -0.0025,
+  "crux": "Weak negative direction with declining strength and low volume offers no high-conviction edge; sligh",
+  "falsifiers": [
+   "5-step return > +1.5% would invalidate weak-down/flat thesis",
+   "Volatility compression with volume_z > +1.0 and direction turning positive would signal trend emergence"
+  ],
+  "reasoning_summary": "5-step outlook is near-flat with slight downside tilt due to weak negative direction and negative momentum change, but low strength, low volume and high volatility imply low edge; FLAT stance is risk-",
+  "realized_return": 0.006676,
+  "log_score": -1.1712,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "shock_jumps",
+  "sample": 2,
+  "step_index": 170,
+  "stance": "LONG",
+  "confidence": 0.54,
+  "expected_return": 0.0058,
+  "crux": "Positive accelerating drift (direction 0.103, \u0394+0.084) at zero drawdown with elevated volume support",
+  "falsifiers": [
+   "Next 1-2 returns print < -0.005 with volume_z staying high (rejection of momentum)",
+   "Drawdown expands >1% or volatility spikes >0.35 (trend failure)",
+   "Consecutive negative returns breaking 5-bar win streak"
+  ],
+  "reasoning_summary": "Point-in-time data shows strengthening uptrend at highs with volume confirmation and declining vol, favoring continuation over 5 steps; edge is modest due to synthetic noise and elevated vol, hence LO",
+  "realized_return": 0.00424,
+  "log_score": -0.6162,
+  "direction_correct": true,
+  "paper_utility": 0.00424
+ },
+ {
+  "world": "regime_flip",
+  "sample": 0,
+  "step_index": 30,
+  "stance": "SHORT",
+  "confidence": 0.38,
+  "expected_return": -0.0045,
+  "crux": "Weak negative drift with deteriorating direction and weakening strength offset by expanding volatili",
+  "falsifiers": [
+   "5-bar cumulative return > +1% or 2 consecutive closes > +0.6% would invalidate weak-bear thesis",
+   "Volatility contraction >30% with direction strengthening back toward 0 would favor flat",
+   "New high surpassing drawdown (-0.02) by >1% on rising volume would signal reversal"
+  ],
+  "reasoning_summary": "Slight negative edge implied by negative direction but strength near zero and expanding volatility widens distribution; p_down modestly > p_up, p_flat depressed by high vol, expected 5-step return mil",
+  "realized_return": -1.1e-05,
+  "log_score": -1.204,
+  "direction_correct": false,
+  "paper_utility": 1.1e-05
+ },
+ {
+  "world": "regime_flip",
+  "sample": 0,
+  "step_index": 40,
+  "stance": "FLAT",
+  "confidence": 0.36,
+  "expected_return": -0.002,
+  "crux": "Weak negative drift accelerating slightly but with low strength, rising volatility and below-average",
+  "falsifiers": [
+   "5-bar return >+1.5% or sustained closes above 100.5 would invalidate downside bias",
+   "Volatility contraction and volume_z turning positive >0.5 with downward close would confirm short",
+   "Consecutive positive returns breaching recent 0.0128 high would signal momentum reversal"
+  ],
+  "reasoning_summary": "Slight negative momentum exists but strength is low and volatility expanding with low volume, so expected 5-bar return is marginally negative (~-0.2%) with high uncertainty; probabilities tilt down vs",
+  "realized_return": 0.018223,
+  "log_score": -1.273,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 0,
+  "step_index": 50,
+  "stance": "LONG",
+  "confidence": 0.41,
+  "expected_return": 0.0055,
+  "crux": "Weak but accelerating positive momentum and bounce from small drawdown favors upside over 5 steps, o",
+  "falsifiers": [
+   "Close below ~99.8 (-1% in 1-2 bars) or two consecutive negative returns < -0.005 would negate bounce thesis",
+   "Volatility_change accelerating further or drawdown deepening beyond -2.5% would indicate breakdown not recovery",
+   "Direction turning negative or strength_change reversing to <0 would invalidate momentum improvement"
+  ],
+  "reasoning_summary": "Point-in-time shows small positive drift that is strengthening with last-bar reversal from shallow drawdown, supporting modest LONG edge over 5 steps, but high and rising volatility keeps confidence l",
+  "realized_return": -0.003465,
+  "log_score": -1.4697,
+  "direction_correct": false,
+  "paper_utility": -0.003465
+ },
+ {
+  "world": "regime_flip",
+  "sample": 0,
+  "step_index": 60,
+  "stance": "FLAT",
+  "confidence": 0.42,
+  "expected_return": 0.0012,
+  "crux": "Weak positive drift (direction 0.009) improving (change +0.093) but fading strength (-0.075) and str",
+  "falsifiers": [
+   "5-step return > +1.5% or < -1.5% would reject near-zero drift thesis",
+   "Volatility collapsing and sustained positive returns > +0.8% per bar would confirm resumption of uptrend",
+   "Consecutive 5 closes below 96.5 (~-2.4%) would confirm downside continuation"
+  ],
+  "reasoning_summary": "Slight positive long-term drift offset by weakening strength and immediate negative momentum with high volatility; expected 5-step return ~0.1% insufficient for directional bet, so FLAT with low confi",
+  "realized_return": 0.008927,
+  "log_score": -1.1394,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 0,
+  "step_index": 70,
+  "stance": "FLAT",
+  "confidence": 0.44,
+  "expected_return": -0.011,
+  "crux": "Weak downtrend accelerating with sharply rising volatility makes direction negative but risk-adjuste",
+  "falsifiers": [
+   "Consecutive closes >93.5 with expanding volume_z >1.0 and volatility falling would negate bear thesis",
+   "Direction turning positive and strength_change reversing would signal trend exhaustion/ reversal",
+   "Volatility contraction with higher lows would favor LONG over FLAT"
+  ],
+  "reasoning_summary": "Negative drift with accelerating momentum favors down over up over 5 steps, but low strength and very high rising volatility makes expected move small (-1.1%) vs risk, warranting FLAT stance.",
+  "realized_return": -0.002675,
+  "log_score": -0.6931,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 0,
+  "step_index": 80,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": -0.004,
+  "crux": "Weak negative drift (-0.044) with rising high volatility offsets recent 3-bar positive bounce; no cl",
+  "falsifiers": [
+   "Sustained volume_z >1.0 with direction turning positive would invalidate flat/down tilt",
+   "5-step return > +1.5% or < -1.5% with volatility expansion resuming would favor directional stance",
+   "drawdown recovering to > -0.01 with strength rising would support long bias"
+  ],
+  "reasoning_summary": "Overall drift weakly negative, strength low, volume neutral, drawdown shallow, volatility elevated and rising. Recent upside appears as noise/bounce rather than regime change. Expected 5-step return n",
+  "realized_return": -0.009785,
+  "log_score": -1.1087,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 0,
+  "step_index": 90,
+  "stance": "FLAT",
+  "confidence": 0.36,
+  "expected_return": -0.004,
+  "crux": "High and rising volatility with near-zero weak direction and fading strength gives no durable edge o",
+  "falsifiers": [
+   "Price closes >2% above 94.81 on expanding volume (volume_z >1) invalidates flat/chop thesis",
+   "Volatility collapses (<0.5) while direction turns positive >0.02 would favor LONG",
+   "Drawdown deepens beyond -3% with strength increasing would favor SHORT trend continuation"
+  ],
+  "reasoning_summary": "Near-zero direction with positive change offset by falling strength and max rising volatility plus weak volume; recent outlier gain without follow-through favors chop/mean-reversion over trend, suppor",
+  "realized_return": -0.05629,
+  "log_score": -1.0498,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 0,
+  "step_index": 100,
+  "stance": "FLAT",
+  "confidence": 0.42,
+  "expected_return": -0.0015,
+  "crux": "Weak negative direction losing momentum with elevated and rising volatility and below-average volume",
+  "falsifiers": [
+   "Consecutive 5-step return > +2% with volume_z > +1.0 would falsify flat/weak-down thesis",
+   "New 5-bar low with expanding negative direction and volume confirmation would favor SHORT",
+   "Volatility contraction with steady positive returns would support LONG"
+  ],
+  "reasoning_summary": "Over 5 bars, fading weak bearish momentum, high/rising volatility, and muted volume alongside flat recent returns imply range-bound consolidation with slight downside tilt but insufficient edge for LO",
+  "realized_return": 0.029723,
+  "log_score": -1.1712,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 0,
+  "step_index": 110,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": -0.008,
+  "crux": "Weak negative drift is decelerating with declining strength and below-average volume, implying conso",
+  "falsifiers": [
+   "5-step cumulative return > +2.5% or < -2.5% would falsify flat/consolidation thesis",
+   "Break of recent 4-bar down sequence with 2+ consecutive returns > +1% would indicate momentum reversal",
+   "Volatility collapse or volume spike (volume_z > +1.5) would invalidate low-conviction consolidation assumption"
+  ],
+  "reasoning_summary": "Negative drift persists but is small, decelerating, and losing strength on low volume with max volatility, so 5-step expectation is near-zero slightly negative; FLAT is preferred given poor risk/rewar",
+  "realized_return": -0.003529,
+  "log_score": -0.9943,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 0,
+  "step_index": 120,
+  "stance": "FLAT",
+  "confidence": 0.42,
+  "expected_return": -0.0025,
+  "crux": "Weak bearish drift is decelerating with falling volatility and below-average volume; no strong edge ",
+  "falsifiers": [
+   "5-bar forward return > +1.5% or < -1.5% would falsify flat/drift thesis",
+   "Volatility expansion with volume_z > +1.0 and close above 88.5 would signal renewed up momentum",
+   "Sustained close below 85.5 with strengthening negative direction would confirm bear continuation"
+  ],
+  "reasoning_summary": "Negative but improving direction and weakening strength plus declining volatility and muted volume point to consolidation rather than continuation; expected 5-step drift near zero with wide noise band",
+  "realized_return": 0.005294,
+  "log_score": -1.204,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 0,
+  "step_index": 130,
+  "stance": "LONG",
+  "confidence": 0.54,
+  "expected_return": 0.0075,
+  "crux": "At local highs with sharply falling volatility and elevated volume, last-bar breakout (+1.8%) suppor",
+  "falsifiers": [
+   "Close below ~88.2 (retracing >50% of last impulse + prior bar) negates breakout thesis",
+   "Volatility expansion back above 0.7 with 2 consecutive negative returns",
+   "Volume fading below mean while price stalls at high (failed follow-through)"
+  ],
+  "reasoning_summary": "Positive but modest drift, new high, vol compression, and volume-backed last-bar spike tilt 5-step odds to upside continuation; negative strength_change and spike-reversion risk keep probability mass ",
+  "realized_return": -0.049222,
+  "log_score": -1.5606,
+  "direction_correct": false,
+  "paper_utility": -0.049222
+ },
+ {
+  "world": "regime_flip",
+  "sample": 0,
+  "step_index": 140,
+  "stance": "LONG",
+  "confidence": 0.54,
+  "expected_return": 0.0095,
+  "crux": "Accelerating 4-bar rebound from oversold sequence with rising direction, collapsing volatility, and ",
+  "falsifiers": [
+   "2 of next 3 returns negative and price breaks below 88.0 (~ -1.3%) invalidates momentum continuation",
+   "Volatility_change turns positive and expands >0.7 with volume_z dropping < -0.5 signals failed breakout",
+   "Drawdown deepens beyond -0.015 (-1.5% from peak) indicating reversal failure"
+  ],
+  "reasoning_summary": "Horizon 5: small but improving positive direction, near-zero drawdown, volume-supported accelerating rebound, and sharp vol compression tilt odds to up continuation; fading strength caps confidence so",
+  "realized_return": -0.014452,
+  "log_score": -1.4697,
+  "direction_correct": false,
+  "paper_utility": -0.014452
+ },
+ {
+  "world": "regime_flip",
+  "sample": 0,
+  "step_index": 150,
+  "stance": "FLAT",
+  "confidence": 0.42,
+  "expected_return": -0.0015,
+  "crux": "Weak negative drift with fading strength and low-volume bounce amid rising volatility favors no dire",
+  "falsifiers": [
+   "Volume_z turns >+1.0 with price breaking above recent 0.014 high suggests upside momentum resumes",
+   "Continuation of negative returns with direction <-0.02 and strength rising would validate SHORT",
+   "Volatility contraction with sustained positive direction would favor LONG"
+  ],
+  "reasoning_summary": "Short-term slightly negative trend is too weak and decelerating to chase, while the 3-bar bounce lacks volume support and occurs in elevated rising volatility, implying flat/neutral expected return wi",
+  "realized_return": 0.030494,
+  "log_score": -1.1712,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 0,
+  "step_index": 160,
+  "stance": "LONG",
+  "confidence": 0.41,
+  "expected_return": 0.0038,
+  "crux": "Positive drift intact (direction +0.01, improving) with -3% pullback on low volume suggests low-conv",
+  "falsifiers": [
+   "Price closes down >1.5% over next 2-3 bars on volume_z turning positive (>1.0)",
+   "Volatility expands further with direction turning negative (<0)",
+   "Drawdown deepens beyond -5% breaking recent structure"
+  ],
+  "reasoning_summary": "Small positive drift with improving direction outweighs recent low-volume pullback for 5-bar horizon, favoring slight upside bias but high volatility and fading strength warrant low confidence and LON",
+  "realized_return": -0.003563,
+  "log_score": -1.4271,
+  "direction_correct": false,
+  "paper_utility": -0.003563
+ },
+ {
+  "world": "regime_flip",
+  "sample": 0,
+  "step_index": 170,
+  "stance": "LONG",
+  "confidence": 0.38,
+  "expected_return": 0.009,
+  "crux": "Small positive momentum with rising direction confirms mild upward drift but high volatility and ele",
+  "falsifiers": [
+   "Next 1-2 returns < -0.01 or close below 86.5 would negate momentum improvement",
+   "Volatility expansion >0.65 with negative direction_change would flip to mean-reversion/down risk",
+   "Volume fade with flat price would indicate false breakout and favor FLAT"
+  ],
+  "reasoning_summary": "Point-in-time shows weak but improving upward drift near highs with last-bar rebound on high volume. Over 5 steps expected return slightly positive but variance large, so LONG with low confidence and ",
+  "realized_return": -0.002128,
+  "log_score": -1.204,
+  "direction_correct": false,
+  "paper_utility": -0.002128
+ },
+ {
+  "world": "regime_flip",
+  "sample": 1,
+  "step_index": 30,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": -0.0025,
+  "crux": "Weak negative direction after sharp reversal from positive, with weakening strength and rising volat",
+  "falsifiers": [
+   "5-step return >+2% or close >102 would invalidate flat/bearish drift thesis",
+   "Volatility compression with sustained positive direction >0.03 would favor LONG",
+   "Break below 97.8 (~ -2% further) on rising volume would confirm SHORT momentum"
+  ],
+  "reasoning_summary": "Negative drift is weak and follows reversal, strength fading, vol rising and last bar bouncing suggests low edge for directional stance over 5 steps; slight downside skew but best stance FLAT with low",
+  "realized_return": -1.1e-05,
+  "log_score": -1.273,
+  "direction_correct": true,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 1,
+  "step_index": 40,
+  "stance": "SHORT",
+  "confidence": 0.38,
+  "expected_return": -0.0055,
+  "crux": "Weak negative drift accelerating slightly (direction -0.0107, change -0.0200) with -1% drawdown, but",
+  "falsifiers": [
+   "Price closes >100.3 (>0.7% above 99.60) within 2-3 bars or 5-bar return >+1% would invalidate negative tilt",
+   "Volatility contracts sharply and direction turns positive with positive direction_change",
+   "Sustained high-volume advance with consecutive positive returns >0.005 would signal trend reversal"
+  ],
+  "reasoning_summary": "Slight negative momentum with weak strength versus very high/rising volatility suggests modest downside probability edge over 5 steps but low conviction; choppy recent returns and soft volume increase",
+  "realized_return": 0.018223,
+  "log_score": -1.3863,
+  "direction_correct": false,
+  "paper_utility": -0.018223
+ },
+ {
+  "world": "regime_flip",
+  "sample": 1,
+  "step_index": 50,
+  "stance": "FLAT",
+  "confidence": 0.42,
+  "expected_return": 0.0025,
+  "crux": "Weak positive direction (0.034) with positive change (+0.059) suggests tentative upside turn after c",
+  "falsifiers": [
+   "Sustained >2 consecutive positive returns with rising strength >0.05 would falsify FLAT and favor LONG",
+   "Volatility contraction with direction >0.06 would increase trend reliability",
+   "Break below recent drawdown >2% with volume_z >1.0 would falsify flat/neutral and favor SHORT"
+  ],
+  "reasoning_summary": "Point-in-time shows weak up-tilt after shallow drawdown, but high and rising volatility and low strength make 5-step direction noisy. Highest probability on flat/chop, slight upside skew insufficient ",
+  "realized_return": -0.003465,
+  "log_score": -1.3471,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 1,
+  "step_index": 60,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": 0.0012,
+  "crux": "Marginal positive drift (+0.009) offset by decaying strength and consecutive negative recent returns",
+  "falsifiers": [
+   "5-bar cumulative return > +1.5% or < -1.5% would invalidate flat/low-return expectation",
+   "Sustained direction >0.02 with strength_change turning positive and volume_z >1.5 would support LONG",
+   "Volatility spike >0.5 or drawdown beyond -0.05 would imply higher downside risk than estimated"
+  ],
+  "reasoning_summary": "Point-in-time features show small positive drift but fading strength and back-to-back negative returns; combined with high vol and neutral volume, 5-step expected return is near zero with wide varianc",
+  "realized_return": 0.008927,
+  "log_score": -1.1087,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 1,
+  "step_index": 70,
+  "stance": "SHORT",
+  "confidence": 0.35,
+  "expected_return": -0.013,
+  "crux": "Weak accelerating downtrend (-direction, negative direction_change) in high and rising volatility li",
+  "falsifiers": [
+   "2 consecutive daily closes > +1% or price reclaim >95 with volume_z >1.0 would negate short drift",
+   "Volatility contraction >0.2 with direction turning positive would signal stabilization",
+   "Strength rising above 0.3 with positive direction_change would confirm reversal"
+  ],
+  "reasoning_summary": "Negative direction accelerating, cluster of negative returns and -8.3% drawdown point down over 5 steps, but low strength and high rising volatility argue for small negative expected return with low c",
+  "realized_return": -0.002675,
+  "log_score": -0.7765,
+  "direction_correct": true,
+  "paper_utility": 0.002675
+ },
+ {
+  "world": "regime_flip",
+  "sample": 1,
+  "step_index": 80,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": -0.004,
+  "crux": "Negative trend and drawdown persist but magnitude is weak and recent 3-bar bounce conflicts with ris",
+  "falsifiers": [
+   "Price closes >2% above current for 2+ consecutive bars with volatility_change turning negative would falsify flat/down bias and confirm reversal.",
+   "Drawdown deepening beyond -8% with direction strengthening below -0.1 would falsify flat and favor short.",
+   "Volatility contraction to <0.3 and volume_z >1.5 on up bars would shift edge to long."
+  ],
+  "reasoning_summary": "5-step horizon has offsetting signals: weak negative trend versus recent positive momentum, compounded by high and rising volatility that elevates risk without clear direction; expected return near ze",
+  "realized_return": -0.009785,
+  "log_score": -1.0788,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 1,
+  "step_index": 90,
+  "stance": "LONG",
+  "confidence": 0.38,
+  "expected_return": 0.003,
+  "crux": "Weak negative trend (-0.021) with positive momentum shift (+0.0207) amid maxed and rising volatility",
+  "falsifiers": [
+   "Price closes >2% above 94.81 over next 5 bars would confirm momentum shift and invalidate flat/down thesis",
+   "Price makes new 5-bar low <93.0 on expanding volume would signal resumption of down trend",
+   "Realized volatility collapses <0.5x current level would invalidate high-noise, flat-prob assumption"
+  ],
+  "reasoning_summary": "Slight upward bias from direction_change and recent +5.7%/+0.7% bounce offsets still-negative direction; with volatility at 1.0 and rising, expect noisy drift, not clean trend, so LONG tilt with low c",
+  "realized_return": -0.05629,
+  "log_score": -1.0498,
+  "direction_correct": false,
+  "paper_utility": -0.05629
+ },
+ {
+  "world": "regime_flip",
+  "sample": 1,
+  "step_index": 100,
+  "stance": "FLAT",
+  "confidence": 0.33,
+  "expected_return": -0.0015,
+  "crux": "Consolidation after sharp drawdown with weak negative trend losing strength and high/ rising volatil",
+  "falsifiers": [
+   "5-step cumulative return > +1.5% would falsify flat/bearish-tilt thesis (momentum reversal)",
+   "5-step cumulative return < -1.5% with expanding volume would falsify stabilization thesis",
+   "Volatility contraction with sustained positive returns would falsify high-risk consolidation view"
+  ],
+  "reasoning_summary": "Negative but weak trend (-0.042) with positive change suggests deceleration not acceleration; at -10.7% drawdown recent bars are near-flat (0.016, -0.018, 0.00025) on below-average volume, while volat",
+  "realized_return": 0.029723,
+  "log_score": -1.204,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 1,
+  "step_index": 110,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": 0.0018,
+  "crux": "Weak negative trend (-0.021) moderating (+0.031 change) after 4 consecutive small negative returns o",
+  "falsifiers": [
+   "Price breaks down with expanding volume (volume_z >1) and volatility persistence would invalidate flat/bounce thesis",
+   "Sustained positive returns >1% with direction turning positive would favor LONG over FLAT",
+   "New low extending drawdown beyond -0.10 on high volume would confirm SHORT momentum"
+  ],
+  "reasoning_summary": "Point-in-time shows moderating weak downtrend on low volume after small consecutive losses, but max volatility and meaningful drawdown create wide, symmetric outcome distribution over 5 steps; expecte",
+  "realized_return": -0.003529,
+  "log_score": -1.0498,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 1,
+  "step_index": 120,
+  "stance": "FLAT",
+  "confidence": 0.34,
+  "expected_return": 0.0018,
+  "crux": "Weak downtrend is decelerating with falling strength and volatility compression; recent positive ret",
+  "falsifiers": [
+   "Next 1-2 returns strongly negative (<-0.01) re-establishing negative strength and direction",
+   "Volatility_change turns positive and expands with volume_z >1.0 on down moves",
+   "Price breaks to new 5-bar low extending drawdown beyond -0.04"
+  ],
+  "reasoning_summary": "For 5-step horizon, point-in-time shows small negative drift but clear deceleration and volatility compression with a recent up bar; base case is flat/consolidation with slight upside bias, not enough",
+  "realized_return": 0.005294,
+  "log_score": -1.1087,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 1,
+  "step_index": 130,
+  "stance": "LONG",
+  "confidence": 0.51,
+  "expected_return": 0.0085,
+  "crux": "Price at highs (drawdown 0.0) with positive direction and elevated volume on strong last bar suggest",
+  "falsifiers": [
+   "Close below 88.5 (~-1.2%) in next 1-2 bars invalidates continuation",
+   "Volume fade and 2 consecutive negative returns",
+   "Volatility expansion with strength turning negative"
+  ],
+  "reasoning_summary": "Small positive drift, zero drawdown, and volume-backed +1.8% last bar favor up over 5 steps, but falling strength and sharp vol compression argue for limited upside and FLAT as second most likely, not",
+  "realized_return": -0.049222,
+  "log_score": -1.6094,
+  "direction_correct": false,
+  "paper_utility": -0.049222
+ },
+ {
+  "world": "regime_flip",
+  "sample": 1,
+  "step_index": 140,
+  "stance": "LONG",
+  "confidence": 0.54,
+  "expected_return": 0.0095,
+  "crux": "Volatility compression and positive direction shift with elevated volume support short-horizon conti",
+  "falsifiers": [
+   "5-step cumulative return < -0.8% or price closes below 88.3 invalidates continuation thesis",
+   "Volatility expands sharply upward or direction flips negative (< -0.02)",
+   "Volume fades and next 1-2 returns turn negative > -1% showing failed follow-through"
+  ],
+  "reasoning_summary": "Short-term reversal from negative streak to 4 positive bars, supported by rising direction, collapsing volatility and above-average volume, tilts next 5 steps positive but modest expected return and m",
+  "realized_return": -0.014452,
+  "log_score": -1.6094,
+  "direction_correct": false,
+  "paper_utility": -0.014452
+ },
+ {
+  "world": "regime_flip",
+  "sample": 1,
+  "step_index": 150,
+  "stance": "FLAT",
+  "confidence": 0.43,
+  "expected_return": -0.0018,
+  "crux": "Slight negative drift with weakening momentum and rising volatility on below-average volume; recent ",
+  "falsifiers": [
+   "5-bar close > 88.5 (+1.7%) on volume_z > +1.0 would invalidate flat/down bias",
+   "Sustained fall > 1.5% over next 2 bars with expanding volume would confirm SHORT thesis over FLAT",
+   "Volatility contraction >0.15 with direction turning positive would favor LONG"
+  ],
+  "reasoning_summary": "Weak negative direction and fading strength argue against long, but tiny drift and low volume argue against high-conviction short. Rising vol plus 3-bar bounce suggests range-bound chop with slight do",
+  "realized_return": 0.030494,
+  "log_score": -1.2379,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 1,
+  "step_index": 160,
+  "stance": "LONG",
+  "confidence": 0.38,
+  "expected_return": 0.0045,
+  "crux": "Weak bullish momentum improving (direction_change positive) despite recent low-volume pullback; high",
+  "falsifiers": [
+   "Direction turns negative and closes below -0.01 with strengthening negative strength_change",
+   "Breakdown with expanding volume (volume_z > +1) and 5-step return < -0.03"
+  ],
+  "reasoning_summary": "Small positive direction with positive change outweighs brief low-volume dip; expect slight positive drift over 5 steps but wide distribution due to high volatility, warranting low confidence LONG til",
+  "realized_return": -0.003563,
+  "log_score": -1.273,
+  "direction_correct": false,
+  "paper_utility": -0.003563
+ },
+ {
+  "world": "regime_flip",
+  "sample": 1,
+  "step_index": 170,
+  "stance": "LONG",
+  "confidence": 0.48,
+  "expected_return": 0.012,
+  "crux": "Weak but improving positive trend with rising strength and elevated volume supports upside over 5 st",
+  "falsifiers": [
+   "Next 1-2 returns < -0.015 would negate positive direction_change momentum",
+   "Volatility expansion with volume fade would invalidate volume-supported move",
+   "Close >2% below recent high would deepen drawdown beyond -0.04"
+  ],
+  "reasoning_summary": "Positive level and change in direction/strength plus elevated volume and strong last print tilt 5-step odds modestly bullish, but high absolute volatility keeps expected return small and confidence lo",
+  "realized_return": -0.002128,
+  "log_score": -1.3471,
+  "direction_correct": false,
+  "paper_utility": -0.002128
+ },
+ {
+  "world": "regime_flip",
+  "sample": 2,
+  "step_index": 30,
+  "stance": "FLAT",
+  "confidence": 0.36,
+  "expected_return": -0.0035,
+  "crux": "Momentum flipped from positive to slightly negative with sharply weaker strength and rising volatili",
+  "falsifiers": [
+   "5-step cumulative return > +1.5% or sustained closes >100.8 would falsify flat/down tilt",
+   "Volatility collapse and directional strength rebuilding >0.05 would falsify consolidation thesis",
+   "New 5-bar drawdown beyond -3.5% would confirm stronger down trend vs flat call"
+  ],
+  "reasoning_summary": "Small negative drift with sharply faded strength after momentum reversal, combined with high and rising volatility and a final-bar bounce from -2% drawdown, points to low edge for directional bet over",
+  "realized_return": -1.1e-05,
+  "log_score": -0.9676,
+  "direction_correct": true,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 2,
+  "step_index": 40,
+  "stance": "FLAT",
+  "confidence": 0.35,
+  "expected_return": -0.0018,
+  "crux": "Weak negative drift (-0.011) with accelerating downside but very low strength and rising volatility ",
+  "falsifiers": [
+   "5-step cumulative return < -0.015 or > +0.015 with expanding volume_z > 1.0 would invalidate flat/chop thesis",
+   "Volatility contraction with strength >0.03 and direction holding <-0.02 would confirm trending short regime",
+   "Two consecutive closes > +0.8% on rising volume would negate downside lean"
+  ],
+  "reasoning_summary": "Point-in-time shows small negative drift but very low strength, accelerating negative change offset by high and rising volatility, low volume and flat 12-bar net return with whipsaw, so expected edge ",
+  "realized_return": 0.018223,
+  "log_score": -1.3093,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 2,
+  "step_index": 50,
+  "stance": "LONG",
+  "confidence": 0.48,
+  "expected_return": 0.007,
+  "crux": "Weak positive trend regaining momentum after shallow -1.1% drawdown, last bar +0.87% bounce on above",
+  "falsifiers": [
+   "Next 1-2 returns print < -0.006 and volume_z expands confirming failed bounce -> invalidates resumption thesis.",
+   "Drawdown deepens beyond -0.03 or direction flips negative -> trend failure.",
+   "Volatility spike >0.5 with direction reversal negative would favor SHORT over LONG."
+  ],
+  "reasoning_summary": "Point-in-time data shows mildly positive and accelerating direction, shallow drawdown, and a strong last-bar reversal on firm volume after a 5-bar consolidation, supporting a modestly bullish 5-step d",
+  "realized_return": -0.003465,
+  "log_score": -1.5141,
+  "direction_correct": false,
+  "paper_utility": -0.003465
+ },
+ {
+  "world": "regime_flip",
+  "sample": 2,
+  "step_index": 60,
+  "stance": "LONG",
+  "confidence": 0.38,
+  "expected_return": 0.0025,
+  "crux": "Small positive drift with positive direction_change but fading strength and ~3% drawdown suggests we",
+  "falsifiers": [
+   "5-step cumulative return < -0.02 or new low extending drawdown beyond -0.05 would invalidate upside bias",
+   "Volatility spike or 2+ consecutive returns with |r|>0.01 would indicate regime shift vs flat/base case",
+   "Sustained strength recovery with low volatility would imply stronger trend than projected"
+  ],
+  "reasoning_summary": "Point-in-time shows weak positive direction but weakening strength, neutral volume, and elevated rising vol near -3% drawdown; recent negatives suggest oversold bounce but noise dominates, so small po",
+  "realized_return": 0.008927,
+  "log_score": -0.9416,
+  "direction_correct": true,
+  "paper_utility": 0.008927
+ },
+ {
+  "world": "regime_flip",
+  "sample": 2,
+  "step_index": 70,
+  "stance": "SHORT",
+  "confidence": 0.39,
+  "expected_return": -0.014,
+  "crux": "Persistent downtrend with strengthening negative direction and rising high volatility outweighs sing",
+  "falsifiers": [
+   "Consecutive closes above recent bounce with direction turning positive would invalidate down thesis",
+   "Volatility contracting sharply while price holds above 92.48 would suggest stabilization/mean reversion",
+   "Volume z spiking >1.5 on up bars would indicate buying pressure shift"
+  ],
+  "reasoning_summary": "Short bias for 5-step horizon due to negative accelerating direction, increasing strength, and high rising volatility in drawdown; latest up bar insufficient to signal reversal, but high volatility ke",
+  "realized_return": -0.002675,
+  "log_score": -0.6931,
+  "direction_correct": true,
+  "paper_utility": 0.002675
+ },
+ {
+  "world": "regime_flip",
+  "sample": 2,
+  "step_index": 80,
+  "stance": "SHORT",
+  "confidence": 0.37,
+  "expected_return": -0.0055,
+  "crux": "Weak negative direction (-0.044) with deteriorating direction_change and expanding volatility sugges",
+  "falsifiers": [
+   "5-bar close > ~98.0 (+2.8% from 95.29) would invalidate bearish drift thesis",
+   "Volatility contraction and strength collapse toward 0 would favor flat/mean-reversion instead of continuation",
+   "Sustained positive returns with volume_z >1.0 would signal momentum reversal to up"
+  ],
+  "reasoning_summary": "Slight bearish tilt due to negative direction and rising volatility, but low strength and recent positive returns keep expected 5-step return near zero (-0.55%) with low confidence and high risk; flat",
+  "realized_return": -0.009785,
+  "log_score": -0.9416,
+  "direction_correct": true,
+  "paper_utility": 0.009785
+ },
+ {
+  "world": "regime_flip",
+  "sample": 2,
+  "step_index": 90,
+  "stance": "FLAT",
+  "confidence": 0.41,
+  "expected_return": 0.0012,
+  "crux": "Weak negative drift is moderating but volatility is high and rising while volume is weak, and recent",
+  "falsifiers": [
+   "Sustained volume-supported continuation above 94.81 with volatility compressing would invalidate FLAT and favor LONG",
+   "Breakdown with expanding volatility and negative follow-through <-1.5% in next 1-2 bars would shift to SHORT",
+   "Direction turning positive and strengthening while drawdown recovers to 0 would signal trend reversal"
+  ],
+  "reasoning_summary": "For 5 steps, negative drift is small and improving, but elevated/rising volatility dominates; recent bounce is large but low-volume and follows choppy negative returns, leaving expected return near ze",
+  "realized_return": -0.05629,
+  "log_score": -1.204,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 2,
+  "step_index": 100,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": -0.003,
+  "crux": "Weak negative drift amid max normalized volatility and below-average volume provides no reliable 5-s",
+  "falsifiers": [
+   "Consecutive closes >1.5-2% above 85.8 on rising volume_z >+1 would invalidate flat/down bias",
+   "Volatility compression with sustained positive returns would signal trend reversal",
+   "New 5-step drawdown extension beyond -0.15 with volume expansion would confirm downside continuation"
+  ],
+  "reasoning_summary": "Point-in-time shows small bear drift losing strength, high/rising volatility, and thin volume. Recent returns are choppy around zero. Over 5 steps variance dominates drift, so FLAT minimizes adverse s",
+  "realized_return": 0.029723,
+  "log_score": -1.1712,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 2,
+  "step_index": 110,
+  "stance": "FLAT",
+  "confidence": 0.38,
+  "expected_return": 0.0015,
+  "crux": "Weak negative direction (-0.021) but improving (+0.031) after 4-day low-volume drift within 8.8% dra",
+  "falsifiers": [
+   "5-bar return > +2% on rising volume_z > +1.0 would invalidate low-conviction pullback thesis",
+   "Close breaking further -3% to -5% with volatility expansion would confirm continuation despite volume signal",
+   "Direction turning more negative (< -0.05) with strength rising would negate improving-momentum claim"
+  ],
+  "reasoning_summary": "Point-in-time shows mild down drift losing momentum after low-volume 4-day slide in high-vol regime. No volume confirmation for short and no strong up impulse. Over 5 bars expected return near zero wi",
+  "realized_return": -0.003529,
+  "log_score": -1.1394,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 2,
+  "step_index": 120,
+  "stance": "FLAT",
+  "confidence": 0.34,
+  "expected_return": 0.0012,
+  "crux": "Weak fading downtrend with compressing volatility and neutral volume implies consolidation/range-bou",
+  "falsifiers": [
+   "5-step return <-1.5% or >+1.5% with expanding volatility and volume_z >1.5 would negate consolidation thesis.",
+   "Two to three consecutive closes with |return|>0.7% in same direction would indicate trend re-strengthening.",
+   "Volatility_change turning positive with volume spike would signal breakout from compression."
+  ],
+  "reasoning_summary": "Negative drift is small and fading, volatility is compressing and volume is neutral; over 5 steps base case is flat/mean-reverting consolidation with near-zero expected return, hence FLAT.",
+  "realized_return": 0.005294,
+  "log_score": -1.0788,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 2,
+  "step_index": 130,
+  "stance": "LONG",
+  "confidence": 0.54,
+  "expected_return": 0.0065,
+  "crux": "Positive direction with accelerating change and zero drawdown on compressed volatility and elevated ",
+  "falsifiers": [
+   "Close below ~88.6 (-1% in 1-2 steps) or 2 consecutive negative returns >0.6% would negate momentum thesis",
+   "Volatility expansion above 0.6 or volume fade below -0.5 z would indicate failed breakout"
+  ],
+  "reasoning_summary": "Short-term momentum is modestly positive and accelerating at price highs, with volatility sharply lower and volume elevated supporting continuation over 5 steps; diverging strength keeps confidence mo",
+  "realized_return": -0.049222,
+  "log_score": -1.6094,
+  "direction_correct": false,
+  "paper_utility": -0.049222
+ },
+ {
+  "world": "regime_flip",
+  "sample": 2,
+  "step_index": 140,
+  "stance": "LONG",
+  "confidence": 0.54,
+  "expected_return": 0.0095,
+  "crux": "Accelerating 4-bar positive reversal after 5-bar drawdown with rising direction (+0.089) and volatil",
+  "falsifiers": [
+   "Next 1-2 returns turn negative and break acceleration sequence",
+   "Volatility expands sharply upward reversing compression",
+   "Direction falls back below zero"
+  ],
+  "reasoning_summary": "Short-horizon momentum has flipped positive and is accelerating with supportive volume and collapsing volatility, justifying modest LONG bias with low confidence given weak absolute strength and synth",
+  "realized_return": -0.014452,
+  "log_score": -1.5141,
+  "direction_correct": false,
+  "paper_utility": -0.014452
+ },
+ {
+  "world": "regime_flip",
+  "sample": 2,
+  "step_index": 150,
+  "stance": "FLAT",
+  "confidence": 0.36,
+  "expected_return": -0.0018,
+  "crux": "Weak negative trend with deteriorating momentum conflicts with 3-bar bounce, rising volatility and b",
+  "falsifiers": [
+   "5-step cumulative return > +1.2% with volume_z turning positive would invalidate flat/bearish bias",
+   "Close below ~84.5 (-2.9% further) with volatility expansion would confirm downside breakout",
+   "Sustained direction > +0.02 over next 2-3 bars would signal trend reversal"
+  ],
+  "reasoning_summary": "Small negative direction with negative change suggests continuation risk, but absolute strength is tiny and last 3 returns are positive yet on low volume. Elevated/rising volatility widens distributio",
+  "realized_return": 0.030494,
+  "log_score": -1.1712,
+  "direction_correct": false,
+  "paper_utility": 0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 2,
+  "step_index": 160,
+  "stance": "FLAT",
+  "confidence": 0.42,
+  "expected_return": 0.0035,
+  "crux": "Weak positive direction (+0.0108) with improving change is offset by falling strength, rising high v",
+  "falsifiers": [
+   "Consecutive high-volume positive returns >1% with volume_z >+1 would invalidate weak-trend thesis",
+   "Volatility contraction with strength_change turning positive and direction accelerating",
+   "Price breaking 3% above current with drawdown closing toward 0"
+  ],
+  "reasoning_summary": "Small positive drift is not tradable given high and rising volatility, weak participation and mixed momentum; expected 5-step return near zero with wide dispersion favors FLAT risk management.",
+  "realized_return": -0.003563,
+  "log_score": -1.2379,
+  "direction_correct": false,
+  "paper_utility": -0.0
+ },
+ {
+  "world": "regime_flip",
+  "sample": 2,
+  "step_index": 170,
+  "stance": "LONG",
+  "confidence": 0.32,
+  "expected_return": 0.0045,
+  "crux": "Weak positive trend with rising momentum and elevated volume supports small upside bias over 5 steps",
+  "falsifiers": [
+   "Consecutive closes below 86.5 would negate bounce and extend drawdown",
+   "Volatility expansion with negative returns would flip momentum negative",
+   "Failure to hold above last bounce low on declining volume would invalidate continuation"
+  ],
+  "reasoning_summary": "Point-in-time data shows marginal uptrend with improving momentum and volume-backed bounce from shallow drawdown, implying small positive expected return over 5 bars. High absolute volatility and nois",
+  "realized_return": -0.002128,
+  "log_score": -1.1712,
+  "direction_correct": false,
+  "paper_utility": -0.002128
+ }
+]

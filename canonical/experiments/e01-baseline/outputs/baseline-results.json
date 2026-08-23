@@ -1,0 +1,62 @@
+{
+ "model": "muse-spark-1.2-contributor",
+ "elapsed_s": 1655,
+ "total_llm_calls": 135,
+ "smooth_trend": {
+  "mean_log_score": -1.0121,
+  "sd_log_score": 0.0052,
+  "mean_utility": 0.002108,
+  "sd_utility": 0.000287,
+  "signature": {
+   "long_rate": 0.6444,
+   "flat_rate": 0.3333,
+   "short_rate": 0.0222,
+   "mean_confidence": 0.4967,
+   "sd_confidence": 0.0706,
+   "mean_risk": 0.2279,
+   "sd_risk": 0.2256,
+   "mean_expected_return": 0.004,
+   "mean_forecast_entropy": 1.0328,
+   "mean_claim_count": 3.5111,
+   "mean_falsifier_count": 2.9778
+  }
+ },
+ "shock_jumps": {
+  "mean_log_score": -1.0447,
+  "sd_log_score": 0.0413,
+  "mean_utility": -0.001254,
+  "sd_utility": 0.002168,
+  "signature": {
+   "long_rate": 0.4222,
+   "flat_rate": 0.5111,
+   "short_rate": 0.0667,
+   "mean_confidence": 0.4391,
+   "sd_confidence": 0.0724,
+   "mean_risk": 0.3634,
+   "sd_risk": 0.309,
+   "mean_expected_return": -0.0001,
+   "mean_forecast_entropy": 1.065,
+   "mean_claim_count": 3.5556,
+   "mean_falsifier_count": 2.8444
+  }
+ },
+ "regime_flip": {
+  "mean_log_score": -1.2059,
+  "sd_log_score": 0.0218,
+  "mean_utility": -0.00582,
+  "sd_utility": 0.00263,
+  "signature": {
+   "long_rate": 0.3333,
+   "flat_rate": 0.5556,
+   "short_rate": 0.1111,
+   "mean_confidence": 0.4076,
+   "sd_confidence": 0.06,
+   "mean_risk": 0.4787,
+   "sd_risk": 0.287,
+   "mean_expected_return": 0.0005,
+   "mean_forecast_entropy": 1.0766,
+   "mean_claim_count": 3.5778,
+   "mean_falsifier_count": 2.9556
+  }
+ }
+}

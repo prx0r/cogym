@@ -50,7 +50,7 @@ for w in worlds:
                 "paper_utility": round(rec.score.paper_utility, 6),
             })
         ml = result.mean_log_score
-        mu = result.mean_utility
+        mu = result.mean_paper_utility
         dir_ok = sum(1 for r in result.records if r.score.direction_correct) / max(1,len(result.records))
         print(f"  s{sample+1}: log={ml:.3f} util={mu:+.4f} dir={dir_ok:.0%}", flush=True)
     summary = summarize_repeats(runs, f"baseline_{w['name']}")
