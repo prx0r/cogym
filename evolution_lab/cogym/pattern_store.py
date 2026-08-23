@@ -59,7 +59,7 @@ class PatternStore:
             "INSERT INTO pattern_world_results VALUES (NULL,?,?,?,?,?,?,?,?,?)",
             (pattern_id, world_family, world_seed, treatment, mean_reward,
              calibration_error, adaptation_latency,
-             int(mean_reward > 0), time.strftime("%Y-%m-%dT%H:%M:%SZ")))
+             int(improved), time.strftime("%Y-%m-%dT%H:%M:%SZ")))
         self.conn.commit()
 
     def best_patterns_for(self, world_family: str, limit: int = 5) -> list:
