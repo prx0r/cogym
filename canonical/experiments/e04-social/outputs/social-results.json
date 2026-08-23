@@ -1,0 +1,236 @@
+{
+ "decision_only": {
+  "rounds": [
+   {
+    "agent": "analyst_a",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.35,
+    "revised_conf": 0.35
+   },
+   {
+    "agent": "analyst_b",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.35,
+    "revised_conf": 0.35
+   },
+   {
+    "agent": "analyst_c",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.34,
+    "revised_conf": 0.34
+   },
+   {
+    "agent": "analyst_a",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.34,
+    "revised_conf": 0.34
+   },
+   {
+    "agent": "analyst_b",
+    "private_stance": "FLAT",
+    "revised_stance": "FLAT",
+    "changed": false,
+    "private_conf": 0.45,
+    "revised_conf": 0.45
+   },
+   {
+    "agent": "analyst_c",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.45,
+    "revised_conf": 0.45
+   },
+   {
+    "agent": "analyst_a",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.55,
+    "revised_conf": 0.55
+   },
+   {
+    "agent": "analyst_b",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.55,
+    "revised_conf": 0.55
+   },
+   {
+    "agent": "analyst_c",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.35,
+    "revised_conf": 0.35
+   }
+  ],
+  "n_agents": 3,
+  "changed_pct": 0.0
+ },
+ "decision_confidence": {
+  "rounds": [
+   {
+    "agent": "analyst_a",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.38,
+    "revised_conf": 0.38
+   },
+   {
+    "agent": "analyst_b",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.42,
+    "revised_conf": 0.42
+   },
+   {
+    "agent": "analyst_c",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.34,
+    "revised_conf": 0.34
+   },
+   {
+    "agent": "analyst_a",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": true,
+    "private_conf": 0.34,
+    "revised_conf": 0.36
+   },
+   {
+    "agent": "analyst_b",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": true,
+    "private_conf": 0.55,
+    "revised_conf": 0.52
+   },
+   {
+    "agent": "analyst_c",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.35,
+    "revised_conf": 0.35
+   },
+   {
+    "agent": "analyst_a",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.34,
+    "revised_conf": 0.34
+   },
+   {
+    "agent": "analyst_b",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.45,
+    "revised_conf": 0.45
+   },
+   {
+    "agent": "analyst_c",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.34,
+    "revised_conf": 0.34
+   }
+  ],
+  "n_agents": 3,
+  "changed_pct": 0.22
+ },
+ "full_artifact": {
+  "rounds": [
+   {
+    "agent": "analyst_a",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.34,
+    "revised_conf": 0.34
+   },
+   {
+    "agent": "analyst_b",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.34,
+    "revised_conf": 0.35
+   },
+   {
+    "agent": "analyst_c",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.45,
+    "revised_conf": 0.45
+   },
+   {
+    "agent": "analyst_a",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.55,
+    "revised_conf": 0.55
+   },
+   {
+    "agent": "analyst_b",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": true,
+    "private_conf": 0.45,
+    "revised_conf": 0.45
+   },
+   {
+    "agent": "analyst_c",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.45,
+    "revised_conf": 0.45
+   },
+   {
+    "agent": "analyst_a",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.34,
+    "revised_conf": 0.34
+   },
+   {
+    "agent": "analyst_b",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.52,
+    "revised_conf": 0.5
+   },
+   {
+    "agent": "analyst_c",
+    "private_stance": "LONG",
+    "revised_stance": "LONG",
+    "changed": false,
+    "private_conf": 0.4,
+    "revised_conf": 0.4
+   }
+  ],
+  "n_agents": 3,
+  "changed_pct": 0.11
+ }
+}
