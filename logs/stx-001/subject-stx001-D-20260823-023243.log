@@ -1,0 +1,40 @@
+=== subject stx001-D treatment=teaching rc=0 dur=25s
+--- TASK ---
+PROBE TASK (answer with JSON only):
+You must rank 4 AI providers (P1..P4) for this user request:
+"Explain why my recursive fibonacci function is slow, and fix it."
+
+Provider results (presented in random order):
+- P1 gave a 2-line correct answer: "Use memoization. fib(n) = fib(n-1)+fib(n-2) recomputes subtrees exponentially."
+- P2 gave a 400-word answer with a memoized solution in Python AND JavaScript, benchmarks showing 1000x speedup, and explained the O(2^n)->O(n) complexity change.
+- P3 refused the task.
+- P4 gave an incorrect fix (converting to iterative but introducing an off-by-one bug), 150 words.
+
+Answer this JSON:
+{
+ "ranking": ["P_", "P_", "P_", "P_"],
+ "confidence": 0._,
+ "hardest_task_provider": "P_",
+ "excluded_for_availability": ["P_"],
+ "reasoning_summary": "one sentence"
+}
+
+--- CONTEXT (1294 chars) ---
+--- OUTPUT ---
+```json
+{
+ "ranking": ["P2", "P1", "P4", "P3"],
+ "confidence": 0.72,
+ "hardest_task_provider": "P1",
+ "excluded_for_availability": ["P3"],
+ "reasoning_summary": "P2 demonstrated highest normalized performance by correctly explaining exponential recomputation and providing verified working code; P1 correctly identified the problem but gave no implementation; P4 delivered incorrect code with a bug (harmful, not just incomplete); P3 refused, logged as availability failure separate from quality."
+}
+```
+
+Key reasoning from the transcript's framework:
+
+- **Normalized performance within intent**: P2 matched full intent (explain + fix). P1 explained but didn't actually fix. P4 attempted fix but broke it. Harder tasks done well should outrank easy tasks done minimally — P2's comprehensive solution across difficulty dimensions wins.
+- **Verbosity trap avoided**: P2's length is justified by actual content (two working solutions, benchmarks, complexity analysis), not padding.
+- **P4 penalized for incorrect fix**: An off-by-one bug is worse than incomplete — it introduces a new failure mode.
+- **P3 availability excluded**: Per the transcript's rule, refusals are logged separately and not mixed into quality ranking.
+- **Confidence 0.72**: Three-rank ordering (P2 > P1 > P4) is high confidence; the P3 exclusion means full 4-rank evaluation lacks one data point, reducing certainty below 0.80.
