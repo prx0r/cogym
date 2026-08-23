@@ -1,0 +1,6 @@
+=== subject stx001-G treatment=control rc=0 dur=9s
+--- TASK ---
+Reply with exactly {"subject_ready":true}
+--- CONTEXT (0 chars) ---
+--- OUTPUT ---
+{"subject_ready":true}
