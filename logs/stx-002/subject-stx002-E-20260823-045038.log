@@ -1,0 +1,12 @@
+=== subject stx002-E treatment=primer rc=0 dur=20s
+--- TASK ---
+Recent sample: 5/5 positive outcomes.
+Population historical rate: 20% positive.
+Is the true positive rate closer to 20% or to the recent sample rate?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (506 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.70}
+
+The 5/5 positive outcome is highly improbable under a 20% true rate (0.2^5 = 0.00032), making the recent sample much more likely to reflect a genuinely higher positive rate than the historical baseline.

@@ -73,3 +73,6 @@
 
 [primer] (5/7)
   w1 [difficulty_w] ✓ chose=B oracle=B
+  w2 [base_rate_sh] ✗ chose=B oracle=A
+  w3 [confounded_c] ✓ chose=B oracle=B
+  w4 [regime_flip] ✓ chose=B oracle=B
