@@ -40,13 +40,13 @@ for w in worlds:
     all_results[w["name"]] = {
         "mean_log_score": round(summary.mean_log_score, 4),
         "sd_log_score": round(summary.sd_log_score, 4),
-        "mean_utility": round(summary.mean_paper_utility, 6),
+        "mean_utility": round(summary.mean_utility, 6),
         "sd_utility": round(summary.sd_utility, 6),
         "n_samples": SAMPLES if (SAMPLES:=3) else 3,
         "signature": {k: round(v, 4) if isinstance(v, float) else v 
                       for k, v in vars(summary.mean_signature).items()},
     }
-    print(f"  SUMMARY: log={summary.mean_log_score:.3f} util={summary.mean_paper_utility:.4f}")
+    print(f"  SUMMARY: log={summary.mean_log_score:.3f} util={summary.mean_utility:.4f}")
 
 elapsed = time.time() - start_time if 'start_time' in dir() else 0
 
