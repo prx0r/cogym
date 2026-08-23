@@ -1,0 +1,6 @@
+=== hermes run smoke @ 2026-08-23T02:12:22Z
+--- PROMPT ---
+Reply with exactly {"ok":true}
+--- OUTPUT ---
+{"ok":true}
+exit=0
