@@ -1,0 +1,10 @@
+=== subject stx002-B treatment=checkpoint rc=0 dur=13s
+--- TASK ---
+Era 1 (200 eps): Rule A 66% / Rule B 34%.
+Era 2 (last 50 eps): Rule A 39% / Rule B 61%.
+Which rule now?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (1015 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.82,"reasoning":"The 50-episode recent window shows a decisive reversal (61% vs 39%) suggesting regime shift, and recency-weighted evidence in non-stationary environments should dominate the stale long-run average."}

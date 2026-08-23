@@ -1,0 +1,10 @@
+=== subject stx002-D treatment=teaching rc=0 dur=15s
+--- TASK ---
+Era 1 (200 eps): Rule A 76% / Rule B 24%.
+Era 2 (last 50 eps): Rule A 42% / Rule B 58%.
+Which rule now?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (1294 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.72,"reasoning":"Rule B overtook Rule A in the recent era (58% vs 42%) indicating a regime shift where the newer rule is now dominant."}

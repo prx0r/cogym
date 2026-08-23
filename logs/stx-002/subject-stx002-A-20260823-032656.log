@@ -1,0 +1,10 @@
+=== subject stx002-A treatment=live rc=0 dur=21s
+--- TASK ---
+Recent sample: 6/7 positive outcomes.
+Population historical rate: 15% positive.
+Is the true positive rate closer to 15% or to the recent sample rate?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (1426 chars) ---
+--- OUTPUT ---
+{"choice":"A","confidence":0.82,"reasoning":"With only 7 observations and a strong historical prior of 15%, the posterior mean is pulled heavily toward the prior — a standard Beta-Binomial calculation with a typical informative prior puts the estimate near 25-35%, far closer to 15% than to the 86% sample rate."}

@@ -1,0 +1,10 @@
+=== subject stx002-G treatment=control rc=0 dur=10s
+--- TASK ---
+Era 1 (200 eps): Rule A 66% / Rule B 34%.
+Era 2 (last 50 eps): Rule A 39% / Rule B 61%.
+Which rule now?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (0 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.7,"reasoning":"Recent 50-episode regime shows B dominant (61% vs 39%), indicating the environment has shifted and B is now the better rule, though the 50-episode sample warrants moderate confidence."}

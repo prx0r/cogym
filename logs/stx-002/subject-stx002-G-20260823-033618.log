@@ -1,0 +1,16 @@
+=== subject stx002-G treatment=control rc=0 dur=22s
+--- TASK ---
+Recent sample: 6/7 positive outcomes.
+Population historical rate: 15% positive.
+Is the true positive rate closer to 15% or to the recent sample rate?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (0 chars) ---
+--- OUTPUT ---
+```json
+{
+  "choice": "B",
+  "confidence": 0.82,
+  "reasoning": "Under H0 (true rate = 0.15), P(X ≥ 6 of 7) ≈ 0.00007 — an extraordinarily unlikely outcome — so Bayesian posterior with any reasonable prior is pulled strongly toward the sample rate; small n introduces uncertainty but the evidence against 15% is overwhelming."
+}
+```

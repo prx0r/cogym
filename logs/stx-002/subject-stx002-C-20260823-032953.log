@@ -1,0 +1,11 @@
+=== subject stx002-C treatment=pack rc=0 dur=16s
+--- TASK ---
+Two AI providers were evaluated on 41% easy and 59% hard tasks:
+- Provider A: succeeded on 10 of 10 easy tasks, 0 of 10 hard tasks
+- Provider B: succeeded on 3 of 10 easy tasks, 5 of 10 hard tasks
+Which provider should be deployed for the expected task distribution?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (600 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.73,"reasoning":"At 41/59 easy/hard split, Provider B's expected yield (0.418) edges out Provider A (0.410), and Provider B delivers on the majority-difficulty tasks while A fails completely there."}

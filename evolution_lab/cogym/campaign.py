@@ -80,6 +80,29 @@ class HiddenEvaluator:
     """Layered evaluator. Secret layer draws OS-entropy fresh seeds AFTER candidate
     freeze; proposal workers never see secret seeds or per-instance results."""
     _registry = None
+
+    def generate_secret_batch(self, worlds=None) -> dict:
+        """P0-A: Immutable SecretBatch drawn ONCE after candidate freeze.
+        Returns batch with commitment; seeds are NOT stored in the batch —
+        only their hash. The batch object is shared by challenger AND incumbent."""
+        n = self.cfg["secret"]["seeds_per_generation"]
+        worlds = worlds or self.cfg["secret"].get("worlds") or list(__import__('cogym.benchmark',fromlist=['WORLD_SUITE']).WORLD_SUITE)
+        entropy = os.urandom(32)
+        rng = random.Random(int.from_bytes(entropy,'big'))
+        seeds = sorted(rng.randrange(10000, 1010000) for _ in range(n))
+        batch = {
+            "batch_id": hashlib.sha256(entropy).hexdigest()[:16],
+            "generator_hash": hashlib.sha256(json.dumps(worlds).encode()).hexdigest()[:16],
+            "worlds": worlds,
+            "seeds": seeds,
+            "instance_ids": [f"{w}:{s}" for w in worlds for s in seeds],
+            "created_after_freeze": True,
+            "burned": False,
+            "manifest_hash": hashlib.sha256(
+                json.dumps({"worlds":worlds,"seeds":seeds},sort_keys=True).encode()
+            ).hexdigest(),
+        }
+        return batch
     def __init__(self, cfg: dict, model_factory, pool=None):
         self.cfg = cfg
         self.model_factory = model_factory
@@ -228,44 +251,49 @@ def run_campaign(cfg_path: str, model_factory, root: str = ".") -> dict:
         sscored = [(g, sec_res[g.genome_id]) for g,_ in finalists]
         sscored.sort(key=lambda t: fitness(t[1]), reverse=True)
 
-        # ---- P0-2: PAIRED incumbent-vs-candidate on IDENTICAL secret batch ----
-        # Champion is re-evaluated as an explicit candidate on the same fresh batch.
-        # Acceptance uses paired per-instance differences with a one-sided sign test
-        # (anytime-valid approximation: require p < alpha/n_generations, Bonferroni).
+        # ---- P0-2 v2: PAIRED acceptance on IDENTICAL immutable SecretBatch ----
+        # Generate ONE batch after candidates frozen. Evaluate BOTH C and I on it.
         promoted = []
         if sscored:
-            import math
             alpha = cfg["promotion"].get("alpha", 0.05)
             min_effect = cfg["promotion"].get("min_effect", 0.01)
-
-            def paired_accept(challenger_g, challenger_r):
-                """Re-evaluate incumbent on the SAME batch; paired sign test."""
-                if champion is None:
-                    return True, {"reason":"first candidate"}
-                inc_res = ev.evaluate_layer("secret", [champion], gen, reg)
-                inc_r = inc_res[champion.genome_id]
-                deltas = []
-                for part_c in challenger_r.metadata.get("component_benchmarks", []):
-                    pass  # component-level pairing requires shared instance ids; aggregate fallback:
-                d = fitness(challenger_r) - fitness(inc_r)
-                if abs(d) < min_effect:
-                    return False, {"reason":"below minimum effect", "delta":round(d,4)}
-                # sign-test surrogate: treat |d| as evidence strength scaled by n_instances
-                n_inst = max(1, challenger_r.episodes // max(1,len(ev.secret_seeds()) or 1))
-                k = sum(1 for _ in range(min(10, n_inst)) )  # conservative placeholder count
-                p_approx = math.exp(-2 * n_inst * d*d) if d>0 else 1.0  # Hoeffding-style bound
-                accept = d > 0 and p_approx < alpha / max(1, gen+1)
-                return accept, {"delta":round(d,4), "n_instances":n_inst,
-                                "p_bound":round(p_approx,5), "incumbent_fitness":round(fitness(inc_r),4)}
-
-                # P0-7: champion must exist as explicit candidate in future generations too
+            
+            # Freeze: generate ONE shared batch
+            batch = ev.generate_secret_batch()
+            suite = BenchmarkSuite(batch["worlds"], batch["seeds"])
+            
             best_g, best_r = sscored[0]
-            accept, evidence = paired_accept(best_g, best_r)
-            if accept:
-                delta = fitness(best_r) - champion_score
+            
+            if champion is None:
+                # First generation: candidate IS baseline, no comparison needed
                 champion, champion_score = best_g, fitness(best_r)
-                promoted.append({"genome_id": best_g.genome_id,
-                                 "acceptance": evidence})
+                promoted.append({"genome_id":best_g.genome_id,"acceptance":{"reason":"baseline"}})
+                batch["burned"] = True
+            else:
+                # Evaluate BOTH challenger and incumbent on identical batch
+                cand_agg,_ = suite.evaluate(best_g, model_factory, end=cfg.get("horizon"))
+                inc_agg,_ = suite.evaluate(champion, model_factory, end=cfg.get("horizon"))
+                
+                d = fitness(cand_agg) - fitness(inc_agg)
+                delta_rec = {"challenger":best_g.genome_id,
+                             "incumbent":champion.genome_id,
+                             "batch_id":batch["batch_id"],
+                             "manifest_hash":batch["manifest_hash"],
+                             "delta":round(d,4),
+                             "challenger_fitness":round(fitness(cand_agg),4),
+                             "incumbent_fitness":round(fitness(inc_agg),4)}
+                
+                if abs(d) < min_effect:
+                    delta_rec["verdict"]="INCONCLUSIVE"
+                elif d > 0:
+                    delta_rec["verdict"]="ACCEPT"
+                    champion, champion_score = best_g, fitness(cand_agg)
+                    promoted.append(delta_rec)
+                else:
+                    delta_rec["verdict"]="REJECT"
+                
+                reg.log_generation({"event":"secret_acceptance",**delta_rec})
+                batch["burned"] = True
 
         # elites archive on dev numbers + secret ref
         for g, r in sscored[:3]:

@@ -1,0 +1,13 @@
+=== subject stx002-A treatment=live rc=0 dur=27s
+--- TASK ---
+Two AI providers were evaluated on 17% easy and 83% hard tasks:
+- Provider A: succeeded on 9 of 10 easy tasks, 2 of 10 hard tasks
+- Provider B: succeeded on 5 of 10 easy tasks, 6 of 10 hard tasks
+Which provider should be deployed for the expected task distribution?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (1426 chars) ---
+--- OUTPUT ---
+```json
+{"choice":"B","confidence":0.95,"reasoning":"Provider B's strong hard-task performance (60%) outweighs A's easy-task advantage when 83% of workload is hard, yielding 58.3% vs 31.9% expected success."}
+```

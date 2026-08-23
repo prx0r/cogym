@@ -1,0 +1,10 @@
+=== subject stx002-B treatment=checkpoint rc=0 dur=17s
+--- TASK ---
+Recent sample: 5/5 positive outcomes.
+Population historical rate: 20% positive.
+Is the true positive rate closer to 20% or to the recent sample rate?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (1015 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.72,"reasoning":"With only 5 observations, the prior (20%) heavily influences the posterior, but 5/5 successes is extremely unlikely under a true 20% rate (p=0.032%), suggesting the actual rate is higher than historical, though small sample size introduces substantial uncertainty."}

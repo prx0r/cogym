@@ -1,0 +1,18 @@
+=== subject stx002-A treatment=live rc=0 dur=29s
+--- TASK ---
+Era 1 (200 eps): Rule A 66% / Rule B 34%.
+Era 2 (last 50 eps): Rule A 39% / Rule B 61%.
+Which rule now?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (1426 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.75,"reasoning":"Era 2 shows a clear regime shift — Rule B dominates the recent 50-episode window at 61%, reversing Era 1's 66% Rule A advantage, and the most recent distribution is the strongest predictor of the current regime."}
+
+The reasoning behind this:
+
+**Regime change detection**: The historical 200-episode window (Rule A 66%) is the OLD regime. The recent 50-episode window shows Rule B at 61% — a ~22-point swing. If the old regime were still active, Rule A winning only 39% in 50 samples is extremely unlikely under the 66% base rate (binomial p-value < 0.001).
+
+**Why not A**: Naively averaging all 250 episodes (Rule A: 151.5/250 = 60.6%) ignores the structural break. That average is dominated by stale data from the prior regime.
+
+**Why 75% not higher**: 50 episodes is a moderate sample — there's some residual uncertainty that the Era 2 shift is itself transient rather than a permanent regime change. Additional data would tighten this.

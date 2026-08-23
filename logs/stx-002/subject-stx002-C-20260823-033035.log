@@ -1,0 +1,12 @@
+=== subject stx002-C treatment=pack rc=0 dur=21s
+--- TASK ---
+Recent sample: 6/7 positive outcomes.
+Population historical rate: 15% positive.
+Is the true positive rate closer to 15% or to the recent sample rate?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (600 chars) ---
+--- OUTPUT ---
+```json
+{"choice":"A","confidence":0.82,"reasoning":"With a strong prior from a large historical dataset at 15%, only 7 new observations are insufficient to shift the posterior much — Bayesian updating yields ~16-20% posterior mean depending on prior strength, far closer to the historical rate than the 86% suggested by the small sample."}
+```

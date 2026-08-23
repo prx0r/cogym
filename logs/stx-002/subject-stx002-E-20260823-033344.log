@@ -1,0 +1,10 @@
+=== subject stx002-E treatment=primer rc=0 dur=17s
+--- TASK ---
+Recent sample: 6/7 positive outcomes.
+Population historical rate: 15% positive.
+Is the true positive rate closer to 15% or to the recent sample rate?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (506 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.72,"reasoning":"Bayesian update: P(6/7 positive | true rate=15%) is ~6.8e-5 vs P(data | rate~86%) is ~0.396, making the posterior strongly favor the sample estimate despite small n=7; the strong skew in the likelihood overwhelms the 0.85 prior on the historical rate."}

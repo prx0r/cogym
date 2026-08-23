@@ -1,0 +1,10 @@
+=== subject stx002-G treatment=control rc=0 dur=18s
+--- TASK ---
+Recent sample: 5/5 positive outcomes.
+Population historical rate: 20% positive.
+Is the true positive rate closer to 20% or to the recent sample rate?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (0 chars) ---
+--- OUTPUT ---
+{"choice":"A","confidence":0.85,"reasoning":"With only n=5, the sample is far too small to override the strong prior evidence from the population historical rate of 20%; while 5/5 is surprising under p=0.2 (probability ~0.03%), small-sample fluctuations easily explain it, and Bayesian updating with this weak evidence keeps the posterior close to the base rate."}

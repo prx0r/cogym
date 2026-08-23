@@ -1,0 +1,438 @@
+{
+ "worlds": [
+  {
+   "family": "difficulty_weighted_rank",
+   "seed": 900000,
+   "options": [
+    {
+     "name": "A",
+     "easy": 9,
+     "hard": 2
+    },
+    {
+     "name": "B",
+     "easy": 5,
+     "hard": 6
+    }
+   ],
+   "deployment_mix": [
+    0.17000000000000004,
+    0.83
+   ],
+   "oracle_choice": "B",
+   "naive_choice": "A"
+  },
+  {
+   "family": "difficulty_weighted_rank",
+   "seed": 939595,
+   "options": [
+    {
+     "name": "A",
+     "easy": 10,
+     "hard": 0
+    },
+    {
+     "name": "B",
+     "easy": 3,
+     "hard": 5
+    }
+   ],
+   "deployment_mix": [
+    0.41000000000000003,
+    0.59
+   ],
+   "oracle_choice": "B",
+   "naive_choice": "A"
+  },
+  {
+   "family": "base_rate_shift",
+   "seed": 907919,
+   "options": [
+    {
+     "name": "A",
+     "policy": "trust_base_rate"
+    },
+    {
+     "name": "B",
+     "policy": "extrapolate_recent"
+    }
+   ],
+   "deployment_mix": [
+    1,
+    0
+   ],
+   "oracle_choice": "A",
+   "naive_choice": "B"
+  },
+  {
+   "family": "base_rate_shift",
+   "seed": 947514,
+   "options": [
+    {
+     "name": "A",
+     "policy": "trust_base_rate"
+    },
+    {
+     "name": "B",
+     "policy": "extrapolate_recent"
+    }
+   ],
+   "deployment_mix": [
+    1,
+    0
+   ],
+   "oracle_choice": "A",
+   "naive_choice": "B"
+  },
+  {
+   "family": "regime_flip",
+   "seed": 923757,
+   "options": [
+    {
+     "name": "A",
+     "era1": 76
+    },
+    {
+     "name": "B",
+     "era2": 58
+    }
+   ],
+   "deployment_mix": [
+    1,
+    0
+   ],
+   "oracle_choice": "B",
+   "naive_choice": "A"
+  },
+  {
+   "family": "regime_flip",
+   "seed": 963352,
+   "options": [
+    {
+     "name": "A",
+     "era1": 66
+    },
+    {
+     "name": "B",
+     "era2": 61
+    }
+   ],
+   "deployment_mix": [
+    1,
+    0
+   ],
+   "oracle_choice": "B",
+   "naive_choice": "A"
+  }
+ ],
+ "results": {
+  "live": [
+   {
+    "family": "difficulty_weighted_rank",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.95
+   },
+   {
+    "family": "difficulty_weighted_rank",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.85
+   },
+   {
+    "family": "base_rate_shift",
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.72
+   },
+   {
+    "family": "base_rate_shift",
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.82
+   },
+   {
+    "family": "regime_flip",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.72
+   },
+   {
+    "family": "regime_flip",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.75
+   }
+  ],
+  "checkpoint": [
+   {
+    "family": "difficulty_weighted_rank",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.92
+   },
+   {
+    "family": "difficulty_weighted_rank",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.53
+   },
+   {
+    "family": "base_rate_shift",
+    "oracle": "A",
+    "chosen": "B",
+    "correct": false,
+    "confidence": 0.72
+   },
+   {
+    "family": "base_rate_shift",
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.82
+   },
+   {
+    "family": "regime_flip",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.72
+   },
+   {
+    "family": "regime_flip",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.82
+   }
+  ],
+  "pack": [
+   {
+    "family": "difficulty_weighted_rank",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.92
+   },
+   {
+    "family": "difficulty_weighted_rank",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.73
+   },
+   {
+    "family": "base_rate_shift",
+    "oracle": "A",
+    "chosen": "B",
+    "correct": false,
+    "confidence": 0.65
+   },
+   {
+    "family": "base_rate_shift",
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.82
+   },
+   {
+    "family": "regime_flip",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.78
+   },
+   {
+    "family": "regime_flip",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.87
+   }
+  ],
+  "teaching": [
+   {
+    "family": "difficulty_weighted_rank",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.85
+   },
+   {
+    "family": "difficulty_weighted_rank",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.65
+   },
+   {
+    "family": "base_rate_shift",
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.75
+   },
+   {
+    "family": "base_rate_shift",
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.72
+   },
+   {
+    "family": "regime_flip",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.72
+   },
+   {
+    "family": "regime_flip",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.82
+   }
+  ],
+  "primer": [
+   {
+    "family": "difficulty_weighted_rank",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.93
+   },
+   {
+    "family": "difficulty_weighted_rank",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.85
+   },
+   {
+    "family": "base_rate_shift",
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.72
+   },
+   {
+    "family": "base_rate_shift",
+    "oracle": "A",
+    "chosen": "B",
+    "correct": false,
+    "confidence": 0.72
+   },
+   {
+    "family": "regime_flip",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.81
+   },
+   {
+    "family": "regime_flip",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.61
+   }
+  ],
+  "summary": [
+   {
+    "family": "difficulty_weighted_rank",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.95
+   },
+   {
+    "family": "difficulty_weighted_rank",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.65
+   },
+   {
+    "family": "base_rate_shift",
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.75
+   },
+   {
+    "family": "base_rate_shift",
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.82
+   },
+   {
+    "family": "regime_flip",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.65
+   },
+   {
+    "family": "regime_flip",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.62
+   }
+  ],
+  "control": [
+   {
+    "family": "difficulty_weighted_rank",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.99
+   },
+   {
+    "family": "difficulty_weighted_rank",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.52
+   },
+   {
+    "family": "base_rate_shift",
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.85
+   },
+   {
+    "family": "base_rate_shift",
+    "oracle": "A",
+    "chosen": "B",
+    "correct": false,
+    "confidence": 0.82
+   },
+   {
+    "family": "regime_flip",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.82
+   },
+   {
+    "family": "regime_flip",
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.7
+   }
+  ]
+ }
+}

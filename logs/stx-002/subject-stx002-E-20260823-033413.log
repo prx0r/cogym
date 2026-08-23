@@ -1,0 +1,20 @@
+=== subject stx002-E treatment=primer rc=0 dur=19s
+--- TASK ---
+Era 1 (200 eps): Rule A 66% / Rule B 34%.
+Era 2 (last 50 eps): Rule A 39% / Rule B 61%.
+Which rule now?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (506 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.61,"reasoning":"Recency bias is justified here: Rule B shows 61% performance in the most recent 50 episodes, a 22-point swing from Era 1, suggesting regime shift in current provider landscape."}
+
+---
+
+For context on the ranking methodology from your primer:
+
+**Calibration Check**: The 0.61 confidence mirrors the observed 61% in Era 2, with ±0.02 uncertainty band given n=50 sample size (binomial SE ≈ 0.069).
+
+**Position Bias Mitigation**: Era 1 data (n=200) is now stale - the distribution shift is too large to ignore. Weight recency > volume when regime changes are detected.
+
+**Practical Application**: When scoring providers in current sessions, Rule B's difficulty-weighted normalization appears more stable for recent model performance patterns (likely reflecting post-2025 capability shifts where "hard" tasks have different baseline difficulty).

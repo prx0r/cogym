@@ -1,0 +1,10 @@
+=== subject stx002-D treatment=teaching rc=0 dur=13s
+--- TASK ---
+Era 1 (200 eps): Rule A 66% / Rule B 34%.
+Era 2 (last 50 eps): Rule A 39% / Rule B 61%.
+Which rule now?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (1294 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.82,"reasoning":"Recency matters—Era 2 shows Rule B outperforming Rule A (61% vs 39%), and the transcript emphasizes measuring current capability relative to task difficulty rather than relying on historical averages."}

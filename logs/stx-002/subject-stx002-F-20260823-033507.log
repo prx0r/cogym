@@ -1,0 +1,12 @@
+=== subject stx002-F treatment=summary rc=0 dur=11s
+--- TASK ---
+Recent sample: 6/7 positive outcomes.
+Population historical rate: 15% positive.
+Is the true positive rate closer to 15% or to the recent sample rate?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (114 chars) ---
+--- OUTPUT ---
+```json
+{"choice":"A","confidence":0.82,"reasoning":"With only 7 observations, the small sample is overwhelmed by the strong 15% prior — the 6/7 result is almost certainly variance, not a true shift to 86%."}
+```

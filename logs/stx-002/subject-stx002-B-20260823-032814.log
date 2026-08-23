@@ -1,0 +1,13 @@
+=== subject stx002-B treatment=checkpoint rc=0 dur=22s
+--- TASK ---
+Two AI providers were evaluated on 41% easy and 59% hard tasks:
+- Provider A: succeeded on 10 of 10 easy tasks, 0 of 10 hard tasks
+- Provider B: succeeded on 3 of 10 easy tasks, 5 of 10 hard tasks
+Which provider should be deployed for the expected task distribution?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (1015 chars) ---
+--- OUTPUT ---
+```json
+{"choice":"B","confidence":0.53,"reasoning":"Task-difficulty-weighted correctness: A=41% (0.41×1.0+0.59×0.0), B≈42% (0.41×0.3+0.59×0.5); B edges ahead despite A's easy-task dominance because hard tasks carry 59% weight and A scores zero there, though the margin is razor-thin with only 10 probes per tier."}
+```

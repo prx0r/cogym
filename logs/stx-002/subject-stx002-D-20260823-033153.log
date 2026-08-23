@@ -1,0 +1,10 @@
+=== subject stx002-D treatment=teaching rc=0 dur=18s
+--- TASK ---
+Recent sample: 5/5 positive outcomes.
+Population historical rate: 20% positive.
+Is the true positive rate closer to 20% or to the recent sample rate?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (1294 chars) ---
+--- OUTPUT ---
+{"choice":"A","confidence":0.75,"reasoning":"With only 5 observations against a well-established population base rate of 20%, Bayesian updating yields a posterior still much closer to 20% than to the observed 100% — this is textbook base rate neglect."}

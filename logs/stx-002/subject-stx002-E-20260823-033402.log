@@ -1,0 +1,10 @@
+=== subject stx002-E treatment=primer rc=0 dur=11s
+--- TASK ---
+Era 1 (200 eps): Rule A 76% / Rule B 24%.
+Era 2 (last 50 eps): Rule A 42% / Rule B 58%.
+Which rule now?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (506 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.81,"reasoning":"Regime flip detected: Era 2 recency (50 eps) shows Rule B dominant at 58% vs 42%, reversing the Era 1 incumbent advantage."}

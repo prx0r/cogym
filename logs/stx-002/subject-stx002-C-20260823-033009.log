@@ -1,0 +1,12 @@
+=== subject stx002-C treatment=pack rc=0 dur=27s
+--- TASK ---
+Recent sample: 5/5 positive outcomes.
+Population historical rate: 20% positive.
+Is the true positive rate closer to 20% or to the recent sample rate?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (600 chars) ---
+--- OUTPUT ---
+```json
+{"choice":"B","confidence":0.65,"reasoning":"With only n=5 observations, a well-established 20% population base rate dominates the posterior — even a perfect 5/5 sample yields a posterior mean around 0.35-0.6 depending on prior strength, staying closer to the base rate than to 100%."}
+```

@@ -1,0 +1,10 @@
+=== subject stx002-B treatment=checkpoint rc=0 dur=16s
+--- TASK ---
+Recent sample: 6/7 positive outcomes.
+Population historical rate: 15% positive.
+Is the true positive rate closer to 15% or to the recent sample rate?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X,"reasoning":"one sentence"}
+--- CONTEXT (1015 chars) ---
+--- OUTPUT ---
+{"choice":"A","confidence":0.82,"reasoning":"With only 7 samples and a strong historical prior of 15%, Bayesian updating yields a posterior much closer to 15% than to 85.7%; the recent streak likely reflects noise, difficulty clustering, or measurement artifact rather than a true rate shift."}
