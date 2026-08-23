@@ -7,7 +7,7 @@ from cogym.experiments.persistence import run_persistence_matrix
 from cogym.state.pathway import ContextPathway, PathwayStep
 
 model = OpenAICompatible(
-    model_id="muse-spark-1.2-contributor",
+    model_id="ox-alpha-free",
     base_url="https://opencode.ai/zen/go/v1",
     api_key=os.environ["OPENCODE_GO_API_KEY"],
 )

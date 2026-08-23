@@ -6,7 +6,7 @@ from cogym.experiments.social import run_social_round
 from cogym.experiments.factory import synthetic_trading_world
 
 model = OpenAICompatible(
-    model_id="muse-spark-1.2-contributor",
+    model_id="ox-alpha-free",
     base_url="https://opencode.ai/zen/go/v1",
     api_key=os.environ["OPENCODE_GO_API_KEY"],
 )
