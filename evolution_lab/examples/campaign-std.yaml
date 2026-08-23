@@ -1,0 +1,18 @@
+# Standard campaign: full world suite, layered evaluation
+name: std-v1
+seed: 7
+population: 24
+generations: 10
+
+dev:
+  seeds: [7, 19, 43, 71]
+validation:
+  seeds: [101, 103, 107, 109, 113, 127]
+secret:
+  seeds_per_generation: 16
+  seed_space_start: 10000
+
+halving: {after_dev: 0.5, after_validation: 8}
+proposal: {method: random}
+selection: {elites: 6}
+promotion: {min_secret_fitness_delta: 0.0}

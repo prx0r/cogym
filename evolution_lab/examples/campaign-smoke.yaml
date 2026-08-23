@@ -1,0 +1,21 @@
+name: smoke
+seed: 42
+population: 8
+generations: 2
+
+dev:
+  worlds: [regime_flip, shock_then_recover, chop_trap]
+  seeds: [7, 19, 43]
+
+validation:
+  worlds: [regime_flip, shock_then_recover, chop_trap]
+  seeds: [101, 103]
+
+secret:
+  worlds: [regime_flip, shock_then_recover]
+  seeds_per_generation: 6
+  seed_space_start: 10000
+
+halving: {after_dev: 0.5, after_validation: 4}
+proposal: {method: random}
+promotion: {min_secret_fitness_delta: 0.0}
