@@ -9,10 +9,12 @@ cogym/cli.py
 cogym/data.py
 cogym/evolution.py
 cogym/experiment.py
+cogym/hermes_proposals.py
 cogym/induction.py
 cogym/lineage.py
 cogym/memory.py
 cogym/packs.py
+cogym/pool.py
 cogym/proofs.py
 cogym/schema.py
 cogym/scoring.py

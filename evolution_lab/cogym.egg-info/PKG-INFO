@@ -4,6 +4,7 @@ Version: 0.1.0
 Summary: Deterministic evolutionary backtesting laboratory for LLM cognition
 Requires-Python: >=3.11
 Description-Content-Type: text/markdown
+Requires-Dist: pyyaml>=6
 Provides-Extra: dev
 Requires-Dist: pytest>=8; extra == "dev"
 
