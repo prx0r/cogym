@@ -105,6 +105,7 @@ class SkillRegistry:
 
     def propose(self, artifact:SkillArtifact) -> str:
         self.skills[artifact.skill_id]=artifact
+        self.save()
         return artifact.skill_id
 
     def evaluate(self, skill_id:str, incumbent_id:str|None,
@@ -135,17 +136,8 @@ class SkillRegistry:
                 skill.status = "REGRESSED"
             elif ev.paired_delta_mean <= 0 and skill.status == "PROPOSED":
                 skill.status = "REJECTED"
+        self.save()
         return ev
-
-def required_evidence_layer(status:str)->str:
-    """What evidence type is needed for the NEXT transition from this state."""
-    return {("PROPOSED","DEV_USEFUL"):"dev",
-            ("DEV_USEFUL","SECRET_CONFIRMED"):"secret",
-            ("SECRET_CONFIRMED","REPLAY_SAFE"):"replay",
-            ("REPLAY_SAFE","TRANSFERRED"):"transfer",
-            ("TRANSFERRED","REPLICATED"):"replication"}.get(
-        tuple(TRANSITION_REQUIREMENTS.keys()) and 
-        next((k for k in TRANSITION_REQUIREMENTS if k[0]==status), ("",""))[0], "")
 
     def population(self)->list[SkillArtifact]:
         """Only skills with explicitly eligible status. Terminal states never included."""
@@ -167,3 +159,13 @@ def required_evidence_layer(status:str)->str:
         a.created_at=d.get("created_at",a.created_at)
         a.source_episode_hashes=d.get("source_episode_hashes",[])
         return a
+
+
+def required_evidence_layer(status:str)->str:
+    """What evidence type is needed for the NEXT transition from this state."""
+    return {("PROPOSED","DEV_USEFUL"):"dev",
+            ("DEV_USEFUL","SECRET_CONFIRMED"):"secret",
+            ("SECRET_CONFIRMED","REPLAY_SAFE"):"replay",
+            ("REPLAY_SAFE","TRANSFERRED"):"transfer",
+            ("TRANSFERRED","REPLICATED"):"replication"}.get(
+        next((k[0] for k in TRANSITION_REQUIREMENTS if k[0]==status), ""), "")
