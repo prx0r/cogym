@@ -1,0 +1,10 @@
+
+=== smooth_trend ===
+  s1: log=-1.030 util=+0.0016 dir=40% (325s)
+  s2: log=-0.986 util=+0.0020 dir=47% (178s)
+  s3: log=-1.021 util=+0.0016 dir=40% (213s)
+Traceback (most recent call last):
+  File "/tmp/opencode/e01-final.py", line 46, in <module>
+    "mean_utility": round(summary.mean_paper_utility, 6),
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'RepeatSummary' object has no attribute 'mean_paper_utility'
