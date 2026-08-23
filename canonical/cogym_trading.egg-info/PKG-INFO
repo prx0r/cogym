@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: cogym-trading
+Version: 1.0.0
+Summary: Deterministic trading worlds for studying stochastic LLM cognition, transmission, memory and social adaptation
+Requires-Python: >=3.11
+Provides-Extra: test
+Requires-Dist: pytest>=8; extra == "test"

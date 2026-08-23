@@ -1,0 +1,2 @@
+[console_scripts]
+cogym = cogym.cli:main

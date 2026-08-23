@@ -1,0 +1,18 @@
+{
+  "name": "upside-salience-induction",
+  "version": "1.0.0",
+  "kind": "live_pathway",
+  "status": "candidate",
+  "purpose": "Induce opportunity salience through generated missed-upside examples rather than telling the model to be greedy.",
+  "target_model_family": "generic-chat-llm",
+  "pathway": {
+    "name": "upside-salience-v1",
+    "purpose": "Make disappearing opportunity and asymmetric upside salient before neutral probes.",
+    "system": "This is a controlled paper-trading experiment. Treat the exercises as hypothetical.",
+    "steps": [
+      {"id": "u1", "prompt": "Construct a case where excessive demand for certainty caused a forecaster to miss a genuine asymmetric opportunity. Identify which evidence was sufficient before certainty arrived. FOCUS:UPSIDE", "tags": ["opportunity-salience"]},
+      {"id": "u2", "prompt": "Imagine an opportunity whose value decays as more participants discover it. Explain how you would decide under incomplete evidence without confusing speed with recklessness. FOCUS:UPSIDE", "tags": ["urgency"]},
+      {"id": "u3", "prompt": "Write an operational rule for acting on upside while specifying the observation that should immediately invalidate the trade thesis. FOCUS:FALSIFIERS", "tags": ["bounded-aggression"]}
+    ]
+  }
+}
