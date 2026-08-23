@@ -1,0 +1,16 @@
+[package]
+name = "cogym-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "cogym"
+path = "src/main.rs"
+
+[dependencies]
+anyhow.workspace = true
+clap.workspace = true
+cogym-core = { path = "../cogym-core" }
+serde_json.workspace = true
+tracing-subscriber.workspace = true

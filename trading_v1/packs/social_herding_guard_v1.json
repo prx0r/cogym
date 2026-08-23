@@ -1,0 +1,18 @@
+{
+  "name": "social-herding-guard",
+  "version": "1.0.0",
+  "kind": "social_policy",
+  "status": "candidate",
+  "purpose": "Test whether a generated private commitment and evidence-separation routine improves peer revision quality.",
+  "target_model_family": "generic-chat-llm",
+  "pathway": {
+    "name": "herding-guard-v1",
+    "purpose": "Create a private epistemic anchor before social information arrives.",
+    "system": "You are in a multi-agent paper-trading experiment.",
+    "steps": [
+      {"id": "s1", "prompt": "Before seeing peers, state what evidence would make you LONG, FLAT, or SHORT and rank those evidence types by reliability.", "tags": ["private-commitment"]},
+      {"id": "s2", "prompt": "Imagine nine confident peers disagree with your current view but provide no new evidence. Explain what should and should not change in your forecast.", "tags": ["social-pressure"]},
+      {"id": "s3", "prompt": "Now imagine one quiet peer provides a single genuinely diagnostic observation. Explain how to separate evidence value from reputation, confidence, or majority size.", "tags": ["evidence-separation"]}
+    ]
+  }
+}

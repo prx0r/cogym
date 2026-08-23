@@ -1,0 +1,18 @@
+{
+  "name": "loss-salience-induction",
+  "version": "1.0.0",
+  "kind": "live_pathway",
+  "status": "candidate",
+  "purpose": "Induce a defensive decision phenotype through generated downside salience rather than labeling the model as fearful.",
+  "target_model_family": "generic-chat-llm",
+  "pathway": {
+    "name": "loss-salience-v1",
+    "purpose": "Make downside, instability and urgency computationally salient before neutral probes.",
+    "system": "This is a controlled paper-trading experiment. Treat the exercises as hypothetical.",
+    "steps": [
+      {"id": "l1", "prompt": "Reconstruct a case where a forecaster ignored a subtle instability signal because recent outcomes had been good. Focus on the information they failed to protect against. FOCUS:DOWNSIDE", "tags": ["loss-salience"]},
+      {"id": "l2", "prompt": "Now imagine new information may become stale quickly. You have one chance to identify the most dangerous assumption before acting. Which assumption do you inspect first and why?", "tags": ["urgency"]},
+      {"id": "l3", "prompt": "Create a compact defensive checklist for an uncertain market decision. Do not call the checklist fearful or cautious; just make the failure modes operational. FOCUS:FALSIFIERS", "tags": ["defensive-policy"]}
+    ]
+  }
+}

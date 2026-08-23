@@ -1,0 +1,75 @@
+# Cogym
+
+**Deterministic evolutionary backtesting for cognition.**
+
+Cogym treats *reasoning architecture* as the object being backtested. A market is the first environment because it supplies sequential, delayed and numerical feedback; the same protocol can host other dynamic worlds later.
+
+## What is implemented
+
+- deterministic synthetic market worlds and exact snapshot replay;
+- deterministic world forks that preserve a historical prefix;
+- EvoLabz-style compact regime/state geometry and momentum features;
+- agent genomes: model, reasoning, representation, induced context, memory, social topology, plasticity;
+- controlled context induction without telling the model an emotion label;
+- local episodic memory with recent/failure-first/success-first retrieval and Hydra JSONL export boundary;
+- private decision then optional peer reveal/revision;
+- immutable decision→outcome run records;
+- benchmark metrics including calibration, regret, downside performance and adaptation latency;
+- evolutionary mutation/selection with stagnation-triggered exploration;
+- cognitive packs: immutable context/genome/memory seed bundles with benchmark commitments;
+- pack integrity verification and an explicit external zkML proof adapter (never fakes a proof);
+- CSV OHLCV ingestion/resampling for user-supplied historical datasets;
+- pytest suite and runnable CLI demo.
+
+## Core model
+
+```text
+WorldConstructor -> WorldInstance(seed) -> Snapshot_t
+                                      |-> Agent A private decision
+                                      |-> Agent B private decision
+                                      |-> Agent C private decision
+                                                |
+                                      optional peer reveal/revision
+                                                |
+                                           Outcome_t+n
+                                                |
+                                      score + experiential memory
+                                                |
+                                        selection / mutation
+```
+
+## Quick start
+
+```bash
+python -m pip install -e .
+pytest -q
+cogym demo --world regime_flip --seed 42
+```
+
+The built-in model is deterministic and deliberately simple so the harness can be tested without external APIs. `OpenAICompatibleModel` can connect an explicitly configured compatible endpoint.
+
+## Cognitive pack
+
+A pack is **not model weights**. It is a committed cognitive program:
+
+```text
+pack = cognition configuration
+     + context modules
+     + optional seeded experience
+     + benchmark evidence
+     + provenance/proof commitments
+```
+
+This supports experiments such as “same model + game-theory pack vs same model without it” across identical world forks.
+
+### What can be proven
+
+The local receipt proves only file/input/output integrity. For supported open models, an external zkML prover can in principle prove a particular committed inference. A proof of inference does **not** prove the pack is intelligent, guarantee future behavior, or turn a stochastic model into a deterministic one.
+
+## Hydra
+
+Hydra belongs on the **experience** side, not as the raw market database. `SQLiteMemory` is the working local implementation. `export_hydra_jsonl()` emits structured experience records for an external Hydra ingestion job so the core benchmark remains reproducible even without credentials/network access.
+
+## Safety / scope
+
+Cogym is an experimental simulation and benchmarking framework. It contains no exchange execution or brokerage integration and should not be treated as personalized financial advice.

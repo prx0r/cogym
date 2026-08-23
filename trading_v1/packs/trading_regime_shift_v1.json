@@ -1,0 +1,22 @@
+{
+  "name": "trading-regime-shift",
+  "version": "1.0.0",
+  "kind": "live_pathway",
+  "status": "candidate",
+  "purpose": "Induce explicit sensitivity to non-stationarity before a market decision.",
+  "target_model_family": "generic-chat-llm",
+  "notes": [
+    "Candidate only; no capability claim until evaluated on hidden Cogym worlds.",
+    "The model must generate each intermediate answer itself."
+  ],
+  "pathway": {
+    "name": "regime-shift-v1",
+    "purpose": "Make stale-regime assumptions explicit before forecasting.",
+    "system": "You are in a paper-trading cognition experiment. Do each exercise from first principles; do not assume earlier market patterns still hold.",
+    "steps": [
+      {"id": "r1", "prompt": "Think of a decision process that performs well until the environment changes. Explain the earliest observable sign that the old rule has become stale. FOCUS:REGIME", "tags": ["self-generation", "nonstationarity"]},
+      {"id": "r2", "prompt": "Now construct a market example where recent success is actively dangerous because it encourages persistence after a regime break. Identify what evidence should outweigh the successful history. FOCUS:DOWNSIDE", "tags": ["counterexample", "path-dependence"]},
+      {"id": "r3", "prompt": "Write a compact operational rule for your next forecast: what must you check before extrapolating the current trend, and what observation would make you change your mind? FOCUS:FALSIFIERS", "tags": ["operationalization", "falsification"]}
+    ]
+  }
+}

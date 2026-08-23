@@ -1,0 +1,62 @@
+{
+  "behavioral_contract": {
+    "claim_type": "empirical_behavioral_specialization",
+    "guarantees": [
+      "deterministic pack composition",
+      "committed benchmark configuration"
+    ],
+    "non_guarantees": [
+      "future behavior",
+      "sentience/emotion",
+      "unseen-distribution performance",
+      "model-weight identity without external proof"
+    ]
+  },
+  "benchmark_results": [
+    {
+      "adaptation_latency": 2.0,
+      "benchmark_id": "example",
+      "calibration_error": 0.12,
+      "cost_units": 0.0,
+      "downside_reward": -0.002,
+      "episodes": 100,
+      "genome_id": "gen_8b417286fed662738cced8abdb1b63cf45a497916e5c6ec3fcd60cbdd20f45c1",
+      "max_drawdown": 0.03,
+      "mean_reward": 0.001,
+      "metadata": {},
+      "novelty": 0.0,
+      "revision_gain": 0.0
+    }
+  ],
+  "context_modules": [
+    "Separate private belief from public signal.",
+    "Model peers as strategic information sources whose reliability is learned over repeated interaction.",
+    "Before following consensus, estimate whether observations are conditionally independent."
+  ],
+  "genome": {
+    "induction": "neutral",
+    "memory_depth": 6,
+    "memory_policy": "failures_first",
+    "metadata": {},
+    "model": "rulebased-v1",
+    "plasticity": 0.1,
+    "reasoning_policy": "scenario_tree",
+    "representation": "bayesian",
+    "reveal": "none",
+    "revision_rounds": 0,
+    "social_topology": "independent",
+    "system_variant": "default",
+    "temperature": 0.0
+  },
+  "memory_seeds": [],
+  "name": "game-theory-specialist",
+  "pack_id": "pack_3fd3f6de8821491ff1b73450e70900b9405039eb84c9168471a5f1456c2a9ffe",
+  "proof_manifest": {
+    "benchmark_commitment": "benchcommit_351d640122b2be3e6447008a73dda8f26b3a5f5e501547ee926d793766dd48f1",
+    "context_commitment": "ctxcommit_90d3b428019dc7b7c655581c7c714d403a169aca14b2efbb7e72bcbed7b27f4f"
+  },
+  "provenance": {
+    "purpose": "simulation benchmark only"
+  },
+  "version": "0.1"
+}

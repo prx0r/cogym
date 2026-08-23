@@ -1,0 +1,22 @@
+{
+  "protocol":"cogym-pack/1",
+  "name":"game-theory-social-reasoning",
+  "version":"0.1.0",
+  "task_family":"multi-agent-decision",
+  "induction":[
+    {"name":"role","instruction_ref":{"hash":"sha3:ROLE","media_type":"text/plain","role":"system"},"required":true,"max_tokens":700},
+    {"name":"method","instruction_ref":{"hash":"sha3:METHOD","media_type":"text/plain","role":"developer"},"required":true,"max_tokens":1200}
+  ],
+  "exemplars":[],
+  "retrieval":[{
+    "query_template":"Retrieve analogous social-decision failures and successful revision patterns for: {{task}}",
+    "top_k":6,
+    "memory_kind":"method",
+    "ordering":"failures_then_successes",
+    "metadata_filters":{"school":"game-theory"}
+  }],
+  "tool_policy_refs":[],
+  "output_contract":{"schema_ref":{"hash":"sha3:DECISION_SCHEMA","media_type":"application/schema+json","role":"output"},"invariants":["private decision precedes peer reveal","confidence in [0,1]"]},
+  "target_signature":null,
+  "provenance":{"school":"game-theory","generation":"0"}
+}

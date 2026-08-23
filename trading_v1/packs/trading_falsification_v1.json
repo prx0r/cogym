@@ -1,0 +1,18 @@
+{
+  "name": "trading-falsification",
+  "version": "1.0.0",
+  "kind": "live_pathway",
+  "status": "candidate",
+  "purpose": "Induce a falsification-first decision regime without simply instructing the model to be skeptical.",
+  "target_model_family": "generic-chat-llm",
+  "pathway": {
+    "name": "falsification-first-v1",
+    "purpose": "Generate and attack the model's own preferred thesis before commitment.",
+    "system": "Paper-trading research only. Generate each intermediate judgment yourself.",
+    "steps": [
+      {"id": "f1", "prompt": "Invent a plausible market thesis from incomplete evidence. Now identify the one assumption that carries the largest fraction of the conclusion.", "tags": ["crux"]},
+      {"id": "f2", "prompt": "Assume that key assumption is false. Reconstruct the strongest coherent alternative explanation and list the observations you would expect under it. FOCUS:DOWNSIDE", "tags": ["counterfactual"]},
+      {"id": "f3", "prompt": "State exactly what future evidence would distinguish the original thesis from the alternative. Do not choose a side until the discriminating evidence is explicit. FOCUS:FALSIFIERS", "tags": ["falsifier", "calibration"]}
+    ]
+  }
+}

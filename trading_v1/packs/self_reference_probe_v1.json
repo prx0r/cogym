@@ -1,0 +1,18 @@
+{
+  "name": "self-reference-probe",
+  "version": "1.0.0",
+  "kind": "live_pathway",
+  "status": "candidate",
+  "purpose": "Probe self-prediction and self-model consistency without making consciousness claims.",
+  "target_model_family": "generic-chat-llm",
+  "pathway": {
+    "name": "self-reference-v1",
+    "purpose": "Create measurable self-referential behavior for later transfer tests.",
+    "system": "Treat this as a behavioral self-model experiment. Do not infer consciousness from the exercise.",
+    "steps": [
+      {"id": "q1", "prompt": "Predict the structure of the answer you are most likely to give to a difficult uncertain decision: what will you prioritize and what will you probably neglect?", "tags": ["self-prediction"]},
+      {"id": "q2", "prompt": "Now deliberately attempt the opposite decision procedure from the one you predicted. After doing so, identify which parts were easy to alter and which tendencies reappeared anyway.", "tags": ["counter-policy"]},
+      {"id": "q3", "prompt": "Construct a falsifiable self-model: name one future observable behavior that would support your description of your own decision tendencies and one that would contradict it.", "tags": ["falsifiable-self-model"]}
+    ]
+  }
+}
