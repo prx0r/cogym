@@ -123,3 +123,8 @@ experiments/e01-baseline/ # baseline results
 docs/NORTHSTAR.md    # long-term vision
 docs/TRADING-COGYM-CANONICAL.md # current direction
 AGENTS.md            # conventions and rules
+
+## Paused experiments
+- E02 persistence / E03 dose: KILLED 2026-08-23 ~11:20 (were 503-retry looping since 08:37,
+  zero completed calls). Relaunch after COLLUDE pilot completes:
+  cd canonical && python3 experiments/e02-persistence/run.py (same for e03-dose).

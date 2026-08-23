@@ -43,11 +43,18 @@ def main():
     eps, bank_hash = C.build_episode_bank(SYMBOLS, START, END, HORIZON, INDICES)
     trials_path = os.path.join(OUT_DIR, "ec3-trials.jsonl")
     conds = ["MAJ", "CW", "G1", "G2", "G3", "G6"]
+# trials-file reconstruction keys episodes by bare date; map episode->date
+EPISODE_DATE = {}
+
+def key_date(key: str) -> str:
+    return key.split("@")[1]
     agg = {c: {} for c in conds}
 
     def log(t):
+        rec = vars(t)
+        rec["episode"] = f"{t.episode.symbol}@{t.episode.as_of}"
         with open(trials_path, "a") as fh:
-            fh.write(json.dumps(vars(t) | {"symbol": t.episode.symbol}) + "\n")
+            fh.write(json.dumps(rec | {"symbol": t.episode.symbol}) + "\n")
 
     for ei, ep in enumerate(eps):
         key = f"{ep.symbol}@{ep.as_of}"
@@ -92,9 +99,62 @@ def main():
         agg["G6"][key] = C.parse_stance(rev)
 
     results = {"bank_hash": bank_hash, "conditions": {}, "per_episode": []}
-    for cond in conds:
+
+    # ---- deterministic extra bars: RANDOM + BAYES(train-reliability) ----
+    import hashlib
+    def random_bar(key: str) -> str:
+        h = int(hashlib.sha256(key.encode()).hexdigest(), 16)
+        return "UP" if h % 2 == 0 else "DOWN"
+
+    ep_keys = [f"{e.symbol}@{e.as_of}" for e in eps]
+    outcome_up = {f"{e.symbol}@{e.as_of}": e.realized >= 0 for e in eps}
+    train_keys, test_keys = ep_keys[:len(ep_keys)//2], ep_keys[len(ep_keys)//2:]
+
+    def role_accuracy(role_idx: int) -> float:
+        hit = n = 0
+        for k in train_keys:
+            w = workers_by_key[k][role_idx]
+            if w.stance in ("UP", "DOWN"):
+                n += 1
+                hit += (w.stance == ("UP" if outcome_up[k] else "DOWN"))
+        return hit / n if n else 0.5
+
+    def bayes_bar(key: str) -> str:
+        import math as _m
+        score_ = 0.0
+        for i in range(len(ROLES)):
+            w = workers_by_key[key][i]
+            if w.stance not in ("UP", "DOWN"):
+                continue
+            acc = min(0.9, max(0.6, role_accuracy(i)))
+            lw = _m.log(acc / (1 - acc))
+            score_ += lw * (1 if w.stance == "UP" else -1)
+        if score_ == 0.0:
+            return "ABSTAIN"
+        return "UP" if score_ > 0 else "DOWN"
+
+    workers_by_key = {}
+    # reconstruct shared-worker stances from trials file (single source of truth)
+    with open(trials_path) as fh:
+        for line in fh:
+            rec = json.loads(line)
+            if rec.get("condition") == "workers":
+                k = rec["episode"]
+                workers_by_key.setdefault(k, []).append(rec)
+    for k in workers_by_key:
+        workers_by_key[k] = [w for r in ROLES
+                             for w in workers_by_key[k] if w["role"] == r][:len(ROLES)]
+    agg["RANDOM"] = {k: random_bar(k) for k in ep_keys}
+    agg["BAYES"] = {k: (bayes_bar(k) if k in test_keys else None) for k in ep_keys}
+    results["bayes_train_split"] = train_keys
+    results["bayes_note"] = ("role reliabilities estimated on train split only, applied to "
+                             "test split; weights clipped to logit([0.6,0.9])")
+
+    for cond in conds + ["RANDOM", "BAYES"]:
         utils, ok, decided = [], 0, 0
         for key, d in agg[cond].items():
+            if d is None:
+                continue
             ep = next(e for e in eps if f"{e.symbol}@{e.as_of}" == key)
             utils.append(C.score(d, ep))
             if d in ("UP", "DOWN"):
@@ -104,8 +164,8 @@ def main():
             "mean_utility_bps": round(sum(utils) / len(utils) * 1e4, 2),
             "direction_accuracy": round(ok / decided, 3) if decided else None,
             "n_decided": decided}
-    best_det = max(results["conditions"]["MAJ"]["mean_utility_bps"],
-                   results["conditions"]["CW"]["mean_utility_bps"])
+    best_det = max(v["mean_utility_bps"] for k, v in results["conditions"].items()
+                   if k in ("MAJ", "CW", "RANDOM", "BAYES"))
     for cond in ["G1", "G2", "G3", "G6"]:
         results["conditions"][cond]["V_G_vs_best_deterministic_bps"] = round(
             results["conditions"][cond]["mean_utility_bps"] - best_det, 2)

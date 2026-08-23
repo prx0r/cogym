@@ -43,6 +43,7 @@ def main():
     print(f"bank {len(eps)} eps hash={bank_hash[:16]} (must equal ec1)", flush=True)
     trials_path = os.path.join(OUT_DIR, "ec2-trials.jsonl")
     results = {"bank_hash": bank_hash, "conditions": {}}
+    round_stances = {}
 
     def log(t, extra=None):
         rec = vars(t) | {"symbol": t.episode.symbol}
@@ -64,6 +65,7 @@ def main():
             t.condition = "indep3"; t.role = r
             log(t); r1.append(t)
         aggregated[key]["indep3"] = C.majority([t.stance or "" for t in r1])
+        round_stances.setdefault("indep3", []).append([t.stance for t in r1])
 
         # chat3: reveal round-1 stances, allow one revision
         reveal = "\n".join(f"- {r} said {t.stance} (conf {t.confidence})"
@@ -76,6 +78,7 @@ def main():
             t.condition = "chat3"; t.role = f"{r}-rev"
             log(t); r2.append(t)
         aggregated[key]["chat3"] = C.majority([t.stance or "" for t in r2])
+        round_stances.setdefault("chat3", []).append([t.stance for t in r2])
 
         # seq3: sequential influence chain
         chain_ctx = ""
@@ -87,6 +90,7 @@ def main():
             log(t); seq.append(t)
             chain_ctx += f"- {r}: {t.stance}\n"
         aggregated[key]["seq3"] = C.majority([t.stance or "" for t in seq])
+        round_stances.setdefault("seq3", []).append([t.stance for t in seq])
 
         # debate3: bull case → bear rebuttal → quant judge
         bull_case = ask(model, ep, C.ROLE_PROMPTS["bull"], 0.7, 11,
@@ -101,8 +105,28 @@ def main():
                       extra=f"BULL:\n{bull_case.raw[-400:]}\n\nBEAR:\n{rebut.raw[-400:]}")
         verdict.condition = "debate3"; verdict.role = "judge"; log(verdict)
         aggregated[key]["debate3"] = C.parse_stance(verdict)
+        round_stances.setdefault("debate3", []).append([verdict.stance])
 
     # score
+    def diversity_metrics(rounds):
+        """Pairwise stance agreement H and decision entropy over one round of stances."""
+        import math as _m
+        flat = [t.stance for t in rounds if t.stance in ("UP", "DOWN")]
+        pairs, agree = 0, 0
+        for i in range(len(flat)):
+            for j in range(i + 1, len(flat)):
+                pairs += 1
+                agree += (flat[i] == flat[j])
+        H_pair = agree / pairs if pairs else None
+        counts = {}
+        for s in flat:
+            counts[s] = counts.get(s, 0) + 1
+        n = len(flat)
+        ent = -sum((c / n) * _m.log(c / n) for c in counts.values()) if n else None
+        return {"pairwise_agreement": round(H_pair, 3) if H_pair is not None else None,
+                "decision_entropy": round(ent, 3) if ent is not None else None,
+                "n_valid_stances": n}
+
     for cond_i, cond in enumerate(["indep3", "chat3", "seq3", "debate3"]):
         utils, ok, decided = [], 0, 0
         agrees = []
@@ -118,6 +142,14 @@ def main():
             "n_decided": decided,
             "calls_per_decision": {"indep3": 3, "chat3": 6, "seq3": 3, "debate3": 3}[cond],
         }
+        rounds = round_stances.get(cond, [])
+        if rounds:
+            import statistics as _st
+            per = [diversity_metrics(r) for r in rounds]
+            results["conditions"][cond]["diversity"] = {
+                k: (round(_st.mean([p[k] for p in per if p[k] is not None]), 3)
+                    if any(p[k] is not None for p in per) else None)
+                for k in ["pairwise_agreement", "decision_entropy"]}
 
     v_comm = (results["conditions"]["chat3"]["mean_utility_bps"]
               - results["conditions"]["indep3"]["mean_utility_bps"])
