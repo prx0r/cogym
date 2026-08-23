@@ -15,45 +15,45 @@
         "unparseable": 0,
         "errors": 0,
         "up_share": 0.875,
-        "mean_latency_s": 35.4
+        "mean_latency_s": 48.3
       }
     },
     "ensemble3": {
-      "mean_utility_bps": 75.13,
-      "direction_accuracy": 0.5,
+      "mean_utility_bps": 106.07,
+      "direction_accuracy": 0.625,
       "n_decided": 8,
       "calls_total": 24,
-      "utility_per_call_bps": 25.044,
+      "utility_per_call_bps": 35.356,
       "call_stats": {
         "condition": "ensemble3",
         "n_calls": 24,
         "unparseable": 0,
         "errors": 0,
-        "up_share": 0.792,
-        "mean_latency_s": 60.8
+        "up_share": 0.875,
+        "mean_latency_s": 68.6
       }
     },
     "roles3": {
-      "mean_utility_bps": 23.33,
-      "direction_accuracy": 0.375,
+      "mean_utility_bps": 80.33,
+      "direction_accuracy": 0.625,
       "n_decided": 8,
       "calls_total": 24,
-      "utility_per_call_bps": 7.776,
+      "utility_per_call_bps": 26.778,
       "call_stats": {
         "condition": "roles3",
         "n_calls": 24,
         "unparseable": 0,
         "errors": 0,
         "up_share": 0.542,
-        "mean_latency_s": 52.2
+        "mean_latency_s": 43.1
       }
     },
     "roles3_conf": {
-      "mean_utility_bps": 23.33,
-      "direction_accuracy": 0.375,
+      "mean_utility_bps": 80.33,
+      "direction_accuracy": 0.625,
       "n_decided": 8,
       "calls_total": 24,
-      "utility_per_call_bps": 7.776,
+      "utility_per_call_bps": 26.778,
       "call_stats": {
         "condition": "roles3_conf",
         "n_calls": 0,
@@ -64,18 +64,18 @@
       }
     },
     "god_g2": {
-      "mean_utility_bps": 23.33,
-      "direction_accuracy": 0.375,
+      "mean_utility_bps": 80.33,
+      "direction_accuracy": 0.625,
       "n_decided": 8,
       "calls_total": 32,
-      "utility_per_call_bps": 5.832,
+      "utility_per_call_bps": 20.083,
       "call_stats": {
         "condition": "god_g2",
         "n_calls": 8,
         "unparseable": 0,
         "errors": 0,
         "up_share": 0.625,
-        "mean_latency_s": 45.2
+        "mean_latency_s": 34.0
       }
     }
   },
@@ -86,7 +86,7 @@
       "condition": "solo",
       "dir": "UP",
       "utility_bps": 123.7,
-      "brier": 0.1444
+      "brier": 0.17640000000000003
     },
     {
       "episode": "SPY@2026-04-21",
@@ -94,7 +94,7 @@
       "condition": "solo",
       "dir": "UP",
       "utility_bps": 110.4,
-      "brier": 0.09000000000000002
+      "brier": 0.12249999999999998
     },
     {
       "episode": "QQQ@2025-10-13",
@@ -118,7 +118,7 @@
       "condition": "solo",
       "dir": "UP",
       "utility_bps": 108.2,
-      "brier": 0.12249999999999998
+      "brier": 0.1444
     },
     {
       "episode": "TLT@2026-04-21",
@@ -126,76 +126,12 @@
       "condition": "solo",
       "dir": "UP",
       "utility_bps": -20.8,
-      "brier": 0.31360000000000005
+      "brier": 0.3364
     },
     {
       "episode": "GLD@2025-10-13",
       "realized": 0.0656,
       "condition": "solo",
-      "dir": "UP",
-      "utility_bps": 655.7,
-      "brier": 0.09000000000000002
-    },
-    {
-      "episode": "GLD@2026-04-21",
-      "realized": -0.0179,
-      "condition": "solo",
-      "dir": "UP",
-      "utility_bps": -178.8,
-      "brier": 0.36
-    },
-    {
-      "episode": "SPY@2025-10-13",
-      "realized": 0.0124,
-      "condition": "ensemble3",
-      "dir": "DOWN",
-      "utility_bps": -123.7,
-      "brier": 0.3560111111111111
-    },
-    {
-      "episode": "SPY@2026-04-21",
-      "realized": 0.011,
-      "condition": "ensemble3",
-      "dir": "UP",
-      "utility_bps": 110.4,
-      "brier": 0.12017777777777779
-    },
-    {
-      "episode": "QQQ@2025-10-13",
-      "realized": 0.0157,
-      "condition": "ensemble3",
-      "dir": "DOWN",
-      "utility_bps": -157.1,
-      "brier": 0.36804444444444445
-    },
-    {
-      "episode": "QQQ@2026-04-21",
-      "realized": 0.0207,
-      "condition": "ensemble3",
-      "dir": "UP",
-      "utility_bps": 207.2,
-      "brier": 0.14694444444444443
-    },
-    {
-      "episode": "TLT@2025-10-13",
-      "realized": 0.0108,
-      "condition": "ensemble3",
-      "dir": "UP",
-      "utility_bps": 108.2,
-      "brier": 0.1369
-    },
-    {
-      "episode": "TLT@2026-04-21",
-      "realized": -0.0021,
-      "condition": "ensemble3",
-      "dir": "UP",
-      "utility_bps": -20.8,
-      "brier": 0.30987777777777775
-    },
-    {
-      "episode": "GLD@2025-10-13",
-      "realized": 0.0656,
-      "condition": "ensemble3",
       "dir": "UP",
       "utility_bps": 655.7,
       "brier": 0.07840000000000001
@@ -203,186 +139,250 @@
     {
       "episode": "GLD@2026-04-21",
       "realized": -0.0179,
-      "condition": "ensemble3",
+      "condition": "solo",
       "dir": "UP",
       "utility_bps": -178.8,
-      "brier": 0.3520444444444445
-    },
-    {
-      "episode": "SPY@2025-10-13",
-      "realized": 0.0124,
-      "condition": "roles3",
-      "dir": "DOWN",
-      "utility_bps": -123.7,
-      "brier": 0.25
-    },
-    {
-      "episode": "SPY@2026-04-21",
-      "realized": 0.011,
-      "condition": "roles3",
-      "dir": "UP",
-      "utility_bps": 110.4,
-      "brier": 0.25
-    },
-    {
-      "episode": "QQQ@2025-10-13",
-      "realized": 0.0157,
-      "condition": "roles3",
-      "dir": "DOWN",
-      "utility_bps": -157.1,
-      "brier": 0.25
-    },
-    {
-      "episode": "QQQ@2026-04-21",
-      "realized": 0.0207,
-      "condition": "roles3",
-      "dir": "DOWN",
-      "utility_bps": -207.2,
-      "brier": 0.25
-    },
-    {
-      "episode": "TLT@2025-10-13",
-      "realized": 0.0108,
-      "condition": "roles3",
-      "dir": "UP",
-      "utility_bps": 108.2,
-      "brier": 0.25
-    },
-    {
-      "episode": "TLT@2026-04-21",
-      "realized": -0.0021,
-      "condition": "roles3",
-      "dir": "UP",
-      "utility_bps": -20.8,
-      "brier": 0.25
-    },
-    {
-      "episode": "GLD@2025-10-13",
-      "realized": 0.0656,
-      "condition": "roles3",
-      "dir": "UP",
-      "utility_bps": 655.7,
-      "brier": 0.25
-    },
-    {
-      "episode": "GLD@2026-04-21",
-      "realized": -0.0179,
-      "condition": "roles3",
-      "dir": "UP",
-      "utility_bps": -178.8,
-      "brier": 0.25
-    },
-    {
-      "episode": "SPY@2025-10-13",
-      "realized": 0.0124,
-      "condition": "roles3_conf",
-      "dir": "DOWN",
-      "utility_bps": -123.7,
-      "brier": 0.25
-    },
-    {
-      "episode": "SPY@2026-04-21",
-      "realized": 0.011,
-      "condition": "roles3_conf",
-      "dir": "UP",
-      "utility_bps": 110.4,
-      "brier": 0.25
-    },
-    {
-      "episode": "QQQ@2025-10-13",
-      "realized": 0.0157,
-      "condition": "roles3_conf",
-      "dir": "DOWN",
-      "utility_bps": -157.1,
-      "brier": 0.25
-    },
-    {
-      "episode": "QQQ@2026-04-21",
-      "realized": 0.0207,
-      "condition": "roles3_conf",
-      "dir": "DOWN",
-      "utility_bps": -207.2,
-      "brier": 0.25
-    },
-    {
-      "episode": "TLT@2025-10-13",
-      "realized": 0.0108,
-      "condition": "roles3_conf",
-      "dir": "UP",
-      "utility_bps": 108.2,
-      "brier": 0.25
-    },
-    {
-      "episode": "TLT@2026-04-21",
-      "realized": -0.0021,
-      "condition": "roles3_conf",
-      "dir": "UP",
-      "utility_bps": -20.8,
-      "brier": 0.25
-    },
-    {
-      "episode": "GLD@2025-10-13",
-      "realized": 0.0656,
-      "condition": "roles3_conf",
-      "dir": "UP",
-      "utility_bps": 655.7,
-      "brier": 0.25
-    },
-    {
-      "episode": "GLD@2026-04-21",
-      "realized": -0.0179,
-      "condition": "roles3_conf",
-      "dir": "UP",
-      "utility_bps": -178.8,
-      "brier": 0.25
-    },
-    {
-      "episode": "SPY@2025-10-13",
-      "realized": 0.0124,
-      "condition": "god_g2",
-      "dir": "DOWN",
-      "utility_bps": -123.7,
-      "brier": 0.43560000000000004
-    },
-    {
-      "episode": "SPY@2026-04-21",
-      "realized": 0.011,
-      "condition": "god_g2",
-      "dir": "UP",
-      "utility_bps": 110.4,
-      "brier": 0.1296
-    },
-    {
-      "episode": "QQQ@2025-10-13",
-      "realized": 0.0157,
-      "condition": "god_g2",
-      "dir": "DOWN",
-      "utility_bps": -157.1,
-      "brier": 0.39690000000000003
-    },
-    {
-      "episode": "QQQ@2026-04-21",
-      "realized": 0.0207,
-      "condition": "god_g2",
-      "dir": "DOWN",
-      "utility_bps": -207.2,
       "brier": 0.31360000000000005
     },
     {
+      "episode": "SPY@2025-10-13",
+      "realized": 0.0124,
+      "condition": "ensemble3",
+      "dir": "UP",
+      "utility_bps": 123.7,
+      "brier": 0.1547111111111111
+    },
+    {
+      "episode": "SPY@2026-04-21",
+      "realized": 0.011,
+      "condition": "ensemble3",
+      "dir": "UP",
+      "utility_bps": 110.4,
+      "brier": 0.11787777777777773
+    },
+    {
+      "episode": "QQQ@2025-10-13",
+      "realized": 0.0157,
+      "condition": "ensemble3",
+      "dir": "DOWN",
+      "utility_bps": -157.1,
+      "brier": 0.37617777777777783
+    },
+    {
+      "episode": "QQQ@2026-04-21",
+      "realized": 0.0207,
+      "condition": "ensemble3",
+      "dir": "UP",
+      "utility_bps": 207.2,
+      "brier": 0.12017777777777779
+    },
+    {
+      "episode": "TLT@2025-10-13",
+      "realized": 0.0108,
+      "condition": "ensemble3",
+      "dir": "UP",
+      "utility_bps": 108.2,
+      "brier": 0.13201111111111116
+    },
+    {
+      "episode": "TLT@2026-04-21",
+      "realized": -0.0021,
+      "condition": "ensemble3",
+      "dir": "UP",
+      "utility_bps": -20.8,
+      "brier": 0.3287111111111111
+    },
+    {
+      "episode": "GLD@2025-10-13",
+      "realized": 0.0656,
+      "condition": "ensemble3",
+      "dir": "UP",
+      "utility_bps": 655.7,
+      "brier": 0.08604444444444445
+    },
+    {
+      "episode": "GLD@2026-04-21",
+      "realized": -0.0179,
+      "condition": "ensemble3",
+      "dir": "UP",
+      "utility_bps": -178.8,
+      "brier": 0.3287111111111111
+    },
+    {
+      "episode": "SPY@2025-10-13",
+      "realized": 0.0124,
+      "condition": "roles3",
+      "dir": "DOWN",
+      "utility_bps": -123.7,
+      "brier": 0.25
+    },
+    {
+      "episode": "SPY@2026-04-21",
+      "realized": 0.011,
+      "condition": "roles3",
+      "dir": "UP",
+      "utility_bps": 110.4,
+      "brier": 0.25
+    },
+    {
+      "episode": "QQQ@2025-10-13",
+      "realized": 0.0157,
+      "condition": "roles3",
+      "dir": "DOWN",
+      "utility_bps": -157.1,
+      "brier": 0.25
+    },
+    {
+      "episode": "QQQ@2026-04-21",
+      "realized": 0.0207,
+      "condition": "roles3",
+      "dir": "UP",
+      "utility_bps": 207.2,
+      "brier": 0.25
+    },
+    {
+      "episode": "TLT@2025-10-13",
+      "realized": 0.0108,
+      "condition": "roles3",
+      "dir": "UP",
+      "utility_bps": 108.2,
+      "brier": 0.25
+    },
+    {
+      "episode": "TLT@2026-04-21",
+      "realized": -0.0021,
+      "condition": "roles3",
+      "dir": "DOWN",
+      "utility_bps": 20.8,
+      "brier": 0.25
+    },
+    {
+      "episode": "GLD@2025-10-13",
+      "realized": 0.0656,
+      "condition": "roles3",
+      "dir": "UP",
+      "utility_bps": 655.7,
+      "brier": 0.25
+    },
+    {
+      "episode": "GLD@2026-04-21",
+      "realized": -0.0179,
+      "condition": "roles3",
+      "dir": "UP",
+      "utility_bps": -178.8,
+      "brier": 0.25
+    },
+    {
+      "episode": "SPY@2025-10-13",
+      "realized": 0.0124,
+      "condition": "roles3_conf",
+      "dir": "DOWN",
+      "utility_bps": -123.7,
+      "brier": 0.25
+    },
+    {
+      "episode": "SPY@2026-04-21",
+      "realized": 0.011,
+      "condition": "roles3_conf",
+      "dir": "UP",
+      "utility_bps": 110.4,
+      "brier": 0.25
+    },
+    {
+      "episode": "QQQ@2025-10-13",
+      "realized": 0.0157,
+      "condition": "roles3_conf",
+      "dir": "DOWN",
+      "utility_bps": -157.1,
+      "brier": 0.25
+    },
+    {
+      "episode": "QQQ@2026-04-21",
+      "realized": 0.0207,
+      "condition": "roles3_conf",
+      "dir": "UP",
+      "utility_bps": 207.2,
+      "brier": 0.25
+    },
+    {
+      "episode": "TLT@2025-10-13",
+      "realized": 0.0108,
+      "condition": "roles3_conf",
+      "dir": "UP",
+      "utility_bps": 108.2,
+      "brier": 0.25
+    },
+    {
+      "episode": "TLT@2026-04-21",
+      "realized": -0.0021,
+      "condition": "roles3_conf",
+      "dir": "DOWN",
+      "utility_bps": 20.8,
+      "brier": 0.25
+    },
+    {
+      "episode": "GLD@2025-10-13",
+      "realized": 0.0656,
+      "condition": "roles3_conf",
+      "dir": "UP",
+      "utility_bps": 655.7,
+      "brier": 0.25
+    },
+    {
+      "episode": "GLD@2026-04-21",
+      "realized": -0.0179,
+      "condition": "roles3_conf",
+      "dir": "UP",
+      "utility_bps": -178.8,
+      "brier": 0.25
+    },
+    {
+      "episode": "SPY@2025-10-13",
+      "realized": 0.0124,
+      "condition": "god_g2",
+      "dir": "DOWN",
+      "utility_bps": -123.7,
+      "brier": 0.3844
+    },
+    {
+      "episode": "SPY@2026-04-21",
+      "realized": 0.011,
+      "condition": "god_g2",
+      "dir": "UP",
+      "utility_bps": 110.4,
+      "brier": 0.1369
+    },
+    {
+      "episode": "QQQ@2025-10-13",
+      "realized": 0.0157,
+      "condition": "god_g2",
+      "dir": "DOWN",
+      "utility_bps": -157.1,
+      "brier": 0.32489999999999997
+    },
+    {
+      "episode": "QQQ@2026-04-21",
+      "realized": 0.0207,
+      "condition": "god_g2",
+      "dir": "UP",
+      "utility_bps": 207.2,
+      "brier": 0.1521
+    },
+    {
       "episode": "TLT@2025-10-13",
       "realized": 0.0108,
       "condition": "god_g2",
       "dir": "UP",
       "utility_bps": 108.2,
-      "brier": 0.1369
+      "brier": 0.1521
     },
     {
       "episode": "TLT@2026-04-21",
       "realized": -0.0021,
       "condition": "god_g2",
-      "dir": "UP",
-      "utility_bps": -20.8,
-      "brier": 0.2916
+      "dir": "DOWN",
+      "utility_bps": 20.8,
+      "brier": 0.21159999999999995
     },
     {
       "episode": "GLD@2025-10-13",
@@ -390,7 +390,7 @@
       "condition": "god_g2",
       "dir": "UP",
       "utility_bps": 655.7,
-      "brier": 0.09000000000000002
+      "brier": 0.1296
     },
     {
       "episode": "GLD@2026-04-21",
@@ -398,7 +398,7 @@
       "condition": "god_g2",
       "dir": "UP",
       "utility_bps": -178.8,
-      "brier": 0.32489999999999997
+      "brier": 0.31360000000000005
     }
   ]
 }
