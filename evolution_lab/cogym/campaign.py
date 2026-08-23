@@ -13,6 +13,7 @@ import yaml
 from .schema import AgentGenome, BenchmarkResult
 from .evolution import GenomeMutator, fitness
 from .suite import BenchmarkSuite
+from .pattern_store import PatternStore
 
 DEFAULT_CAMPAIGN = {
     "population": 12,
@@ -229,6 +230,7 @@ def run_campaign(cfg_path: str, model_factory, root: str = ".") -> dict:
                        memory_depth=rng.choice([0,3,6])) for _ in range(cfg["population"])]
 
     elites_archive = ElitesArchive()
+    pattern_db = PatternStore(os.path.join(reg.dir, "..", "patterns.db"))
     champion = None
     champion_score = -1e18
 
@@ -272,7 +274,6 @@ def run_campaign(cfg_path: str, model_factory, root: str = ".") -> dict:
                 # First generation: candidate IS baseline, no comparison needed
                 champion, champion_score = best_g, fitness(best_r)
                 promoted.append({"genome_id":best_g.genome_id,"acceptance":{"reason":"baseline"}})
-                batch["burned"] = True
             else:
                 # Evaluate BOTH challenger and incumbent on identical batch
                 cand_agg,_ = suite.evaluate(best_g, model_factory, end=cfg.get("horizon"))
@@ -296,14 +297,42 @@ def run_campaign(cfg_path: str, model_factory, root: str = ".") -> dict:
                 else:
                     delta_rec["verdict"]="REJECT"
                 
-                reg.log_generation({"event":"secret_acceptance",**delta_rec})
                 batch["burned"] = True
+
+        # Record reasoning-pattern data for HydraDB projection later
+        for g, r in scored:
+            for part in ev.dev_suite().evaluate(g, model_factory)[1]:
+                wn = part.metadata.get("world_name", "unknown")
+                pid = pattern_db.record_pattern(f"genome_{g.genome_id[:12]}", 
+                    f"reasoning={g.reasoning_policy} mem={g.memory_policy} depth={g.memory_depth}",
+                    discovered_from=cfg.get("proposal",{}).get("method","random"))
+                pattern_db.record_result(pid, wn, 0, cfg.get("proposal",{}).get("method","random"),
+                    r.mean_reward if hasattr(r,'mean_reward') else 0,
+                    r.calibration_error if hasattr(r,'calibration_error') else 0,
+                    r.adaptation_latency if hasattr(r,'adaptation_latency') else 0)
+
+        reg.log_generation({"event":"secret_acceptance",**delta_rec})
+        batch["burned"] = True
 
         # elites archive on dev numbers + secret ref
         for g, r in sscored[:3]:
             elites_archive.update(g, dev_res[g.genome_id], val_res[g.genome_id], sec_res[g.genome_id])
         for g, r in scored[:3]:
             elites_archive.update(g, r)
+
+        batch["burned"] = True
+
+        # Record reasoning-pattern data for HydraDB projection later
+        for g, r in scored:
+            for part in ev.dev_suite().evaluate(g, model_factory)[1]:
+                wn = part.metadata.get("world_name", "unknown")
+                pid = pattern_db.record_pattern(f"genome_{g.genome_id[:12]}", 
+                    f"reasoning={g.reasoning_policy} mem={g.memory_policy} depth={g.memory_depth}",
+                    discovered_from=cfg.get("proposal",{}).get("method","random"))
+                pattern_db.record_result(pid, wn, 0, cfg.get("proposal",{}).get("method","random"),
+                    r.mean_reward if hasattr(r,'mean_reward') else 0,
+                    r.calibration_error if hasattr(r,'calibration_error') else 0,
+                    r.adaptation_latency if hasattr(r,'adaptation_latency') else 0)
 
         reg.log_generation({
             "gen": gen, "population": len(pop),
