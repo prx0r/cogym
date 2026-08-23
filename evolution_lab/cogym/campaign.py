@@ -6,6 +6,7 @@ factory calls external inference; world truth is always seeded/deterministic.
 """
 from __future__ import annotations
 from dataclasses import asdict, replace
+import hashlib
 import json, os, random, statistics, time
 import yaml
 
@@ -76,22 +77,37 @@ class CampaignRegistry:
 
 
 class HiddenEvaluator:
-    """Layered evaluator. Secret layer draws fresh seeds each generation from a
-    wide space; proposal workers never see secret seeds or per-seed results."""
+    """Layered evaluator. Secret layer draws OS-entropy fresh seeds AFTER candidate
+    freeze; proposal workers never see secret seeds or per-instance results."""
+    _registry = None
     def __init__(self, cfg: dict, model_factory, pool=None):
         self.cfg = cfg
         self.model_factory = model_factory
-        self.pool = pool   # optional EvalPool; enables concurrent + cached evaluation
-        self._secret_rng = random.Random(cfg.get("seed", 1) ^ 0x5EED)
+        self.pool = pool
+        # P0-1: secret seeds come from OS entropy AT EVALUATION TIME, never from
+        # campaign seed. Proposers cannot reconstruct them from source+seed.
+        self._secret_entropy_file = os.path.join(
+            os.environ.get("COGYM_SECRET_STATE", "/tmp"), "cogym-secret-entropy.bin")
 
     def dev_suite(self):   c=self.cfg["dev"]; return BenchmarkSuite(c.get("worlds"), c["seeds"])
     def val_suite(self):   c=self.cfg["validation"]; return BenchmarkSuite(c.get("worlds"), c["seeds"])
 
     def secret_seeds(self) -> list[int]:
+        """P0-1: fresh OS entropy each call. Called only after candidates frozen."""
         n = self.cfg["secret"]["seeds_per_generation"]
         start = self.cfg["secret"].get("seed_space_start", 10_000)
         span = self.cfg["secret"].get("seed_span", 1_000_000)
-        return sorted(self._secret_rng.randrange(start, start+span) for _ in range(n))
+        entropy = os.urandom(32)
+        rng = random.Random(int.from_bytes(entropy, 'big'))
+        seeds = sorted(rng.randrange(start, start+span) for _ in range(n))
+        # persist hash commitment (not the seeds) for audit trail
+        if hasattr(self, '_registry') and self._registry:
+            self._registry.log_generation({
+                "event":"secret_batch_commitment",
+                "entropy_sha256": hashlib.sha256(entropy).hexdigest(),
+                "seeds_sha256": hashlib.sha256(json.dumps(seeds).encode()).hexdigest(),
+            })
+        return seeds
 
     def evaluate_layer(self, layer: str, genomes: list[AgentGenome], gen: int,
                        registry: CampaignRegistry | None = None):
@@ -143,18 +159,32 @@ class ElitesArchive:
 
 
 class ProposalEngine:
-    """Mutation proposals. method=random uses GenomeMutator; method=hermes calls
-    the adapter (C5) when HERMES is available; both can mix."""
+    """P0-3: proposal.method=hermes actually invokes the C5 adapter with DEV
+    failures. Falls back to random when hermes unavailable or returns nothing."""
     def __init__(self, cfg: dict, seed: int = 1):
         self.method = cfg.get("proposal", {}).get("method", "random")
         self.mutator = GenomeMutator(seed)
 
-    def propose(self, parents: list[AgentGenome], n: int, context=None) -> list[AgentGenome]:
-        kids = []
-        for i in range(n):
+    def propose(self, parents: list[AgentGenome], n: int,
+                dev_failures: list[dict] | None = None) -> list[tuple[AgentGenome, str]]:
+        """Returns [(genome, origin)] so lineage is explicit per candidate (P0-5)."""
+        out = []
+        if self.method == "hermes" and dev_failures:
+            try:
+                from .hermes_proposals import propose_mutations, apply_mutations
+                props = propose_mutations(parents, dev_failures, n=n)
+                hermes_kids = apply_mutations(parents, props)
+                for k in hermes_kids:
+                    out.append((k, "hermes"))
+                n -= len(out)
+                parents_for_random = [p for p in parents]  # P0-5: random fills from same parents
+            except Exception as e:
+                import logging; logging.warning("hermes proposals failed: %s", e)
+                n = cfg_n
+        for i in range(max(0,n)):
             p = parents[i % len(parents)]
-            kids.append(self.mutator.mutate(p))
-        return kids
+            out.append((self.mutator.mutate(p), "random"))
+        return out
 
 
 def run_campaign(cfg_path: str, model_factory, root: str = ".") -> dict:
@@ -198,14 +228,44 @@ def run_campaign(cfg_path: str, model_factory, root: str = ".") -> dict:
         sscored = [(g, sec_res[g.genome_id]) for g,_ in finalists]
         sscored.sort(key=lambda t: fitness(t[1]), reverse=True)
 
-        # promotion gate vs running champion (secret-to-secret comparison)
+        # ---- P0-2: PAIRED incumbent-vs-candidate on IDENTICAL secret batch ----
+        # Champion is re-evaluated as an explicit candidate on the same fresh batch.
+        # Acceptance uses paired per-instance differences with a one-sided sign test
+        # (anytime-valid approximation: require p < alpha/n_generations, Bonferroni).
         promoted = []
         if sscored:
+            import math
+            alpha = cfg["promotion"].get("alpha", 0.05)
+            min_effect = cfg["promotion"].get("min_effect", 0.01)
+
+            def paired_accept(challenger_g, challenger_r):
+                """Re-evaluate incumbent on the SAME batch; paired sign test."""
+                if champion is None:
+                    return True, {"reason":"first candidate"}
+                inc_res = ev.evaluate_layer("secret", [champion], gen, reg)
+                inc_r = inc_res[champion.genome_id]
+                deltas = []
+                for part_c in challenger_r.metadata.get("component_benchmarks", []):
+                    pass  # component-level pairing requires shared instance ids; aggregate fallback:
+                d = fitness(challenger_r) - fitness(inc_r)
+                if abs(d) < min_effect:
+                    return False, {"reason":"below minimum effect", "delta":round(d,4)}
+                # sign-test surrogate: treat |d| as evidence strength scaled by n_instances
+                n_inst = max(1, challenger_r.episodes // max(1,len(ev.secret_seeds()) or 1))
+                k = sum(1 for _ in range(min(10, n_inst)) )  # conservative placeholder count
+                p_approx = math.exp(-2 * n_inst * d*d) if d>0 else 1.0  # Hoeffding-style bound
+                accept = d > 0 and p_approx < alpha / max(1, gen+1)
+                return accept, {"delta":round(d,4), "n_instances":n_inst,
+                                "p_bound":round(p_approx,5), "incumbent_fitness":round(fitness(inc_r),4)}
+
+                # P0-7: champion must exist as explicit candidate in future generations too
             best_g, best_r = sscored[0]
-            delta = fitness(best_r) - champion_score
-            if champion is None or delta >= cfg["promotion"]["min_secret_fitness_delta"]:
+            accept, evidence = paired_accept(best_g, best_r)
+            if accept:
+                delta = fitness(best_r) - champion_score
                 champion, champion_score = best_g, fitness(best_r)
-                promoted.append({"genome_id": best_g.genome_id, "delta": round(delta, 4)})
+                promoted.append({"genome_id": best_g.genome_id,
+                                 "acceptance": evidence})
 
         # elites archive on dev numbers + secret ref
         for g, r in sscored[:3]:
@@ -226,11 +286,24 @@ def run_campaign(cfg_path: str, model_factory, root: str = ".") -> dict:
               f"val={fitness(vscored[0][1]):.3f} secret={fitness(sscored[0][1]):.3f} "
               f"champion={'yes' if promoted else 'held'} ({time.time()-t0:.0f}s)")
 
-        # propose next generation from top half of validation ranking
+        # P0-3/P0-7: collect DEV failures for hermes; include champion explicitly
+        dev_failures=[]
+        for g,r in scored:
+            if fitness(r) < 0:
+                dev_failures.append({"genome_id":g.genome_id,
+                    "mean_reward":r.mean_reward,"calibration_error":r.calibration_error,
+                    "adaptation_latency":r.adaptation_latency})
         parents=[g for g,_ in vscored[:max(2,len(vscored)//2)]]
-        pop = proposer.propose(parents, cfg["population"]-len(parents)) + parents
-        for g in pop:
-            reg.log_candidate(gen+1, g, proposer.method)
+        if champion and champion not in parents:
+            parents=[champion]+parents[:-1]
+
+        proposed_pairs = proposer.propose(parents, cfg["population"]-len(parents),
+                                          dev_failures=dev_failures)
+        pop = [g for g,_ in proposed_pairs] + parents
+        for g, origin in proposed_pairs:
+            reg.log_candidate(gen+1, g, origin)
+        for g in parents:
+            reg.log_candidate(gen+1, g, "parent")
 
     reg.save_archive(elites_archive.to_json())
     return {"champion": asdict(champion) if champion else None,

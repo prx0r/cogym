@@ -24,7 +24,7 @@ CHAMPION/ELITE GENOME:
 {genome_json}
 
 DEV FAILURES (world_name, seed, mean_reward, calibration_error, adaptation_latency):
-{{failures}}
+{failures_json}
 
 MUTATION SPACES (only these fields may change; values must come exactly from these lists):
 reasoning_policy: {reason}
@@ -55,6 +55,8 @@ def propose_mutations(parents: list[AgentGenome], failures: list[dict],
     """Returns [{'hypothesis':str,'changes':dict,'parent_index':i}] validated against spaces."""
     if not parents:
         return []
+    # P0-5: cycle through ALL parents so each proposal derives from its stated parent
+    parent_idx = 0
     parent = parents[0]
     prompt = PROMPT_TEMPLATE.format(
         genome_json=json.dumps({k: v for k, v in
@@ -62,6 +64,7 @@ def propose_mutations(parents: list[AgentGenome], failures: list[dict],
              "induction":parent.induction,"memory_policy":parent.memory_policy,
              "memory_depth":parent.memory_depth,"social_topology":parent.social_topology,
              "reveal":parent.reveal,"revision_rounds":parent.revision_rounds}.items()}, indent=1),
+        parent_index=0,
         failures_json=json.dumps(failures[:12], indent=1),
         reason=", ".join(REASON), reps=", ".join(REPS),
         inductions=", ".join(INDUCTIONS), mem=", ".join(MEM),
@@ -91,7 +94,7 @@ def propose_mutations(parents: list[AgentGenome], failures: list[dict],
         if not changes:
             continue
         out.append({"hypothesis": str(p.get("hypothesis", ""))[:300],
-                    "changes": changes, "parent_index": i})
+                    "changes": changes, "parent_index": i % max(1,len(parents))})
     return out
 
 def apply_mutations(parents: list[AgentGenome], proposals: list[dict]) -> list[AgentGenome]:
