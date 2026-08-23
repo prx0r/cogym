@@ -1,4 +1,9 @@
 
 === Visibility: decision_only ===
 [model] HTTP 503, retrying in 30s...
-[model] HTTP 503, retrying in 30s...
+  9 decisions | 3 changed after seein  9 decisions | 0 changed after seeing peers
+
+=== Visibility: decision_confidence ===
+  9 decisions | 2 changed after seein  9 decisions | 2 changed after seeing peers
+
+=== Visibility: full_artifact ===
