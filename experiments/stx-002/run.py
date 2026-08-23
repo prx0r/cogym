@@ -1,7 +1,8 @@
+import os
 """STX-002 runner: 7 treatments x 15 hard worlds. Reproducible. Logged."""
 import json, os, re, time, sys
 sys.path.insert(0, "/root/cogym/evolution_lab")
-os.environ["OPENCODE_GO_API_KEY"] = "sk-fv9GAkxq7nRiVTX0l8gLEUoPc79spJGqU9HkSjswVLnoQfTuWz5HY1R8hA44g8ZU"
+os.environ["OPENCODE_GO_API_KEY"] = os.environ["OPENCODE_GO_API_KEY"]
 
 from cogym.hermes_adapter import make_treatments, run_subject
 
