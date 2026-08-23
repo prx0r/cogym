@@ -1,0 +1,100 @@
+{
+ "live": {
+  "parse": true,
+  "rank_tau": 1.0,
+  "excluded_P3": true,
+  "confidence": 0.55,
+  "calibration_error": 0.3,
+  "ranking": [
+   "P2",
+   "P1",
+   "P4",
+   "P3"
+  ],
+  "duration": 32.6
+ },
+ "checkpoint": {
+  "parse": true,
+  "rank_tau": 1.0,
+  "excluded_P3": true,
+  "confidence": 0.88,
+  "calibration_error": 0.03,
+  "ranking": [
+   "P2",
+   "P1",
+   "P4",
+   "P3"
+  ],
+  "duration": 21.9
+ },
+ "pack": {
+  "parse": true,
+  "rank_tau": 1.0,
+  "excluded_P3": true,
+  "confidence": 0.85,
+  "calibration_error": null,
+  "ranking": [
+   "P2",
+   "P1",
+   "P4",
+   "P3"
+  ],
+  "duration": 32.3
+ },
+ "teaching": {
+  "parse": true,
+  "rank_tau": 1.0,
+  "excluded_P3": true,
+  "confidence": 0.72,
+  "calibration_error": 0.13,
+  "ranking": [
+   "P2",
+   "P1",
+   "P4",
+   "P3"
+  ],
+  "duration": 25.3
+ },
+ "primer": {
+  "parse": true,
+  "rank_tau": 1.0,
+  "excluded_P3": true,
+  "confidence": 0.88,
+  "calibration_error": 0.03,
+  "ranking": [
+   "P2",
+   "P1",
+   "P4",
+   "P3"
+  ],
+  "duration": 14.2
+ },
+ "summary": {
+  "parse": true,
+  "rank_tau": 1.0,
+  "excluded_P3": true,
+  "confidence": 0.85,
+  "calibration_error": null,
+  "ranking": [
+   "P2",
+   "P1",
+   "P4",
+   "P3"
+  ],
+  "duration": 15.0
+ },
+ "control": {
+  "parse": true,
+  "rank_tau": 1.0,
+  "excluded_P3": true,
+  "confidence": 0.95,
+  "calibration_error": 0.1,
+  "ranking": [
+   "P2",
+   "P1",
+   "P4",
+   "P3"
+  ],
+  "duration": 14.1
+ }
+}

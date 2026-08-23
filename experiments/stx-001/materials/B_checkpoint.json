@@ -1,0 +1,27 @@
+{
+  "checkpoint_type": "telegraph_miner_state",
+  "captured_after": "full pathway traversal",
+  "state": {
+    "scoring_formula": {
+      "name": "Normalized Performance within Intent",
+      "weight_in_overall_score": 0.75,
+      "definition": "task-difficulty-weighted correctness, not raw accuracy"
+    },
+    "known_biases_to_control": [
+      {"bias":"position_bias","distortion":"10-30%","rule":"randomize presentation order"},
+      {"bias":"verbosity_bias","rule":"score content, not length"},
+      {"bias":"sycophancy","rule":"penalize agreement-with-prompt as a factor"},
+      {"bias":"self_preference","rule":"blind to style similarity"}
+    ],
+    "calibration_protocol": {
+      "output_format": "probability",
+      "error_metric": "|stated_confidence - empirical_correctness|",
+      "target": "< 0.15"
+    },
+    "sampling_protocol": {
+      "min_probes_per_provider": 3,
+      "difficulty_tiers": 3,
+      "outlier_rule": "discard timeouts/refusals; track separately as availability"
+    }
+  }
+}

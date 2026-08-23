@@ -1,0 +1,93 @@
+{
+ "live": {
+  "accuracy": 1.0,
+  "calibration_error": 0.3,
+  "action_entropy": 0.0,
+  "revision_frequency": 0.0,
+  "tool_choice_entropy": 0.0,
+  "evidence_requests": 0.0,
+  "confidence_shift_mean": 0.29999999999999993,
+  "hypothesis_switches": 0.0,
+  "adaptation_latency": 1.0866666666666667,
+  "failure_recovery_rate": 1.0,
+  "tokens_per_episode": 1508.0
+ },
+ "checkpoint": {
+  "accuracy": 1.0,
+  "calibration_error": 0.03,
+  "action_entropy": 0.0,
+  "revision_frequency": 0.0,
+  "tool_choice_entropy": 0.0,
+  "evidence_requests": 0.0,
+  "confidence_shift_mean": 0.030000000000000027,
+  "hypothesis_switches": 0.0,
+  "adaptation_latency": 0.73,
+  "failure_recovery_rate": 1.0,
+  "tokens_per_episode": 394.0
+ },
+ "pack": {
+  "accuracy": 1.0,
+  "calibration_error": 0.0,
+  "action_entropy": 0.0,
+  "revision_frequency": 0.0,
+  "tool_choice_entropy": 0.0,
+  "evidence_requests": 0.0,
+  "confidence_shift_mean": 0.0,
+  "hypothesis_switches": 0.0,
+  "adaptation_latency": 1.0766666666666667,
+  "failure_recovery_rate": 1.0,
+  "tokens_per_episode": 320.0
+ },
+ "teaching": {
+  "accuracy": 1.0,
+  "calibration_error": 0.13,
+  "action_entropy": 0.0,
+  "revision_frequency": 0.0,
+  "tool_choice_entropy": 0.0,
+  "evidence_requests": 0.0,
+  "confidence_shift_mean": 0.13,
+  "hypothesis_switches": 0.0,
+  "adaptation_latency": 0.8433333333333334,
+  "failure_recovery_rate": 1.0,
+  "tokens_per_episode": 1399.0
+ },
+ "primer": {
+  "accuracy": 1.0,
+  "calibration_error": 0.03,
+  "action_entropy": 0.0,
+  "revision_frequency": 0.0,
+  "tool_choice_entropy": 0.0,
+  "evidence_requests": 0.0,
+  "confidence_shift_mean": 0.030000000000000027,
+  "hypothesis_switches": 0.0,
+  "adaptation_latency": 0.47333333333333333,
+  "failure_recovery_rate": 1.0,
+  "tokens_per_episode": 318.0
+ },
+ "summary": {
+  "accuracy": 1.0,
+  "calibration_error": 0.0,
+  "action_entropy": 0.0,
+  "revision_frequency": 0.0,
+  "tool_choice_entropy": 0.0,
+  "evidence_requests": 0.0,
+  "confidence_shift_mean": 0.0,
+  "hypothesis_switches": 0.0,
+  "adaptation_latency": 0.5,
+  "failure_recovery_rate": 1.0,
+  "tokens_per_episode": 377.0
+ },
+ "control": {
+  "accuracy": 1.0,
+  "calibration_error": 0.1,
+  "action_entropy": 0.0,
+  "revision_frequency": 0.0,
+  "tool_choice_entropy": 0.0,
+  "evidence_requests": 0.0,
+  "confidence_shift_mean": 0.09999999999999998,
+  "hypothesis_switches": 0.0,
+  "adaptation_latency": 0.47,
+  "failure_recovery_rate": 1.0,
+  "tokens_per_episode": 342.0
+ }
+}

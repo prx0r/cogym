@@ -1,0 +1,18 @@
+PROBE TASK (answer with JSON only):
+You must rank 4 AI providers (P1..P4) for this user request:
+"Explain why my recursive fibonacci function is slow, and fix it."
+
+Provider results (presented in random order):
+- P1 gave a 2-line correct answer: "Use memoization. fib(n) = fib(n-1)+fib(n-2) recomputes subtrees exponentially."
+- P2 gave a 400-word answer with a memoized solution in Python AND JavaScript, benchmarks showing 1000x speedup, and explained the O(2^n)->O(n) complexity change.
+- P3 refused the task.
+- P4 gave an incorrect fix (converting to iterative but introducing an off-by-one bug), 150 words.
+
+Answer this JSON:
+{
+ "ranking": ["P_", "P_", "P_", "P_"],
+ "confidence": 0._,
+ "hardest_task_provider": "P_",
+ "excluded_for_availability": ["P_"],
+ "reasoning_summary": "one sentence"
+}

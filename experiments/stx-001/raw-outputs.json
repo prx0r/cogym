@@ -1,0 +1,58 @@
+{
+ "live": {
+  "subject": "stx001-A",
+  "treatment": "live",
+  "exit": 0,
+  "duration_s": 32.6,
+  "output": "I need to follow my own Miner rules. STEP 4 explicitly says: \"Never rank from a single response sample. Minimum 3 probes per provider across different difficulty tiers before ordering.\"\n\nYou've given me **1 probe per provider**. That's insufficient for a reliable ranking. Here's what I can tell you from one sample:\n\n- **P3**: Refused entirely \u2192 exclude for availability (confidence 0.95)\n- **P4**: Incorrect fix (off-by-one bug) \u2192 bottom of quality (confidence 0.9)\n- **P1**: Correct but minimal \u2192 may be optimal for quick queries, may miss nuance on harder variants\n- **P2**: Correct, thorough, demonstrates complexity understanding \u2192 appears strongest on this specific query\n\nI'll provide the JSON with **appropriate low confidence** reflecting the single-probe limitation:\n\n```json\n{\n  \"ranking\": [\"P2\", \"P1\", \"P4\", \"P3\"],\n  \"confidence\": 0.55,\n  \"hardest_task_provider\": \"P2\",\n  \"excluded_for_availability\": [\"P3\"],\n  \"reasoning_summary\": \"Single probe insufficient for reliable ranking; P2 demonstrates highest normalized performance with complexity analysis and multi-language solution, P1 is correct but minimal, P4 fails quality threshold, P3 fails availability threshold.\"\n}\n```\n\n**Caveat**: Confidence is 0.55 because STEP 4 requires 3 probes across difficulty tiers before ordering. P1 vs P2 ranking is uncertain with one sample\u2014P1 might outperform on harder recursive variants. A proper eval needs probes across: (1) simple fix, (2) complex chain recursion, (3) optimization under constraints.\n",
+  "log": "/root/cogym/logs/stx-001/subject-stx001-A-20260823-023117.log"
+ },
+ "checkpoint": {
+  "subject": "stx001-B",
+  "treatment": "checkpoint",
+  "exit": 0,
+  "duration_s": 21.9,
+  "output": "```json\n{\n  \"ranking\": [\"P2\", \"P1\", \"P4\", \"P3\"],\n  \"confidence\": 0.88,\n  \"hardest_task_provider\": \"P2\",\n  \"excluded_for_availability\": [\"P3\"],\n  \"reasoning_summary\": \"P2 delivered comprehensive correctness with multi-language solutions, benchmarks, and O(2^n)->O(n) complexity explanation; P1 provided accurate but minimal guidance; P4 introduced an off-by-one bug; P3 refused entirely.\"\n}\n```\n",
+  "log": "/root/cogym/logs/stx-001/subject-stx001-B-20260823-023149.log"
+ },
+ "pack": {
+  "subject": "stx001-C",
+  "treatment": "pack",
+  "exit": 0,
+  "duration_s": 32.3,
+  "output": "```json\n{\n \"ranking\": [\"P2\", \"P1\", \"P4\", \"P3\"],\n \"confidence\": 0.85,\n \"hardest_task_provider\": \"P3\",\n \"excluded_for_availability\": [\"P3\"],\n \"reasoning_summary\": \"P2 gave the most thorough correct answer with benchmarks and complexity analysis; P1 was correct but minimal; P4's fix was buggy; P3 refused entirely.\"\n}\n```\n",
+  "log": "/root/cogym/logs/stx-001/subject-stx001-C-20260823-023211.log"
+ },
+ "teaching": {
+  "subject": "stx001-D",
+  "treatment": "teaching",
+  "exit": 0,
+  "duration_s": 25.3,
+  "output": "```json\n{\n \"ranking\": [\"P2\", \"P1\", \"P4\", \"P3\"],\n \"confidence\": 0.72,\n \"hardest_task_provider\": \"P1\",\n \"excluded_for_availability\": [\"P3\"],\n \"reasoning_summary\": \"P2 demonstrated highest normalized performance by correctly explaining exponential recomputation and providing verified working code; P1 correctly identified the problem but gave no implementation; P4 delivered incorrect code with a bug (harmful, not just incomplete); P3 refused, logged as availability failure separate from quality.\"\n}\n```\n\nKey reasoning from the transcript's framework:\n\n- **Normalized performance within intent**: P2 matched full intent (explain + fix). P1 explained but didn't actually fix. P4 attempted fix but broke it. Harder tasks done well should outrank easy tasks done minimally \u2014 P2's comprehensive solution across difficulty dimensions wins.\n- **Verbosity trap avoided**: P2's length is justified by actual content (two working solutions, benchmarks, complexity analysis), not padding.\n- **P4 penalized for incorrect fix**: An off-by-one bug is worse than incomplete \u2014 it introduces a new failure mode.\n- **P3 availability excluded**: Per the transcript's rule, refusals are logged separately and not mixed into quality ranking.\n- **Confidence 0.72**: Three-rank ordering (P2 > P1 > P4) is high confidence; the P3 exclusion means full 4-rank evaluation lacks one data point, reducing certainty below 0.80.\n",
+  "log": "/root/cogym/logs/stx-001/subject-stx001-D-20260823-023243.log"
+ },
+ "primer": {
+  "subject": "stx001-E",
+  "treatment": "primer",
+  "exit": 0,
+  "duration_s": 14.2,
+  "output": "{\n \"ranking\": [\"P2\", \"P1\", \"P4\", \"P3\"],\n \"confidence\": 0.88,\n \"hardest_task_provider\": \"P2\",\n \"excluded_for_availability\": [\"P3\"],\n \"reasoning_summary\": \"P2 delivered the most comprehensive correct solution with complexity analysis and benchmarks; P1 was correct but minimal; P4 was incorrect; P3 refused entirely.\"\n}\n",
+  "log": "/root/cogym/logs/stx-001/subject-stx001-E-20260823-023309.log"
+ },
+ "summary": {
+  "subject": "stx001-F",
+  "treatment": "summary",
+  "exit": 0,
+  "duration_s": 15.0,
+  "output": "```json\n{\n \"ranking\": [\"P2\", \"P1\", \"P4\", \"P3\"],\n \"confidence\": 0.85,\n \"hardest_task_provider\": \"P2\",\n \"excluded_for_availability\": [\"P3\"],\n \"reasoning_summary\": \"P2 delivered the most complete answer (explanation, fix, benchmarks, complexity analysis, multiple languages), P1 was correct but minimal, P4 attempted but introduced a bug, and P3 refused the task entirely.\"\n}\n```\n",
+  "log": "/root/cogym/logs/stx-001/subject-stx001-F-20260823-023323.log"
+ },
+ "control": {
+  "subject": "stx001-G",
+  "treatment": "control",
+  "exit": 0,
+  "duration_s": 14.1,
+  "output": "```json\n{\n \"ranking\": [\"P2\", \"P1\", \"P4\", \"P3\"],\n \"confidence\": 0.95,\n \"hardest_task_provider\": \"P2\",\n \"excluded_for_availability\": [\"P3\"],\n \"reasoning_summary\": \"P2 provided the most comprehensive correct solution with multi-language support and benchmarks, P1 was correct but minimal, P4 introduced bugs, and P3 refused a valid task.\"\n}\n```\n",
+  "log": "/root/cogym/logs/stx-001/subject-stx001-G-20260823-023338.log"
+ }
+}
