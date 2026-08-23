@@ -1,0 +1,33 @@
+{
+  "spec": "alpaca-moe-002",
+  "n_steps_per_symbol": 364,
+  "specialist_switches": 54,
+  "equity_summary": {
+    "routed_team": {
+      "total_return": 0.9425,
+      "cagr": 0.0963,
+      "max_drawdown": -0.2107
+    },
+    "momentum": {
+      "total_return": 0.6948,
+      "cagr": 0.0758,
+      "max_drawdown": -0.1677
+    },
+    "always_long": {
+      "total_return": 1.8352,
+      "cagr": 0.1552,
+      "max_drawdown": -0.248
+    },
+    "defensive": {
+      "total_return": 0.5064,
+      "cagr": 0.0584,
+      "max_drawdown": -0.14
+    },
+    "dip_buyer": {
+      "total_return": 0.4319,
+      "cagr": 0.051,
+      "max_drawdown": -0.1859
+    }
+  },
+  "claim_status": "DIRECTIONAL \u2014 single frozen pass, no significance test"
+}

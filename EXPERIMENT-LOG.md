@@ -5,6 +5,9 @@
 | 1 | STX-001 | 2026-08-23 | ox-alpha-free | 1 (too easy) | 1/treat | ✅ Done | Probe at ceiling — no discrimination |
 | 2 | STX-002 | 2026-08-23 | ox-alpha-free | 15 hard | 1/treat | ✅ Done | checkpoint/pack=100%, live=73%, control=87% |
 | 3 | E01-baseline | 2026-08-23 | muse-spark-1.2 | 3 sequential | 3/world | 🔄 Running | First real LLM inference through trading_v1 |
+| 4 | ALPACA-MOE-001/002 | 2026-08-23 | none (deterministic) | SPY/QQQ/TLT/GLD real bars | 364 steps | ✅ Done | Regimes segment cleanly; hand-routed team LOSES to buy&hold in bull window; shorts whipsawed. Specialists must be tournament-selected, not hand-assigned |
+| 5 | COLLUDE E-C1 | 2026-08-23 | ox-alpha-free | 8 frozen Alpaca episodes | 64 calls | 🔄 Running | Team production function: solo vs ensemble3 vs roles3 vs conf-weighted vs god_g2 |
+| 6 | COLLUDE E-C2 | queued | ox-alpha-free | same bank a621a0e1 | ~104 calls | ⏳ | Communication value V_comm = chat − independent; diversity collapse check |
 
 ## Peer Review Findings
 ### STX-001

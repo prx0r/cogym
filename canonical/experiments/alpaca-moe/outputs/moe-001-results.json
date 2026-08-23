@@ -1,0 +1,196 @@
+{
+  "spec": "alpaca-moe-001",
+  "horizon": 5,
+  "lookback": 60,
+  "symbols": {
+    "SPY": {
+      "n_bars": 516,
+      "n_obs": 451,
+      "regime_distribution": {
+        "BEAR_TREND": 0.0421,
+        "BULL_TREND": 0.2483,
+        "HIGH_VOL_CHOP": 0.1685,
+        "QUIET_RANGE": 0.541
+      }
+    },
+    "QQQ": {
+      "n_bars": 516,
+      "n_obs": 451,
+      "regime_distribution": {
+        "BEAR_TREND": 0.0333,
+        "BULL_TREND": 0.2373,
+        "HIGH_VOL_CHOP": 0.561,
+        "QUIET_RANGE": 0.1685
+      }
+    },
+    "TLT": {
+      "n_bars": 516,
+      "n_obs": 451,
+      "regime_distribution": {
+        "BEAR_TREND": 0.0998,
+        "BULL_TREND": 0.031,
+        "HIGH_VOL_CHOP": 0.1086,
+        "QUIET_RANGE": 0.7605
+      }
+    },
+    "GLD": {
+      "n_bars": 516,
+      "n_obs": 451,
+      "regime_distribution": {
+        "BEAR_TREND": 0.031,
+        "BULL_TREND": 0.235,
+        "HIGH_VOL_CHOP": 0.5499,
+        "QUIET_RANGE": 0.184
+      }
+    }
+  },
+  "router_prior": {
+    "BULL_TREND": {
+      "BULL_TREND": 0.861,
+      "BEAR_TREND": 0.0,
+      "HIGH_VOL_CHOP": 0.044,
+      "QUIET_RANGE": 0.094
+    },
+    "BEAR_TREND": {
+      "BULL_TREND": 0.0,
+      "BEAR_TREND": 0.634,
+      "HIGH_VOL_CHOP": 0.194,
+      "QUIET_RANGE": 0.172
+    },
+    "HIGH_VOL_CHOP": {
+      "BULL_TREND": 0.03,
+      "BEAR_TREND": 0.026,
+      "HIGH_VOL_CHOP": 0.929,
+      "QUIET_RANGE": 0.014
+    },
+    "QUIET_RANGE": {
+      "BULL_TREND": 0.036,
+      "BEAR_TREND": 0.023,
+      "HIGH_VOL_CHOP": 0.017,
+      "QUIET_RANGE": 0.923
+    }
+  },
+  "transition_counts": {},
+  "regime_specialists": {
+    "BULL_TREND": {
+      "winner": "always_long",
+      "policies": {
+        "momentum": {
+          "mean_h_return_bps": 40.21,
+          "ann_sharpe": 1.093,
+          "n": 339
+        },
+        "always_long": {
+          "mean_h_return_bps": 50.86,
+          "ann_sharpe": 1.351,
+          "n": 339
+        },
+        "defensive": {
+          "mean_h_return_bps": 25.38,
+          "ann_sharpe": 1.351,
+          "n": 339
+        },
+        "dip_buyer": {
+          "mean_h_return_bps": 11.34,
+          "ann_sharpe": 1.1,
+          "n": 339
+        },
+        "cash": {
+          "mean_h_return_bps": 0.0,
+          "ann_sharpe": null,
+          "n": 339
+        }
+      }
+    },
+    "BEAR_TREND": {
+      "winner": "dip_buyer",
+      "policies": {
+        "momentum": {
+          "mean_h_return_bps": -14.96,
+          "ann_sharpe": -1.103,
+          "n": 93
+        },
+        "always_long": {
+          "mean_h_return_bps": 63.59,
+          "ann_sharpe": 1.476,
+          "n": 93
+        },
+        "defensive": {
+          "mean_h_return_bps": -5.24,
+          "ann_sharpe": -0.557,
+          "n": 93
+        },
+        "dip_buyer": {
+          "mean_h_return_bps": 64.65,
+          "ann_sharpe": 1.506,
+          "n": 93
+        },
+        "cash": {
+          "mean_h_return_bps": 0.0,
+          "ann_sharpe": null,
+          "n": 93
+        }
+      }
+    },
+    "HIGH_VOL_CHOP": {
+      "winner": "always_long",
+      "policies": {
+        "momentum": {
+          "mean_h_return_bps": 7.89,
+          "ann_sharpe": 0.284,
+          "n": 626
+        },
+        "always_long": {
+          "mean_h_return_bps": 31.18,
+          "ann_sharpe": 0.703,
+          "n": 626
+        },
+        "defensive": {
+          "mean_h_return_bps": 9.76,
+          "ann_sharpe": 0.537,
+          "n": 626
+        },
+        "dip_buyer": {
+          "mean_h_return_bps": 16.44,
+          "ann_sharpe": 0.445,
+          "n": 626
+        },
+        "cash": {
+          "mean_h_return_bps": 0.0,
+          "ann_sharpe": null,
+          "n": 626
+        }
+      }
+    },
+    "QUIET_RANGE": {
+      "winner": "always_long",
+      "policies": {
+        "momentum": {
+          "mean_h_return_bps": 4.33,
+          "ann_sharpe": 0.248,
+          "n": 746
+        },
+        "always_long": {
+          "mean_h_return_bps": 19.19,
+          "ann_sharpe": 0.765,
+          "n": 746
+        },
+        "defensive": {
+          "mean_h_return_bps": 4.42,
+          "ann_sharpe": 0.452,
+          "n": 746
+        },
+        "dip_buyer": {
+          "mean_h_return_bps": 4.71,
+          "ann_sharpe": 0.406,
+          "n": 746
+        },
+        "cash": {
+          "mean_h_return_bps": 0.0,
+          "ann_sharpe": null,
+          "n": 746
+        }
+      }
+    }
+  }
+}
