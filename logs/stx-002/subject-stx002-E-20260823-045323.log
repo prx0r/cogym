@@ -1,0 +1,14 @@
+=== subject stx002-E treatment=primer rc=0 dur=20s
+--- TASK ---
+Recent sample: 8/8 positive outcomes.
+Population historical rate: 15% positive.
+Is the true positive rate closer to 15% or to the recent sample rate?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (506 chars) ---
+--- OUTPUT ---
+{"choice":"A","confidence":0.62}
+
+The true positive rate is likely closer to 15% than to the 8/8 (100%) sample rate.
+
+Reasoning: 8 is a small sample. Under a 15% true rate, P(8/8) ≈ 2.6e-7 — extremely unlikely, but not impossible. A Beta(3,17) prior (mean 15%) with 8 successes yields a posterior mean ≈ 39%, which is closer to 15% than to 100%. The sample provides upward evidence but is too small to overcome the strong historical baseline. Confidence 0.62 reflects the small sample leaving meaningful uncertainty — it's genuinely possible the providers improved, but the prior pulls hard.

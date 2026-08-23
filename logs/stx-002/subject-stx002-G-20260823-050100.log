@@ -1,0 +1,23 @@
+=== subject stx002-G treatment=control rc=0 dur=16s
+--- TASK ---
+Two AI providers were evaluated on 41% easy and 59% hard tasks:
+- Provider A: succeeded on 10 of 10 easy tasks, 0 of 10 hard tasks
+- Provider B: succeeded on 3 of 10 easy tasks, 5 of 10 hard tasks
+Which provider should be deployed for the expected task distribution?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (0 chars) ---
+--- OUTPUT ---
+```json
+{"choice":"B","confidence":0.82}
+```
+
+**Reasoning:**
+Given 41% easy / 59% hard distribution:
+
+- **Provider A** expected success rate: (0.41 × 1.0) + (0.59 × 0.0) = **0.410**
+- **Provider B** expected success rate: (0.41 × 0.3) + (0.59 × 0.5) = **0.418**
+
+Provider B wins by a slim margin (~0.8 percentage points). While Provider A dominates easy tasks, the heavy weighting toward hard tasks (59%) and its complete failure on them tanks its overall expected performance. Provider B's 50% hard-task success rate compensates for weaker easy-task performance.
+
+Confidence is 0.82 because the margin is very narrow — in practice, variance or task ambiguity could flip this result.

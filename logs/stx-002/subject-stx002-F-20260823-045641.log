@@ -1,0 +1,14 @@
+=== subject stx002-F treatment=summary rc=0 dur=16s
+--- TASK ---
+Act now: ~69% accuracy, no cost.
+Gather 4 probes first: ~85% accuracy but 96 credits in fees.
+Reward per correct decision: 100 credits. Gather or act?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (114 chars) ---
+--- OUTPUT ---
+{"choice":"A","confidence":0.92}
+
+Expected values:
+- A: 0.69 × 100 = +69 net
+- B: 0.85 × 100 - 96 = -11 net

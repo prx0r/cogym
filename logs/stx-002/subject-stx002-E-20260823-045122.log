@@ -1,0 +1,18 @@
+=== subject stx002-E treatment=primer rc=0 dur=25s
+--- TASK ---
+Act now: ~69% accuracy, no cost.
+Gather 5 probes first: ~75% accuracy but 175 credits in fees.
+Reward per correct decision: 100 credits. Gather or act?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (506 chars) ---
+--- OUTPUT ---
+{"choice":"A","confidence":0.92}
+
+**Analysis:**
+
+Option A (act now): Expected value = 0.69 × 100 = **69 credits** (net)
+
+Option B (gather probes): Expected value = 0.75 × 100 − 175 = **−100 credits** (net)
+
+The 6% accuracy gain from probing yields only 6 credits in marginal reward, far short of the 175-credit probe cost. Option A dominates.

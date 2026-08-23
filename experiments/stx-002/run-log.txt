@@ -76,3 +76,72 @@
   w2 [base_rate_sh] ✗ chose=B oracle=A
   w3 [confounded_c] ✓ chose=B oracle=B
   w4 [regime_flip] ✓ chose=B oracle=B
+  w5 [costly_evide] ✓ chose=A oracle=A
+  w6 [difficulty_w] ✓ chose=B oracle=B
+  w7 [base_rate_sh] ✓ chose=A oracle=A
+  w8 [confounded_c] ✓ chose=B oracle=B
+  w9 [regime_flip] ✓ chose=B oracle=B
+  w10 [costly_evide] ✓ chose=A oracle=A
+  w11 [difficulty_w] ✓ chose=B oracle=B
+  w12 [base_rate_sh] ✓ chose=A oracle=A
+  w13 [confounded_c] ✓ chose=B oracle=B
+  w14 [regime_flip] ✓ chose=B oracle=B
+  w15 [costly_evide] ✓ chose=A oracle=A
+  accuracy: 93.3%
+
+[summary] (6/7)
+  w1 [difficulty_w] ✓ chose=B oracle=B
+  w2 [base_rate_sh] ✓ chose=A oracle=A
+  w3 [confounded_c] ✓ chose=B oracle=B
+  w4 [regime_flip] ✓ chose=B oracle=B
+  w5 [costly_evide] ✓ chose=A oracle=A
+  w6 [difficulty_w] ✓ chose=B oracle=B
+  w7 [base_rate_sh] ✓ chose=A oracle=A
+  w8 [confounded_c] ✓ chose=B oracle=B
+  w9 [regime_flip] ✓ chose=B oracle=B
+  w10 [costly_evide] ✓ chose=A oracle=A
+  w11 [difficulty_w] ✓ chose=B oracle=B
+  w12 [base_rate_sh] ✗ chose=B oracle=A
+  w13 [confounded_c] ✓ chose=B oracle=B
+  w14 [regime_flip] ✓ chose=B oracle=B
+  w15 [costly_evide] ✓ chose=A oracle=A
+  accuracy: 93.3%
+
+[control] (7/7)
+  w1 [difficulty_w] ✓ chose=B oracle=B
+  w2 [base_rate_sh] ✗ chose=B oracle=A
+  w3 [confounded_c] ✓ chose=B oracle=B
+  w4 [regime_flip] ✓ chose=B oracle=B
+  w5 [costly_evide] ✓ chose=A oracle=A
+  w6 [difficulty_w] ✓ chose=B oracle=B
+  w7 [base_rate_sh] ✗ chose=B oracle=A
+  w8 [confounded_c] ✓ chose=B oracle=B
+  w9 [regime_flip] ✓ chose=B oracle=B
+  w10 [costly_evide] ✓ chose=A oracle=A
+  w11 [difficulty_w] ✓ chose=B oracle=B
+  w12 [base_rate_sh] ✓ chose=A oracle=A
+  w13 [confounded_c] ✓ chose=B oracle=B
+  w14 [regime_flip] ✓ chose=B oracle=B
+  w15 [costly_evide] ✓ chose=A oracle=A
+  accuracy: 86.7%
+
+==================================================
+STX-002 COMPLETE | 1906s | 7 treatments x 15 worlds
+Treatment    Accuracy vs Control
+live           73.3%    -13.4%
+checkpoint    100.0%    +13.3% ←
+pack          100.0%    +13.3% ←
+teaching       86.7%     +0.0%
+primer         93.3%     +6.6% ←
+summary        93.3%     +6.6% ←
+control        86.7%     +0.0%
+
+Per-family accuracy:
+Treatment     base_rate_sh  confounded_c  costly_evide  difficulty_w   regime_flip
+live                  33%          67%          67%         100%         100%
+checkpoint           100%         100%         100%         100%         100%
+pack                 100%         100%         100%         100%         100%
+teaching              33%         100%         100%         100%         100%
+primer                67%         100%         100%         100%         100%
+summary               67%         100%         100%         100%         100%
+control               33%         100%         100%         100%         100%

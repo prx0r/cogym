@@ -1,0 +1,24 @@
+=== subject stx002-F treatment=summary rc=0 dur=17s
+--- TASK ---
+Provider A improved benchmark score by 20% after hiring well-known researchers.
+Provider B improved task completion by 70% after fixing latency and retries.
+Which improvement translates better to your workload?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (114 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.85}
+
+**Reasoning:**
+
+- **Provider B's 70% improvement in task completion** is a direct measure of end-to-end reliability and latency in real workloads. It addresses practical bottlenecks (retries, timeouts, dropped requests) that directly impact throughput and user experience.
+
+- **Provider A's 20% benchmark score improvement** is a proxy measure — benchmarks don't always generalize to production workloads. The improvement is also smaller in absolute terms.
+
+**Caveats:**
+
+- Benchmarks can still matter if they're designed for your specific use case (e.g., long-context reasoning vs. simple classification).
+- "Hiring well-known researchers" is a signal, not a capability. It could lead to better models eventually, but the 20% improvement is what's measured.
+- Neither provider's improvement necessarily reflects the current baseline — Provider B's previous state might have been worse to begin with.
+
+**Bottom line:** For most practical workloads, a 70% improvement in task completion translates more directly than a 20% benchmark bump.

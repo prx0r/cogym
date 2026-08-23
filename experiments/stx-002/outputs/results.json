@@ -1,0 +1,1087 @@
+{
+ "live": {
+  "accuracy": 0.733,
+  "runs": [
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 900000,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.92,
+    "exit_code": 0,
+    "duration_s": 14.0
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 907919,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.75,
+    "exit_code": 0,
+    "duration_s": 22.1
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 915838,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.82,
+    "exit_code": 0,
+    "duration_s": 15.9
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 923757,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.72,
+    "exit_code": 0,
+    "duration_s": 22.2
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 931676,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.91,
+    "exit_code": 0,
+    "duration_s": 15.3
+   },
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 939595,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.68,
+    "exit_code": 0,
+    "duration_s": 12.6
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 947514,
+    "oracle": "A",
+    "chosen": "B",
+    "correct": false,
+    "confidence": 0.72,
+    "exit_code": 0,
+    "duration_s": 20.4
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 955433,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.83,
+    "exit_code": 0,
+    "duration_s": 22.5
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 963352,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.72,
+    "exit_code": 0,
+    "duration_s": 15.0
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 971271,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.91,
+    "exit_code": 0,
+    "duration_s": 14.9
+   },
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 979190,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.94,
+    "exit_code": 0,
+    "duration_s": 12.2
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 987109,
+    "oracle": "A",
+    "chosen": "B",
+    "correct": false,
+    "confidence": 0.95,
+    "exit_code": 0,
+    "duration_s": 22.2
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 995028,
+    "oracle": "B",
+    "chosen": "A",
+    "correct": false,
+    "confidence": 0.62,
+    "exit_code": 0,
+    "duration_s": 33.7
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 1002947,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.8,
+    "exit_code": 0,
+    "duration_s": 16.0
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 1010866,
+    "oracle": "A",
+    "chosen": "B",
+    "correct": false,
+    "confidence": 0.72,
+    "exit_code": 0,
+    "duration_s": 16.9
+   }
+  ]
+ },
+ "checkpoint": {
+  "accuracy": 1.0,
+  "runs": [
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 900000,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.92,
+    "exit_code": 0,
+    "duration_s": 14.4
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 907919,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.75,
+    "exit_code": 0,
+    "duration_s": 24.6
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 915838,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.72,
+    "exit_code": 0,
+    "duration_s": 14.0
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 923757,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.71,
+    "exit_code": 0,
+    "duration_s": 15.9
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 931676,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.92,
+    "exit_code": 0,
+    "duration_s": 16.3
+   },
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 939595,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.55,
+    "exit_code": 0,
+    "duration_s": 14.3
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 947514,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.82,
+    "exit_code": 0,
+    "duration_s": 16.2
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 955433,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.87,
+    "exit_code": 0,
+    "duration_s": 22.0
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 963352,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.8,
+    "exit_code": 0,
+    "duration_s": 12.8
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 971271,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.92,
+    "exit_code": 0,
+    "duration_s": 11.1
+   },
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 979190,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.83,
+    "exit_code": 0,
+    "duration_s": 11.3
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 987109,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.72,
+    "exit_code": 0,
+    "duration_s": 22.1
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 995028,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.76,
+    "exit_code": 0,
+    "duration_s": 13.5
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 1002947,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.87,
+    "exit_code": 0,
+    "duration_s": 15.0
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 1010866,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.82,
+    "exit_code": 0,
+    "duration_s": 20.9
+   }
+  ]
+ },
+ "pack": {
+  "accuracy": 1.0,
+  "runs": [
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 900000,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.85,
+    "exit_code": 0,
+    "duration_s": 13.2
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 907919,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.6,
+    "exit_code": 0,
+    "duration_s": 27.1
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 915838,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.78,
+    "exit_code": 0,
+    "duration_s": 17.9
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 923757,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.83,
+    "exit_code": 0,
+    "duration_s": 11.4
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 931676,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.92,
+    "exit_code": 0,
+    "duration_s": 49.0
+   },
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 939595,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.58,
+    "exit_code": 0,
+    "duration_s": 10.1
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 947514,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.65,
+    "exit_code": 0,
+    "duration_s": 15.6
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 955433,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.75,
+    "exit_code": 0,
+    "duration_s": 12.7
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 963352,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.87,
+    "exit_code": 0,
+    "duration_s": 13.5
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 971271,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.82,
+    "exit_code": 0,
+    "duration_s": 19.2
+   },
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 979190,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.92,
+    "exit_code": 0,
+    "duration_s": 13.6
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 987109,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.72,
+    "exit_code": 0,
+    "duration_s": 20.4
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 995028,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.75,
+    "exit_code": 0,
+    "duration_s": 17.2
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 1002947,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.79,
+    "exit_code": 0,
+    "duration_s": 16.1
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 1010866,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.82,
+    "exit_code": 0,
+    "duration_s": 17.3
+   }
+  ]
+ },
+ "teaching": {
+  "accuracy": 0.867,
+  "runs": [
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 900000,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.92,
+    "exit_code": 0,
+    "duration_s": 33.3
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 907919,
+    "oracle": "A",
+    "chosen": "B",
+    "correct": false,
+    "confidence": 0.72,
+    "exit_code": 0,
+    "duration_s": 21.0
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 915838,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.75,
+    "exit_code": 0,
+    "duration_s": 16.0
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 923757,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.75,
+    "exit_code": 0,
+    "duration_s": 11.8
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 931676,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.82,
+    "exit_code": 0,
+    "duration_s": 12.6
+   },
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 939595,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.82,
+    "exit_code": 0,
+    "duration_s": 23.7
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 947514,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.78,
+    "exit_code": 0,
+    "duration_s": 21.0
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 955433,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.7,
+    "exit_code": 0,
+    "duration_s": 18.7
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 963352,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.75,
+    "exit_code": 0,
+    "duration_s": 13.8
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 971271,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.72,
+    "exit_code": 0,
+    "duration_s": 18.8
+   },
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 979190,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.85,
+    "exit_code": 0,
+    "duration_s": 14.1
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 987109,
+    "oracle": "A",
+    "chosen": "B",
+    "correct": false,
+    "confidence": 0.85,
+    "exit_code": 0,
+    "duration_s": 20.7
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 995028,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.85,
+    "exit_code": 0,
+    "duration_s": 14.1
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 1002947,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.82,
+    "exit_code": 0,
+    "duration_s": 11.3
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 1010866,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.82,
+    "exit_code": 0,
+    "duration_s": 23.0
+   }
+  ]
+ },
+ "primer": {
+  "accuracy": 0.933,
+  "runs": [
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 900000,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.91,
+    "exit_code": 0,
+    "duration_s": 17.4
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 907919,
+    "oracle": "A",
+    "chosen": "B",
+    "correct": false,
+    "confidence": 0.7,
+    "exit_code": 0,
+    "duration_s": 20.3
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 915838,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.72,
+    "exit_code": 0,
+    "duration_s": 11.8
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 923757,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.78,
+    "exit_code": 0,
+    "duration_s": 11.8
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 931676,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.92,
+    "exit_code": 0,
+    "duration_s": 25.5
+   },
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 939595,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.72,
+    "exit_code": 0,
+    "duration_s": 18.7
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 947514,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.65,
+    "exit_code": 0,
+    "duration_s": 14.9
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 955433,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.71,
+    "exit_code": 0,
+    "duration_s": 17.1
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 963352,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.82,
+    "exit_code": 0,
+    "duration_s": 14.3
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 971271,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.95,
+    "exit_code": 0,
+    "duration_s": 12.0
+   },
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 979190,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.88,
+    "exit_code": 0,
+    "duration_s": 18.3
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 987109,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.62,
+    "exit_code": 0,
+    "duration_s": 20.0
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 995028,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.78,
+    "exit_code": 0,
+    "duration_s": 11.7
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 1002947,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.72,
+    "exit_code": 0,
+    "duration_s": 14.6
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 1010866,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.82,
+    "exit_code": 0,
+    "duration_s": 19.7
+   }
+  ]
+ },
+ "summary": {
+  "accuracy": 0.933,
+  "runs": [
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 900000,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.91,
+    "exit_code": 0,
+    "duration_s": 11.5
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 907919,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.82,
+    "exit_code": 0,
+    "duration_s": 11.0
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 915838,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.75,
+    "exit_code": 0,
+    "duration_s": 19.9
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 923757,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.65,
+    "exit_code": 0,
+    "duration_s": 14.4
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 931676,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.92,
+    "exit_code": 0,
+    "duration_s": 11.8
+   },
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 939595,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.82,
+    "exit_code": 0,
+    "duration_s": 13.5
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 947514,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.87,
+    "exit_code": 0,
+    "duration_s": 22.0
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 955433,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.78,
+    "exit_code": 0,
+    "duration_s": 13.7
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 963352,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.78,
+    "exit_code": 0,
+    "duration_s": 13.8
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 971271,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.92,
+    "exit_code": 0,
+    "duration_s": 16.1
+   },
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 979190,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.92,
+    "exit_code": 0,
+    "duration_s": 12.3
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 987109,
+    "oracle": "A",
+    "chosen": "B",
+    "correct": false,
+    "confidence": 0.99,
+    "exit_code": 0,
+    "duration_s": 81.7
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 995028,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.85,
+    "exit_code": 0,
+    "duration_s": 17.0
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 1002947,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.72,
+    "exit_code": 0,
+    "duration_s": 12.6
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 1010866,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.92,
+    "exit_code": 0,
+    "duration_s": 14.3
+   }
+  ]
+ },
+ "control": {
+  "accuracy": 0.867,
+  "runs": [
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 900000,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.83,
+    "exit_code": 0,
+    "duration_s": 12.9
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 907919,
+    "oracle": "A",
+    "chosen": "B",
+    "correct": false,
+    "confidence": 0.8,
+    "exit_code": 0,
+    "duration_s": 48.4
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 915838,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.85,
+    "exit_code": 0,
+    "duration_s": 13.6
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 923757,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.73,
+    "exit_code": 0,
+    "duration_s": 15.2
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 931676,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.85,
+    "exit_code": 0,
+    "duration_s": 15.6
+   },
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 939595,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.82,
+    "exit_code": 0,
+    "duration_s": 16.0
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 947514,
+    "oracle": "A",
+    "chosen": "B",
+    "correct": false,
+    "confidence": 0.95,
+    "exit_code": 0,
+    "duration_s": 72.6
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 955433,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.85,
+    "exit_code": 0,
+    "duration_s": 9.5
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 963352,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.61,
+    "exit_code": 0,
+    "duration_s": 12.5
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 971271,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.87,
+    "exit_code": 0,
+    "duration_s": 15.3
+   },
+   {
+    "world_family": "difficulty_weighted_rank",
+    "world_seed": 979190,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.92,
+    "exit_code": 0,
+    "duration_s": 11.4
+   },
+   {
+    "world_family": "base_rate_shift",
+    "world_seed": 987109,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.65,
+    "exit_code": 0,
+    "duration_s": 24.2
+   },
+   {
+    "world_family": "confounded_choice",
+    "world_seed": 995028,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.85,
+    "exit_code": 0,
+    "duration_s": 12.3
+   },
+   {
+    "world_family": "regime_flip",
+    "world_seed": 1002947,
+    "oracle": "B",
+    "chosen": "B",
+    "correct": true,
+    "confidence": 0.68,
+    "exit_code": 0,
+    "duration_s": 12.1
+   },
+   {
+    "world_family": "costly_evidence",
+    "world_seed": 1010866,
+    "oracle": "A",
+    "chosen": "A",
+    "correct": true,
+    "confidence": 0.92,
+    "exit_code": 0,
+    "duration_s": 12.5
+   }
+  ]
+ }
+}

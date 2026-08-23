@@ -1,0 +1,12 @@
+=== subject stx002-F treatment=summary rc=0 dur=14s
+--- TASK ---
+Act now: ~60% accuracy, no cost.
+Gather 3 probes first: ~76% accuracy but 63 credits in fees.
+Reward per correct decision: 100 credits. Gather or act?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (114 chars) ---
+--- OUTPUT ---
+{"choice":"A","confidence":0.92}
+
+Rationale: Expected value of A = 0.60 × 100 = 60 credits (no cost). Expected value of B = 0.76 × 100 - 63 = 13 credits. A dominates despite lower accuracy because the probe fees consume most of the upside.

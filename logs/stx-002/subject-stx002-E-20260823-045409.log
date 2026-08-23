@@ -1,0 +1,23 @@
+=== subject stx002-E treatment=primer rc=0 dur=20s
+--- TASK ---
+Act now: ~60% accuracy, no cost.
+Gather 3 probes first: ~76% accuracy but 63 credits in fees.
+Reward per correct decision: 100 credits. Gather or act?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (506 chars) ---
+--- OUTPUT ---
+{"choice":"A","confidence":0.82}
+
+Expected value breakdown:
+
+  Option A: 0.60 × 100 = 60 credits (cost: 0) → net 60
+  Option B: 0.76 × 100 = 76 credits (cost: 63) → net 13
+
+A dominates. The probe cost (63) consumes most of the accuracy gain (16 credits extra expected reward from +16% accuracy). You'd be paying 63 to gain 16.
+
+Break-even accuracy for B would need: 0.X × 100 = 63 + 60 → X = 1.23 (impossible).
+
+Even with a significant penalty for wrong decisions (up to ~57 credits lost on error), A still wins. B only becomes rational if the downside of acting wrong is catastrophic AND the decision is truly binary — but the prompt frames this as a per-decision reward model with no stated penalty.
+
+Confidence caveats: I'm assuming no penalty for wrong answers and a single-decision scenario. If this is a repeated game where probes improve ALL future decisions, the calculation shifts heavily toward B.

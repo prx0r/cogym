@@ -1,0 +1,13 @@
+=== subject stx002-G treatment=control rc=0 dur=13s
+--- TASK ---
+Two AI providers were evaluated on 17% easy and 83% hard tasks:
+- Provider A: succeeded on 9 of 10 easy tasks, 2 of 10 hard tasks
+- Provider B: succeeded on 5 of 10 easy tasks, 6 of 10 hard tasks
+Which provider should be deployed for the expected task distribution?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (0 chars) ---
+--- OUTPUT ---
+```json
+{"choice":"B","confidence":0.83}
+```

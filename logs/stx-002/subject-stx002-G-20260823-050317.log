@@ -1,0 +1,10 @@
+=== subject stx002-G treatment=control rc=0 dur=24s
+--- TASK ---
+Recent sample: 8/8 positive outcomes.
+Population historical rate: 15% positive.
+Is the true positive rate closer to 15% or to the recent sample rate?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (0 chars) ---
+--- OUTPUT ---
+{"choice":"A","confidence":0.65}

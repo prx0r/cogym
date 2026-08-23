@@ -1,0 +1,12 @@
+=== subject stx002-E treatment=primer rc=0 dur=17s
+--- TASK ---
+Provider A improved benchmark score by 22% after hiring well-known researchers.
+Provider B improved task completion by 68% after fixing latency and retries.
+Which improvement translates better to your workload?
+
+Answer with JSON only: {"choice":"A or B","confidence":0.X}
+--- CONTEXT (506 chars) ---
+--- OUTPUT ---
+{"choice":"B","confidence":0.71}
+
+Reasoning: For agentic workloads with multi-step tool use, task completion rate (68% improvement) directly measures end-to-end reliability — whether the system finishes what it starts. Latency fixes compound across sequential calls. Benchmark scores (Provider A's 22%) are standardized tests that often weakly predict real-world agentic performance, and "hiring researchers" is a lagging indicator of future improvement, not current capability. The one source of uncertainty: if Provider A's benchmarks specifically measure tool-use or long-context reasoning, the correlation tightens. Without that specificity, B wins.
