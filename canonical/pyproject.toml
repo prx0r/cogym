@@ -3,9 +3,14 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "cogym-trading"
-version = "1.0.0"
-description = "Deterministic trading worlds for studying stochastic LLM cognition, transmission, memory and social adaptation"
+name = "cogym"
+version = "2.0.0"
+description = """
+Deterministic experimental optimization laboratory
+for reasoning, routing and decision policies.
+Worlds plug in: trading, fact verification, routing. Quality gates dominate;
+cost and latency are optimized only after the quality floor holds.
+"""
 requires-python = ">=3.11"
 dependencies = []
 

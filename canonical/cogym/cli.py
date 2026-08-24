@@ -39,6 +39,11 @@ def _cmd_dojo(_: argparse.Namespace) -> None:
     print(json.dumps(rows, indent=2))
 
 
+def _cmd_worlds(_: argparse.Namespace) -> None:
+    from .worlds.registry import kinds
+    print(json.dumps(kinds(), indent=2, sort_keys=True))
+
+
 def main() -> None:
     p = argparse.ArgumentParser(prog="cogym")
     sub = p.add_subparsers(required=True)
@@ -46,6 +51,8 @@ def main() -> None:
     smoke.set_defaults(fn=_cmd_smoke)
     dojo = sub.add_parser("dojo-demo", help="run offline persistent-master teaching loop")
     dojo.set_defaults(fn=_cmd_dojo)
+    worlds = sub.add_parser("worlds", help="list registered world kinds (v2 registry)")
+    worlds.set_defaults(fn=_cmd_worlds)
     args = p.parse_args()
     args.fn(args)
 

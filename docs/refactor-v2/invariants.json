@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-08-24",
+  "git_sha_at_pr1": "6f1e75cffc1182799944233ec8d55d792ecad3e1",
+  "python_version": "3.11.2",
+  "tests": {"count": 38, "result": "all pass"},
+  "golden_trading_fixture": {
+    "path": "canonical/tests/golden/trading_v1_episode.json",
+    "world_level": 1,
+    "seed": 42,
+    "snapshot_index": 60,
+    "world_id": "809356de27b15fcb737558528be34437480ff3261662f79ed37e236e9330c5aa",
+    "price": 108.9467930669119,
+    "last_return": 0.0004156665297896378,
+    "action": "LONG",
+    "realized_return": 0.010613148888480195
+  },
+  "collude_episode_bank_hash": "a621a0e19fa81566c20565da66cb55a139d80464a9dd2d923af3f557c21332e0",
+  "invariants": [
+    "generic core (core/contracts.py, evaluation.py, campaign.py, runtime.py) contains zero market concepts and zero isinstance(world, TradingWorld) branches",
+    "trading golden fixture reproduced through generic World contract (tests/test_trading_adapter.py::test_golden_parity_through_generic_contracts)",
+    "same GenericRunner + Campaign drive toy.search_game and trading.synthetic unchanged",
+    "quality gates dominate cost/speed in lexicographic_compare; failing candidate never beats passing one",
+    "PatternStore.improved writes computed control comparison, not mean_reward>0 (fixed PR1, commit 2f86978)",
+    "ReplayTape/TapeExecutor: unknown action = ERROR, never silent live fallback",
+    "parallel wave receipts canonicalized by sorted action_id"
+  ]
+}

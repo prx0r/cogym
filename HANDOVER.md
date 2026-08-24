@@ -128,3 +128,17 @@ AGENTS.md            # conventions and rules
 - E02 persistence / E03 dose: KILLED 2026-08-23 ~11:20 (were 503-retry looping since 08:37,
   zero completed calls). Relaunch after COLLUDE pilot completes:
   cd canonical && python3 experiments/e02-persistence/run.py (same for e03-dose).
+
+## V2 CONVERGENCE UPDATE — 2026-08-24 (post-handover session)
+Spec restored: docs/factminer.md (full v2 world-agnostic spec, §0–§70; was a 2-line stub).
+Done since 6f1e75c:
+- docs/refactor-v2/ baseline receipts (BASELINE / CURRENT-ARCHITECTURE / MIGRATION-MAP / invariants.json)
+- PR6 trading adapter: worlds/trading/adapter.py behind generic World contract; golden fixture parity test passes
+- worlds/registry.py + `cogym worlds` CLI (kind → factory; extensibility point for new worlds)
+- package renamed cogym-trading → cogym v2.0.0
+- 38 tests green (`cd canonical && pytest tests/ -q`)
+Next in spec order (factminer.md §67): PR8 FactWorld offline → PR9 retrieval providers.
+Known issue: canonical/experiments/collude/run_ec3.py aggregation still crashes (dict vs attr,
+`w.stance` on JSONL records); all 64 E-C3 calls preserved in ec3-trials.jsonl — recover score-only
+like EC2_SCORE_ONLY did (add EC3_SCORE_ONLY=1 path). Unstaged local edits (alpaca source vw/n,
+run_ec3, scientific-loop) belong to the COLLUDE workstream — left alone deliberately.
